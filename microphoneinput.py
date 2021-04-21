@@ -45,7 +45,7 @@ if result.reason == speechsdk.ResultReason.RecognizedSpeech:
         elif result.text.split()[1] == "terminal.":
             subprocess.run(["C:\\Program Files\\Git\\git-bash.exe"])
 
-    # P/L name as a keyword
+    # P/L name as keyword
     # Automatically searches documentation website for following words
     elif result.text.split()[0] == "C++":
         toSearch = str(result.text).replace('.', ' ')
