@@ -19,58 +19,35 @@ class ReadableTimeOutput(object):
             "hours_word": hours_word
         }
 
-        if stopwatch_time_output["hours"] == 0 and stopwatch_time_output["minutes"] == 0:
-            return self.output_between_0_and_59_seconds(stopwatch_time_output, stopwatch_words)
+        requires_and = False
+        time_output = ""
 
-        elif stopwatch_time_output["hours"] == 0:
-            return self.output_between_1_and_59_minutes(stopwatch_time_output, stopwatch_words)
+        nonzero_values_remaining = sum(int(number) > 0 for number in stopwatch_time_output.values())
+        if nonzero_values_remaining > 1:
+            requires_and = True
+        
+        if stopwatch_time_output["hours"] != 0:
+            if requires_and and nonzero_values_remaining == 1:
+                time_output += "and "
+            time_output += "{0} {1} ".format(stopwatch_time_output["hours"], stopwatch_words["hours_word"])
+            if nonzero_values_remaining == 1:
+                time_output = time_output.rstrip()
+            nonzero_values_remaining -= 1
+            
+        if stopwatch_time_output["minutes"] != 0:
+            if requires_and and nonzero_values_remaining == 1:
+                time_output += "and "
+            time_output += "{0} {1} ".format(stopwatch_time_output["minutes"], stopwatch_words["minutes_word"])
+            if nonzero_values_remaining == 1:
+                time_output = time_output.rstrip()
+            nonzero_values_remaining -= 1
 
-        else:
-            return self.output_is_1_hour_or_more(stopwatch_time_output, stopwatch_words)
-
-    def output_between_0_and_59_seconds(self, sw_time, sw_words):
-        return "{0} {1}".format(
-            sw_time["seconds"], 
-            sw_words["seconds_word"])
-
-    def output_between_1_and_59_minutes(self, sw_time, sw_words):
-        if sw_time["seconds"] == 0:
-            return "{0} {1}".format(
-                sw_time["minutes"], 
-                sw_words["minutes_word"])
-        else:
-            return "{0} {1} and {2} {3}".format(
-                sw_time["minutes"], 
-                sw_words["minutes_word"], 
-                sw_time["seconds"], 
-                sw_words["seconds_word"])
-
-    def output_is_1_hour_or_more(self, sw_time, sw_words):
-        if sw_time["minutes"] == 0:
-            if sw_time["seconds"] == 0:
-                return "{0} {1}".format(
-                    sw_time["hours"], 
-                    sw_words["hours_word"])
-            else:
-                return "{0} {1} and {2} {3}".format(
-                    sw_time["hours"], 
-                    sw_words["hours_word"], 
-                    sw_time["seconds"], 
-                    sw_words["seconds_word"])
-        else:
-            if sw_time["seconds"] == 0:
-                return "{0} {1} and {2} {3}".format(
-                    sw_time["hours"], 
-                    sw_words["hours_word"], 
-                    sw_time["minutes"], 
-                    sw_words["minutes_word"])
-            elif sw_time["seconds"] > 0:
-                return "{0} {1} {2} {3} and {4} {5}".format(
-                    sw_time["hours"], 
-                    sw_words["hours_word"], 
-                    sw_time["minutes"], 
-                    sw_words["minutes_word"], 
-                    sw_time["seconds"], 
-                    sw_words["seconds_word"])
-            else:
-                return "Output Error. Time is not valid."
+        if stopwatch_time_output["seconds"] != 0:
+            if requires_and and nonzero_values_remaining == 1:
+                time_output += "and "
+            time_output += "{0} {1} ".format(stopwatch_time_output["seconds"], stopwatch_words["seconds_word"])
+            if nonzero_values_remaining == 1:
+                time_output = time_output.rstrip()
+            nonzero_values_remaining -= 1
+            
+        return time_output
