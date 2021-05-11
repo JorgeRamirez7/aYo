@@ -1,6 +1,6 @@
 import re
-from timerstopwatchtest import AyoStopwatch
-from ayotimer import AyoTimer
+from skills.stopwatch.stopwatch_skill import StopwatchSkill
+from utils.readable_time_output import ReadableTimeOutput
 
 words_for_start = ['start', 'begin', 'initiate', 'commence', 'set']
 words_for_stop = ['end', 'stop ', 'terminate', 'finish', 'halt', 'conclude', 'close']
@@ -11,11 +11,11 @@ words_for_timer = ['timer', 'alarm']
 
 def ayo_stopwatch(ayo_input):
     if found_match(ayo_input, words_for_start):
-        return AyoStopwatch().start_stopwatch()
+        return StopwatchSkill().start_stopwatch()
     elif found_match(ayo_input, words_for_stop):
-        return AyoStopwatch().stop_stopwatch()
+        return StopwatchSkill().stop_stopwatch()
     elif found_match(ayo_input, words_for_reset):
-        return AyoStopwatch().reset_stopwatch()
+        return StopwatchSkill().reset_stopwatch()
     else:
         return "I can create a stopwatch for you. Just say, ayo, start a stopwatch"
 
