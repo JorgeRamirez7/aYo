@@ -53,3 +53,6 @@ class StopwatchSkill():
         time_output = ReadableTimeOutput().output_time(stopwatch_time)
         stopwatch_output = "Stopwatch stopped at {}.".format(time_output)
         return stopwatch_output
+
+    def generic_response(self):
+        return "I can create a stopwatch for you. Just say, ayo, start a stopwatch"

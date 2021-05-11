@@ -10,4 +10,4 @@ class StopwatchIntent():
         elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.words_for_reset):
             return StopwatchSkill().reset_stopwatch()
         else:
-            return "I can create a stopwatch for you. Just say, ayo, start a stopwatch"
+            return StopwatchSkill().generic_response()
