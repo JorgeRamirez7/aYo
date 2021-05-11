@@ -1,7 +1,7 @@
 requires_and_keyword = False
 nonzero_values_remaining = -1
 
-class ReadableTimeOutput(object):
+class ReadableTimeOutput():
     def output_time(self, stopwatch_time):
         global requires_and_keyword, nonzero_values_remaining
         total_time_in_seconds = int((stopwatch_time["hours"] * 3600) + (stopwatch_time["minutes"] * 60) + stopwatch_time["seconds"])
@@ -41,11 +41,11 @@ class ReadableTimeOutput(object):
         output = ""
 
         if stopwatch_time != 0:
+            nonzero_values_remaining -= 1
             if requires_and_keyword and nonzero_values_remaining == 1:
                 output += "and "
             output += "{0} {1} ".format(stopwatch_time, stopwatch_words)
-            if nonzero_values_remaining == 1:
+            if nonzero_values_remaining == 0:
                 output = output.rstrip()
-            nonzero_values_remaining -= 1
 
         return output
