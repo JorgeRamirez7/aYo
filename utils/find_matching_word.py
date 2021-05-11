@@ -10,7 +10,7 @@ class FindMatchingWord(object):
 
     def find_match(self, input, words_list):
         for word in words_list:
-            match_found = re.search(r"\b{}\b".format(word), input)
+            match_found = re.search(r"\b{}\b".format(word), input, re.IGNORECASE)
             if match_found:
                 return True
         return False
