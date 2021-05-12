@@ -1,5 +1,6 @@
 from azure.microphone_input import MicrophoneInput
 from intents.web_search_intents import WebSearchIntents
+from intents.open_documentation_intents import OpenDocumentationIntents
 import webbrowser
 
 import subprocess
@@ -16,17 +17,8 @@ if user_input:
     if user_input[-1] == '?' or user_input.split()[0] == "Search":
         ayo_result = WebSearchIntents().web_search_intents(user_input)
     
-    # Open popular p/l documentation websites
-    # Implement website search in future
     elif user_input.split()[0] == "Open":
-        if user_input.split()[1] == "C++.":
-            webbrowser.open('http://www.cplusplus.com/')
-        elif user_input.split()[1] == "Python.":
-            webbrowser.open('https://docs.python.org/3/')
-        elif user_input.split()[1] == "Java.":
-            webbrowser.open('https://docs.oracle.com/en/java/')
-        elif user_input.split()[1] == "terminal.":
-            subprocess.run(["C:\\Program Files\\Git\\git-bash.exe"])
+        ayo_result = OpenDocumentationIntents().open_documentation_intents(user_input)
 
     # P/L name as keyword
     # Automatically searches documentation website for following words
