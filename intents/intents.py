@@ -16,3 +16,6 @@ class Intents():
 
         elif user_input == "Play music.":
             return MusicIntents().music_intents(user_input)
+        
+        else:
+            return "Hmm, I don't understand that"

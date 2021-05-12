@@ -9,6 +9,8 @@ user_input = MicrophoneInput().get_voice_input()
 
 if user_input:
     ayo_result = Intents().intents(user_input)
+    if user_input != None and user_input != "":
+        print(ayo_result)
 
 # Use hashtable of keywords
 # str.split() for first word in a string
