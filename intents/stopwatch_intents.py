@@ -1,7 +1,7 @@
 from skills.stopwatch.stopwatch_skill import StopwatchSkill
 from utils.find_matching_word import FindMatchingWord
 
-class StopwatchIntent():
+class StopwatchIntents():
     def stopwatch_intent(self, ayo_input):
         stopwatch_output = None
 

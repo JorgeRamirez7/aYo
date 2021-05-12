@@ -1,4 +1,4 @@
-from intents.stopwatch_intent import StopwatchIntent
+from intents.stopwatch_intents import StopwatchIntents
 from utils.find_matching_word import FindMatchingWord
 
 if __name__ == "__main__":
@@ -13,7 +13,7 @@ if __name__ == "__main__":
         ayo_input = input()
 
         if FindMatchingWord().find_match(ayo_input, FindMatchingWord().words_for_stopwatch):
-            print(StopwatchIntent().stopwatch_intent(ayo_input))
+            print(StopwatchIntents().stopwatch_intent(ayo_input))
         elif FindMatchingWord().find_match(ayo_input, FindMatchingWord().words_for_timer):
             print("timer stuff")
         elif ayo_input == "":
