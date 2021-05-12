@@ -1,7 +1,7 @@
 from azure.microphone_input import MicrophoneInput
 from intents.web_search_intents import WebSearchIntents
 from intents.open_documentation_intents import OpenDocumentationIntents
-import webbrowser
+from intents.search_documentation_intents import SearchDocumentationIntents
 
 import subprocess
 from playsound import playsound
@@ -20,18 +20,8 @@ if user_input:
     elif user_input.split()[0] == "Open":
         ayo_result = OpenDocumentationIntents().open_documentation_intents(user_input)
 
-    # P/L name as keyword
-    # Automatically searches documentation website for following words
-    elif user_input.split()[0] == "C++":
-        toSearch = str(user_input).replace('.', ' ')
-        searchFor = ' '.join(toSearch.split()[1:])
-        webbrowser.open('http://www.cplusplus.com/search.do?q={}'.format(searchFor))
-
-    elif user_input.split()[0] == "Python":
-        toSearch = str(user_input).replace('.', ' ')
-        searchFor = ' '.join(toSearch.split()[1:])
-        webbrowser.open('https://docs.python.org/3/search.html?q={}'.format(searchFor))
-
+    elif user_input.split()[0] == "C++" or user_input.split()[0] == "Python":
+        ayo_result = SearchDocumentationIntents().search_documentation_intents(user_input)
     elif user_input == "Play music.":
         subprocess.run('python run.py')
 
