@@ -1,8 +1,28 @@
+import logging
+
 requires_and_keyword = False
 nonzero_values_remaining = -1
 
 class ReadableTimeOutput():
     def output_time(self, stopwatch_time):
+        if not ("seconds" in stopwatch_time and 
+                "minutes" in stopwatch_time and 
+                "hours" in stopwatch_time):
+            logging.warning("The dictionary stopwatch_time in ReadableTimeOutput() is missing one or more values.")
+            return None
+
+        if (int(stopwatch_time["seconds"]) == 0 and 
+            int(stopwatch_time["minutes"]) == 0 and 
+            int(stopwatch_time["hours"] == 0)):
+            logging.warning("The dictionary stopwatch_time in ReadableTimeOutput() has all zero values.")
+            return None
+
+        try:
+            is_float = float(stopwatch_time["seconds"]) and float(stopwatch_time["minutes"]) and float(stopwatch_time["hours"])
+        except ValueError:
+            logging.warning("The dictionary stopwatch_time in ReadableTimeOutput() has one or more non-float values")
+            return None
+
         global requires_and_keyword, nonzero_values_remaining
         total_time_in_seconds = int((stopwatch_time["hours"] * 3600) + (stopwatch_time["minutes"] * 60) + stopwatch_time["seconds"])
         minutes, seconds = divmod(total_time_in_seconds, 60)
@@ -33,6 +53,10 @@ class ReadableTimeOutput():
         time_output += self.add_to_readable_time(stopwatch_time_output["hours"], stopwatch_words["hours_word"])
         time_output += self.add_to_readable_time(stopwatch_time_output["minutes"], stopwatch_words["minutes_word"])
         time_output += self.add_to_readable_time(stopwatch_time_output["seconds"], stopwatch_words["seconds_word"])
+
+        if time_output == "":
+            logging.warning("The output in ReadableTimeOutput() is empty.")
+            return None
             
         return time_output
 

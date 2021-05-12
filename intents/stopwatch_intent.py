@@ -3,11 +3,18 @@ from utils.find_matching_word import FindMatchingWord
 
 class StopwatchIntent():
     def stopwatch_intent(self, ayo_input):
+        stopwatch_output = None
+
         if FindMatchingWord().find_match(ayo_input, FindMatchingWord.words_for_start):
-            return StopwatchSkill().start_stopwatch()
+            stopwatch_output = StopwatchSkill().start_stopwatch()
         elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.words_for_stop):
-            return StopwatchSkill().stop_stopwatch()
+            stopwatch_output = StopwatchSkill().stop_stopwatch()
         elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.words_for_reset):
-            return StopwatchSkill().reset_stopwatch()
+            stopwatch_output = StopwatchSkill().reset_stopwatch()
         else:
-            return StopwatchSkill().generic_response()
+            stopwatch_output = StopwatchSkill().generic_response()
+
+        if stopwatch_output == None:
+            return StopwatchSkill().error()
+        else:
+            return stopwatch_output

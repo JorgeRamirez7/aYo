@@ -51,8 +51,15 @@ class StopwatchSkill():
 
         self.reset_stopwatch()
         time_output = ReadableTimeOutput().output_time(stopwatch_time)
+
+        if time_output == None:
+            return None
+
         stopwatch_output = "Stopwatch stopped at {}.".format(time_output)
         return stopwatch_output
+
+    def error(self):
+        return "Sorry, Stopwatch is not responding."
 
     def generic_response(self):
         return "I can create a stopwatch for you. Just say, ayo, start a stopwatch"
