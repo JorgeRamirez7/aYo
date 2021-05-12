@@ -1,4 +1,6 @@
 import time
+import logging
+
 from utils.readable_time_output import ReadableTimeOutput
 
 start_time = None
@@ -53,6 +55,7 @@ class StopwatchSkill():
         time_output = ReadableTimeOutput().output_time(stopwatch_time)
 
         if time_output == None:
+            logging.warning("Stopwatch skill received time_output as None.")
             return None
 
         stopwatch_output = "Stopwatch stopped at {}.".format(time_output)

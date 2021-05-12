@@ -28,15 +28,15 @@ class ReadableTimeOutput():
         minutes, seconds = divmod(total_time_in_seconds, 60)
         hours, minutes = divmod(minutes, 60)
 
+        seconds_word = ("second" if seconds == 1 else "seconds")
+        minutes_word = ("minute" if minutes == 1 else "minutes")
+        hours_word = ("hour" if hours == 1 else "hours")
+
         stopwatch_time_output = {
             "seconds": seconds,
             "minutes": minutes,
             "hours": hours
         }
-
-        seconds_word = ("second" if stopwatch_time_output["seconds"] == 1 else "seconds")
-        minutes_word = ("minute" if stopwatch_time_output["minutes"] == 1 else "minutes")
-        hours_word = ("hour" if stopwatch_time_output["hours"] == 1 else "hours")
 
         stopwatch_words = {
             "seconds_word": seconds_word,
