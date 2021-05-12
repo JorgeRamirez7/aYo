@@ -2,10 +2,7 @@ from azure.microphone_input import MicrophoneInput
 from intents.web_search_intents import WebSearchIntents
 from intents.open_documentation_intents import OpenDocumentationIntents
 from intents.search_documentation_intents import SearchDocumentationIntents
-
-import subprocess
-from playsound import playsound
-#import run
+from intents.music_intents import MusicIntents
 
 ayo_result = False
 
@@ -22,8 +19,9 @@ if user_input:
 
     elif user_input.split()[0] == "C++" or user_input.split()[0] == "Python":
         ayo_result = SearchDocumentationIntents().search_documentation_intents(user_input)
+
     elif user_input == "Play music.":
-        subprocess.run('python run.py')
+        ayo_result = MusicIntents().music_intents(user_input)
 
 
 # Use hashtable of keywords
