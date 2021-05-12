@@ -5,8 +5,3 @@ from playsound import playsound
 class MusicIntents(object):
     def music_intents(self, user_input):
         subprocess.run('python run.py')
-        return False
-
-
-
-

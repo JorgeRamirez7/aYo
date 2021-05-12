@@ -8,14 +8,8 @@ class SearchDocumentationIntents():
             toSearch = str(user_input).replace('.', ' ')
             searchFor = ' '.join(toSearch.split()[1:])
             webbrowser.open('http://www.cplusplus.com/search.do?q={}'.format(searchFor))
-            return False
 
         elif user_input.split()[0] == "Python":
             toSearch = str(user_input).replace('.', ' ')
             searchFor = ' '.join(toSearch.split()[1:])
             webbrowser.open('https://docs.python.org/3/search.html?q={}'.format(searchFor))
-            return False
-
-
-
-
