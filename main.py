@@ -1,51 +1,46 @@
-from azure.microphone_input import microphone_input
+from azure.microphone_input import MicrophoneInput
+from intents.web_search_intents import WebSearchIntents
 import webbrowser
 
 import subprocess
 from playsound import playsound
-import run
+#import run
+
+ayo_result = False
 
 # Example to show voice command for opening webpage as well as searching google
 print("Begin speaking...")
-user_input = microphone_input().get_voice_input()
+user_input = MicrophoneInput().get_voice_input()
 if user_input:
 
-    # Send result.text through google search in last char is a '?'
-    if result.text[-1] == '?':
-        webbrowser.open('https://www.google.com/search?q={}'.format(result.text))
-
-    # Search keyword function
-    # Search google ignoring first word
-    elif result.text.split()[0] == "Search":
-        searchFor = ' '.join(result.text.split()[1:])
-        webbrowser.open('https://www.google.com/search?q={}'.format(searchFor))
-        
+    if user_input[-1] == '?' or user_input.split()[0] == "Search":
+        ayo_result = WebSearchIntents().web_search_intents(user_input)
     
     # Open popular p/l documentation websites
     # Implement website search in future
-    elif result.text.split()[0] == "Open":
-        if result.text.split()[1] == "C++.":
+    elif user_input.split()[0] == "Open":
+        if user_input.split()[1] == "C++.":
             webbrowser.open('http://www.cplusplus.com/')
-        elif result.text.split()[1] == "Python.":
+        elif user_input.split()[1] == "Python.":
             webbrowser.open('https://docs.python.org/3/')
-        elif result.text.split()[1] == "Java.":
+        elif user_input.split()[1] == "Java.":
             webbrowser.open('https://docs.oracle.com/en/java/')
-        elif result.text.split()[1] == "terminal.":
+        elif user_input.split()[1] == "terminal.":
             subprocess.run(["C:\\Program Files\\Git\\git-bash.exe"])
 
     # P/L name as keyword
     # Automatically searches documentation website for following words
-    elif result.text.split()[0] == "C++":
-        toSearch = str(result.text).replace('.', ' ')
+    elif user_input.split()[0] == "C++":
+        toSearch = str(user_input).replace('.', ' ')
         searchFor = ' '.join(toSearch.split()[1:])
         webbrowser.open('http://www.cplusplus.com/search.do?q={}'.format(searchFor))
 
-    elif result.text.split()[0] == "Python":
-        toSearch = str(result.text).replace('.', ' ')
+    elif user_input.split()[0] == "Python":
+        toSearch = str(user_input).replace('.', ' ')
         searchFor = ' '.join(toSearch.split()[1:])
         webbrowser.open('https://docs.python.org/3/search.html?q={}'.format(searchFor))
 
-    elif result.text == "Play music.":
+    elif user_input == "Play music.":
         subprocess.run('python run.py')
 
 

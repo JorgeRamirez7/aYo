@@ -1,7 +1,7 @@
 import azure.cognitiveservices.speech as speechsdk
 import configparser
 
-class microphone_input():
+class MicrophoneInput():
     def get_voice_input(self):
         config = configparser.ConfigParser()
         config.read('config/config.ini')
