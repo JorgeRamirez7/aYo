@@ -4,8 +4,13 @@ import webbrowser
 import subprocess
 from playsound import playsound
 import run
+import configparser
 
-speech_key, service_region = "94aa9a2d1bb142e2a5e82d0f4c7d999a", "westus2"
+config = configparser.ConfigParser()
+config.read('config/config.ini')
+
+speech_key = config.get('azure_speech', 'key')
+service_region = config.get('azure_speech', 'service_region')
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 
