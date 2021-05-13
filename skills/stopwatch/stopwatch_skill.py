@@ -33,9 +33,11 @@ class StopwatchSkill():
 
     def stopwatch_output(self):
         if _times["start_time"] is None:
-            return "Error. Stopwatch has not started."
+            logging.warning("Stopwatch has not started.")
+            return None
         if _times["end_time"] is None:
-            return "Error. Stopwatch has not ended."
+            logging.warning("Stopwatch has not ended.")
+            return None
 
         seconds_total = _times["end_time"] - _times["start_time"]
 
