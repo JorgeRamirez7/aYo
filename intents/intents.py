@@ -14,7 +14,7 @@ class Intents():
         elif user_input.split()[0] == "C++" or user_input.split()[0] == "Python":
             return SearchDocumentationIntents().search_documentation_intents(user_input)
 
-        elif user_input == "Play music.":
+        elif user_input == "Play music":
             return MusicIntents().music_intents(user_input)
         
         else:

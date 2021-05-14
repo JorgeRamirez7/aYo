@@ -3,7 +3,6 @@ from intents.intents import Intents
 
 ayo_result = False
 
-# Example to show voice command for opening webpage as well as searching google
 print("Begin speaking...")
 user_input = MicrophoneInput().get_voice_input()
 
