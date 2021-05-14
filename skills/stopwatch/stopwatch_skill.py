@@ -1,5 +1,6 @@
-import time
 import logging
+import time
+import yaml
 
 from utils.readable_time_output import ReadableTimeOutput
 
@@ -8,28 +9,39 @@ _times = {
     "end_time": None
     }
 
+_dialogue = None
+
 class StopwatchSkill():
+    def __init__(self):
+        global _dialogue
+
+        try:
+            with open("dialogue\en_US\stopwatch.yaml") as file:
+                _dialogue = yaml.load(file, Loader=yaml.FullLoader)
+        except:
+            logging.warning("Could not load dialogue for Stopwatch.")
+
     def start_stopwatch(self):
         if _times["start_time"] is None:
             _times["start_time"] = time.time()
-            return "Stopwatch has started."
+            return _dialogue["user-start"]["success-started"]
         else:
-            return "Stopwatch is already running."
+            return _dialogue["user-start"]["error-already-running"]
 
     def stop_stopwatch(self):
         if _times["start_time"] is None:
-            return "Try starting a stopwatch first."
+            return _dialogue["user-stop"]["error-hasnt-been-started"]
         else:
             _times["end_time"] = time.time()
             return self.stopwatch_output()
 
     def reset_stopwatch(self):
         if _times["start_time"] is None:
-            return "There is no stopwatch to reset"
+            return _dialogue["user-reset"]["error-no-stopwatch-available"]
 
         _times["start_time"] = None
         _times["end_time"] = None
-        return "Stopwatch has been reset"
+        return _dialogue["user-reset"]["success-reset"]
 
     def stopwatch_output(self):
         if _times["start_time"] is None:
@@ -54,11 +66,11 @@ class StopwatchSkill():
             logging.warning("Stopwatch skill received time_output as None.")
             return None
 
-        stopwatch_output = "Stopwatch stopped at {}.".format(time_output)
+        stopwatch_output = _dialogue["program-output"]["stopped-at"].format(time_output)
         return stopwatch_output
 
     def error(self):
-        return "Sorry, Stopwatch is not responding."
+        return _dialogue["program-error"]["error-not-responding"]
 
     def generic_response(self):
-        return "I can create a stopwatch for you. Just say, ayo, start a stopwatch"
+        return _dialogue["user-generic"]["response"]
