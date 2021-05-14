@@ -1,8 +1,6 @@
 from azure.microphone_input import MicrophoneInput
 from intents.intents import Intents
 
-ayo_result = False
-
 print("Begin speaking...")
 user_input = MicrophoneInput().get_voice_input()
 
