@@ -14,9 +14,9 @@ class MicrophoneInput():
         result = speech_recognizer.recognize_once()
 
         if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-            resultText = str(result.text).replace('.', ' ')
+            result_text = str(result.text).replace('.', ' ')
             print("Recognized: {}".format(result.text))
-            return resultText
+            return result_text
 
         elif result.reason == speechsdk.ResultReason.NoMatch:
             print("No speech could be recognized: {}".format(result.no_match_details))

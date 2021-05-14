@@ -8,6 +8,6 @@ class WebSearchIntents():
 
         # Search keyword function
         # Search google ignoring first word
-        elif user_input.split()[0] == "Search":
-            searchFor = ' '.join(user_input.split()[1:])
-            webbrowser.open('https://www.google.com/search?q={}'.format(searchFor))
+        else:
+            search_for = ' '.join(user_input.split()[1:])
+            webbrowser.open('https://www.google.com/search?q={}'.format(search_for))

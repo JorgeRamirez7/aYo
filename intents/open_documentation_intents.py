@@ -10,8 +10,6 @@ class OpenDocumentationIntents(object):
             webbrowser.open('https://docs.python.org/3/')
         elif user_input.split()[1] == "Java":
             webbrowser.open('https://docs.oracle.com/en/java/')
-        elif user_input.split()[1] == "terminal":
-            subprocess.run(["C:\\Program Files\\Git\\git-bash.exe"])
 
 
 
