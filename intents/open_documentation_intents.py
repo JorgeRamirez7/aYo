@@ -10,7 +10,3 @@ class OpenDocumentationIntents(object):
             webbrowser.open('https://docs.python.org/3/')
         elif user_input.split()[1] == "Java":
             webbrowser.open('https://docs.oracle.com/en/java/')
-
-
-
-
