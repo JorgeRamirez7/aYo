@@ -1,17 +1,17 @@
 import logging
 import yaml
 
-_dialogue = None
-requires_and_keyword = False
-nonzero_values_remaining = -1
+
 
 class ReadableTimeOutput():
-    def __init__(self):
-        global _dialogue
+    _dialogue = None
+    requires_and_keyword = False
+    nonzero_values_remaining = -1
 
+    def __init__(self):
         try:
             with open("dialogue\en_US\hhmmsswords.yaml") as file:
-                _dialogue = yaml.load(file, Loader=yaml.FullLoader)
+                ReadableTimeOutput._dialogue = yaml.load(file, Loader=yaml.FullLoader)
         except:
             logging.warning("Could not load dialogue for ReadableTimeOutput.")
 
@@ -34,14 +34,16 @@ class ReadableTimeOutput():
             logging.warning("The dictionary stopwatch_time in ReadableTimeOutput() has one or more non-float values")
             return None
 
-        global requires_and_keyword, nonzero_values_remaining
         total_time_in_seconds = int((stopwatch_time["hours"] * 3600) + (stopwatch_time["minutes"] * 60) + stopwatch_time["seconds"])
         minutes, seconds = divmod(total_time_in_seconds, 60)
         hours, minutes = divmod(minutes, 60)
 
-        seconds_word = (_dialogue["time"]["second-singular-word"] if seconds == 1 else _dialogue["time"]["seconds-plural-word"])
-        minutes_word = (_dialogue["time"]["minute-singular-word"] if minutes == 1 else _dialogue["time"]["minutes-plural-word"])
-        hours_word = (_dialogue["time"]["hour-singular-word"] if hours == 1 else _dialogue["time"]["hours-plural-word"])
+        seconds_word = (ReadableTimeOutput._dialogue["time"]["second-singular-word"] if seconds == 1 
+                        else ReadableTimeOutput._dialogue["time"]["seconds-plural-word"])
+        minutes_word = (ReadableTimeOutput._dialogue["time"]["minute-singular-word"] if minutes == 1 
+                        else ReadableTimeOutput._dialogue["time"]["minutes-plural-word"])
+        hours_word = (ReadableTimeOutput._dialogue["time"]["hour-singular-word"] if hours == 1 
+                      else ReadableTimeOutput._dialogue["time"]["hours-plural-word"])
 
         stopwatch_time_output = {
             "seconds": seconds,
@@ -56,10 +58,10 @@ class ReadableTimeOutput():
         }
 
         time_output = ""
-        nonzero_values_remaining = sum(int(number) > 0 for number in stopwatch_time_output.values())
+        ReadableTimeOutput.nonzero_values_remaining = sum(int(number) > 0 for number in stopwatch_time_output.values())
 
-        if nonzero_values_remaining > 1:
-            requires_and_keyword = True
+        if ReadableTimeOutput.nonzero_values_remaining > 1:
+            ReadableTimeOutput.requires_and_keyword = True
 
         time_output += self.add_to_readable_time(stopwatch_time_output["hours"], stopwatch_words["hours_word"])
         time_output += self.add_to_readable_time(stopwatch_time_output["minutes"], stopwatch_words["minutes_word"])
@@ -72,15 +74,14 @@ class ReadableTimeOutput():
         return time_output
 
     def add_to_readable_time(self, stopwatch_time, stopwatch_words):
-        global requires_and_keyword, nonzero_values_remaining
         output = ""
 
         if stopwatch_time != 0:
-            nonzero_values_remaining -= 1
-            if requires_and_keyword and nonzero_values_remaining == 0:
-                output += _dialogue["time"]["and-word"]
-            output += _dialogue["time"]["time-format"].format(stopwatch_time, stopwatch_words)
-            if nonzero_values_remaining == 0:
+            ReadableTimeOutput.nonzero_values_remaining -= 1
+            if ReadableTimeOutput.requires_and_keyword and ReadableTimeOutput.nonzero_values_remaining == 0:
+                output += ReadableTimeOutput._dialogue["time"]["and-word"]
+            output += ReadableTimeOutput._dialogue["time"]["time-format"].format(stopwatch_time, stopwatch_words)
+            if ReadableTimeOutput.nonzero_values_remaining == 0:
                 output = output.rstrip()
 
         return output
