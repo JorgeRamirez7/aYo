@@ -5,11 +5,11 @@ class StopwatchIntents():
     def stopwatch_intent(self, ayo_input):
         stopwatch_output = None
 
-        if FindMatchingWord().find_match(ayo_input, FindMatchingWord.words_for_start):
+        if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["start"]):
             stopwatch_output = StopwatchSkill().start_stopwatch()
-        elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.words_for_stop):
+        elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["stop"]):
             stopwatch_output = StopwatchSkill().stop_stopwatch()
-        elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.words_for_reset):
+        elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["reset"]):
             stopwatch_output = StopwatchSkill().reset_stopwatch()
         else:
             stopwatch_output = StopwatchSkill().generic_response()

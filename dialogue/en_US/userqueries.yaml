@@ -1,0 +1,27 @@
+---
+start:
+  - start
+  - begin
+  - initiate
+  - commence
+  - set
+
+stop:
+  - stop
+  - end
+  - terminate
+  - finish
+  - halt
+  - conclude
+  - close
+
+reset:
+  - reset
+  - cancel
+
+alarm:
+  - alarm
+  - timer
+
+stopwatch:
+  - stopwatch
