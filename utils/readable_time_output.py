@@ -1,7 +1,6 @@
 import logging
-import yaml
 
-
+from dialogue.import_dialogue import ImportDialogue
 
 class ReadableTimeOutput():
     _dialogue = None
@@ -9,11 +8,7 @@ class ReadableTimeOutput():
     nonzero_values_remaining = -1
 
     def __init__(self):
-        try:
-            with open("dialogue\en_US\hhmmsswords.yaml") as file:
-                ReadableTimeOutput._dialogue = yaml.load(file, Loader=yaml.FullLoader)
-        except:
-            logging.warning("Could not load dialogue for ReadableTimeOutput.")
+        ReadableTimeOutput._dialogue = ImportDialogue().import_dialogue("hhmmsswords")
 
     def output_time(self, stopwatch_time):
         if not ("seconds" in stopwatch_time and 
