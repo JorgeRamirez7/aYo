@@ -1,7 +1,7 @@
 import logging
 import time
 
-from dialogue.import_dialogue import ImportDialogue
+from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class StopwatchSkill():

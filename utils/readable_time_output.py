@@ -1,6 +1,6 @@
 import logging
 
-from dialogue.import_dialogue import ImportDialogue
+from utils.import_dialogue import ImportDialogue
 
 class ReadableTimeOutput():
     _dialogue = None

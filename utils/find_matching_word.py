@@ -1,6 +1,6 @@
 import re
 
-from dialogue.import_dialogue import ImportDialogue
+from utils.import_dialogue import ImportDialogue
 
 class FindMatchingWord(object):
     query = None
