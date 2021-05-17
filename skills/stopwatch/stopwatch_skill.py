@@ -1,7 +1,7 @@
 import logging
 import time
-import yaml
 
+from dialogue.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class StopwatchSkill():
@@ -12,11 +12,7 @@ class StopwatchSkill():
     }
 
     def __init__(self):
-        try:
-            with open("dialogue\en_US\stopwatch.yaml") as file:
-                StopwatchSkill._dialogue = yaml.load(file, Loader=yaml.FullLoader)
-        except:
-            logging.warning("Could not load dialogue for Stopwatch.")
+        StopwatchSkill._dialogue = ImportDialogue().import_dialogue("stopwatch")
 
     def start_stopwatch(self):
         if StopwatchSkill._times["start_time"] is None:

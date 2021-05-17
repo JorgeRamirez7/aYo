@@ -10,6 +10,7 @@ class ImportDialogue(object):
             with open(file_directory) as file:
                 dialogue = yaml.load(file, Loader=yaml.FullLoader)
             return dialogue
+
         except:
             logging.warning("Could not load dialogue located in {0}".format(file_directory))
             return None
