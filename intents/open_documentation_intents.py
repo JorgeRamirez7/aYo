@@ -1,3 +1,4 @@
+"""Open documentation website for a specific programming language"""
 import webbrowser
 
 class OpenDocumentationIntents():

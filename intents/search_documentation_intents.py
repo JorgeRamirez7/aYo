@@ -1,3 +1,4 @@
+"""Search for a user query through existing programming language documentation available online"""
 import webbrowser
 
 class SearchDocumentationIntents():

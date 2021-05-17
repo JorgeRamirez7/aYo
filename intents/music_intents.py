@@ -1,3 +1,4 @@
+"""Play music"""
 import subprocess
 from playsound import playsound
 #import run

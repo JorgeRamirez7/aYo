@@ -1,3 +1,4 @@
+"""Search for a user query via the Google search engine, opens a web browser"""
 import webbrowser
 
 class WebSearchIntents():

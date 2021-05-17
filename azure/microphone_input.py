@@ -1,3 +1,4 @@
+"""Handles input from a user's microphone; speech to text"""
 import azure.cognitiveservices.speech as speechsdk
 import configparser
 
