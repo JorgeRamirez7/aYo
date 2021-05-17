@@ -1,4 +1,4 @@
-from skills.stopwatch.stopwatch_skill import StopwatchSkill
+from skills.stopwatch_skill import StopwatchSkill
 from utils.find_matching_word import FindMatchingWord
 
 class StopwatchIntents():
