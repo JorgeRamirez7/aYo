@@ -10,7 +10,7 @@ class ReadableTimeOutput():
     def __init__(self):
         """Imports dialogue for stopwatch values from a YAML file and stores it in '_dialogue'."""
         TIME_WORDS_DIALOGUE_FILE_NAME = "time-words.yaml"
-        ReadableTimeOutput._dialogue = ImportDialogue().import_dialogue(TIME_WORDS_DIALOGUE_FILE_NAME)
+        self._dialogue = ImportDialogue().import_dialogue(TIME_WORDS_DIALOGUE_FILE_NAME)
 
     def output_time(self, stopwatch_time:dict):
         """Returns a properly formatted time output given a dictionary with time values.
@@ -44,12 +44,12 @@ class ReadableTimeOutput():
         minutes, seconds = divmod(total_time_in_seconds, 60)
         hours, minutes = divmod(minutes, 60)
 
-        seconds_word = (ReadableTimeOutput._dialogue["time"]["second-singular-word"] if seconds == 1 
-                        else ReadableTimeOutput._dialogue["time"]["seconds-plural-word"])
-        minutes_word = (ReadableTimeOutput._dialogue["time"]["minute-singular-word"] if minutes == 1 
-                        else ReadableTimeOutput._dialogue["time"]["minutes-plural-word"])
-        hours_word = (ReadableTimeOutput._dialogue["time"]["hour-singular-word"] if hours == 1 
-                      else ReadableTimeOutput._dialogue["time"]["hours-plural-word"])
+        seconds_word = (self._dialogue["time"]["second-singular-word"] if seconds == 1 
+                        else self._dialogue["time"]["seconds-plural-word"])
+        minutes_word = (self._dialogue["time"]["minute-singular-word"] if minutes == 1 
+                        else self._dialogue["time"]["minutes-plural-word"])
+        hours_word = (self._dialogue["time"]["hour-singular-word"] if hours == 1 
+                      else self._dialogue["time"]["hours-plural-word"])
 
         stopwatch_time_output = {
             "seconds": seconds,
@@ -64,10 +64,10 @@ class ReadableTimeOutput():
         }
 
         time_output = ""
-        ReadableTimeOutput.nonzero_values_remaining = sum(int(number) > 0 for number in stopwatch_time_output.values())
+        self.nonzero_values_remaining = sum(int(number) > 0 for number in stopwatch_time_output.values())
 
-        if ReadableTimeOutput.nonzero_values_remaining > 1:
-            ReadableTimeOutput.requires_and_keyword = True
+        if self.nonzero_values_remaining > 1:
+            self.requires_and_keyword = True
 
         time_output += self.add_to_readable_time(stopwatch_time_output["hours"], stopwatch_words["hours_word"])
         time_output += self.add_to_readable_time(stopwatch_time_output["minutes"], stopwatch_words["minutes_word"])
@@ -94,11 +94,11 @@ class ReadableTimeOutput():
         BLANK_SPACE = " "
 
         if stopwatch_time != 0:
-            ReadableTimeOutput.nonzero_values_remaining -= 1
-            if ReadableTimeOutput.requires_and_keyword and ReadableTimeOutput.nonzero_values_remaining == 0:
-                output += ReadableTimeOutput._dialogue["time"]["and-word"] + BLANK_SPACE
-            output += ReadableTimeOutput._dialogue["time"]["time-format"].format(stopwatch_time, stopwatch_words) + BLANK_SPACE
-            if ReadableTimeOutput.nonzero_values_remaining == 0:
+            self.nonzero_values_remaining -= 1
+            if self.requires_and_keyword and self.nonzero_values_remaining == 0:
+                output += self._dialogue["time"]["and-word"] + BLANK_SPACE
+            output += self._dialogue["time"]["time-format"].format(stopwatch_time, stopwatch_words) + BLANK_SPACE
+            if self.nonzero_values_remaining == 0:
                 output = output.rstrip()
 
         return output
