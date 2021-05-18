@@ -1,3 +1,4 @@
+"""Search for a Stopwatch-related query and perform the desired intent."""
 from skills.stopwatch_skill import StopwatchSkill
 from utils.find_matching_word import FindMatchingWord
 

@@ -1,3 +1,4 @@
+"""Perform Stopwatch intents."""
 import configparser
 import logging
 import time

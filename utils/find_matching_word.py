@@ -1,3 +1,4 @@
+"""Search for a given string in a given list."""
 import configparser
 import re
 

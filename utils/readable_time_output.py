@@ -1,3 +1,4 @@
+"""Convert time values into a readable output."""
 import configparser
 import logging
 

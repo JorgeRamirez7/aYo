@@ -1,3 +1,4 @@
+"""Import a YAML file into a dictionary."""
 import configparser
 import logging
 import yaml
