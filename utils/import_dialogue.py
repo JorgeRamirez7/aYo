@@ -1,10 +1,11 @@
+import logging
 import yaml
 
 AYO_LOCALIZATION = "en_US"
 
 class ImportDialogue(object):
     def import_dialogue(self, file_name):
-        file_directory = "dialogue\{0}\{1}.yaml".format(AYO_LOCALIZATION, file_name)
+        file_directory = "dialogue\{0}\{1}".format(AYO_LOCALIZATION, file_name)
 
         try:
             with open(file_directory) as file:

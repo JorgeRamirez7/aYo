@@ -8,7 +8,7 @@ class ReadableTimeOutput():
     nonzero_values_remaining = -1
 
     def __init__(self):
-        ReadableTimeOutput._dialogue = ImportDialogue().import_dialogue("hhmmsswords")
+        ReadableTimeOutput._dialogue = ImportDialogue().import_dialogue("hhmmsswords.yaml")
 
     def output_time(self, stopwatch_time):
         if not ("seconds" in stopwatch_time and 

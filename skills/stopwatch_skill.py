@@ -12,7 +12,7 @@ class StopwatchSkill():
     }
 
     def __init__(self):
-        StopwatchSkill._dialogue = ImportDialogue().import_dialogue("stopwatch")
+        StopwatchSkill._dialogue = ImportDialogue().import_dialogue("stopwatch.yaml")
 
     def start_stopwatch(self):
         if StopwatchSkill._times["start_time"] is None:
