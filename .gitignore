@@ -133,3 +133,4 @@ dmypy.json
 
 # aYo config
 config/
+config.ini
