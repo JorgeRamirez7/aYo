@@ -6,7 +6,8 @@ class FindMatchingWord(object):
     query = None
 
     def __init__(self):
-        FindMatchingWord.query = ImportDialogue().import_dialogue("user-queries.yaml")
+        USER_QUERIES_DIALOGUE_FILE_NAME = "user-queries.yaml"
+        FindMatchingWord.query = ImportDialogue().import_dialogue(USER_QUERIES_DIALOGUE_FILE_NAME)
 
     def find_match(self, input, words_list):
         for word in words_list:
