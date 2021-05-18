@@ -1,14 +1,14 @@
 ---
 user-start:
-    success-started: Stopwatch has started right now.
+    success-started: Stopwatch has started.
     error-already-running: Stopwatch is already running.
     
 user-stop:
     error-hasnt-been-started: Try starting a stopwatch first.
 
 user-reset:
-    error-no-stopwatch-available: There is no stopwatch to reset
-    success-reset: Stopwatch has been reset
+    error-no-stopwatch-available: There is no stopwatch to reset.
+    success-reset: Stopwatch has been reset.
 
 program-output:
     stopped-at: Stopwatch stopped at {}.
@@ -17,5 +17,4 @@ program-error:
     error-not-responding: Sorry, Stopwatch is not responding.
     
 user-generic:
-    response: "I can create a stopwatch for you. Just say, ayo, start a stopwatch"
-    
+    response: I can create a stopwatch for you. Just say, ayo, start a stopwatch.

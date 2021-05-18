@@ -70,12 +70,13 @@ class ReadableTimeOutput():
 
     def add_to_readable_time(self, stopwatch_time, stopwatch_words):
         output = ""
+        BLANK_SPACE = " "
 
         if stopwatch_time != 0:
             ReadableTimeOutput.nonzero_values_remaining -= 1
             if ReadableTimeOutput.requires_and_keyword and ReadableTimeOutput.nonzero_values_remaining == 0:
-                output += ReadableTimeOutput._dialogue["time"]["and-word"]
-            output += ReadableTimeOutput._dialogue["time"]["time-format"].format(stopwatch_time, stopwatch_words)
+                output += ReadableTimeOutput._dialogue["time"]["and-word"] + BLANK_SPACE
+            output += ReadableTimeOutput._dialogue["time"]["time-format"].format(stopwatch_time, stopwatch_words) + BLANK_SPACE
             if ReadableTimeOutput.nonzero_values_remaining == 0:
                 output = output.rstrip()
 

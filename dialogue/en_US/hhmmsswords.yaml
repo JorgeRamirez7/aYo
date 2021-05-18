@@ -9,8 +9,8 @@ time:
     hour-singular-word: hour
     hours-plural-word: hours
     
-    and-word: "and " # The extra space is intentional
-    time-format: "{0} {1} " # Format: {word} {length} 
+    and-word: and
+    time-format: "{0} {1}"  # Format: {word} {length} 
                             # Example: 4 minutes
     
     # Example: "10 seconds"
