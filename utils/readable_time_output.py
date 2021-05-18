@@ -8,10 +8,20 @@ class ReadableTimeOutput():
     nonzero_values_remaining = -1
 
     def __init__(self):
+        """Imports dialogue for stopwatch values from a YAML file and stores it in '_dialogue'."""
         TIME_WORDS_DIALOGUE_FILE_NAME = "time-words.yaml"
         ReadableTimeOutput._dialogue = ImportDialogue().import_dialogue(TIME_WORDS_DIALOGUE_FILE_NAME)
 
-    def output_time(self, stopwatch_time):
+    def output_time(self, stopwatch_time:dict):
+        """Returns a properly formatted time output given a dictionary with time values.
+        
+            Args:
+                stopwatch_time: A dictionary containing only values for 'seconds', 'minutes', and 'hours'.
+
+            Returns:
+                The properly formatted time output in the form of a string.
+                None if there is an error processing the values in the 'stopwatch_time' dictionary.
+        """
         if not ("seconds" in stopwatch_time and 
                 "minutes" in stopwatch_time and 
                 "hours" in stopwatch_time):
@@ -69,7 +79,17 @@ class ReadableTimeOutput():
             
         return time_output
 
-    def add_to_readable_time(self, stopwatch_time, stopwatch_words):
+    def add_to_readable_time(self, stopwatch_time:str, stopwatch_words:str) -> str:
+        """Adds the correct time and word for a given time value - 'hours', 'minutes', or 'seconds'.
+        
+            Args:
+                stopwatch_time: A string from a dictionary value for the given time value.
+                stopwatch_words: A string from a dictionary value for the given time value's correct word.
+
+            Returns:
+                The properly formatted time output in the form of a string.
+                An empty string ("") if the given time value is 0. 
+        """
         output = ""
         BLANK_SPACE = " "
 

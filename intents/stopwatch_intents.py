@@ -2,7 +2,15 @@ from skills.stopwatch_skill import StopwatchSkill
 from utils.find_matching_word import FindMatchingWord
 
 class StopwatchIntents():
-    def stopwatch_intent(self, ayo_input):
+    def stopwatch_intent(self, ayo_input:str) -> str:
+        """Performs an action given a user intent for Stopwatch.
+        
+            Args:
+                ayo_input: The string input from a user, indicating their desired Stopwatch action.
+
+            Returns:
+                A Stopwatch-related response string for aYo to speak/display.
+        """
         stopwatch_output = None
 
         if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["start"]):
