@@ -1,0 +1,20 @@
+---
+user-start:
+    success-started: El cronómetro ha comenzado.
+    error-already-running: El cronómetro ya esta corriendo.
+    
+user-stop:
+    error-hasnt-been-started: Trata de comenzar un cronómetro primero.
+
+user-reset:
+    error-no-stopwatch-available: No hay un cronómetro para reiniciar.
+    success-reset: El cronómetro ha sido reiniciado.
+
+program-output:
+    stopped-at: El cronómetro ha parado con {}.
+
+program-error:
+    error-not-responding: Lo siento, el cronómetro no esta respondiendo.
+    
+user-generic:
+    response: Yo puedo crear un cronómetro para usted. Nomas diga, aYo, comienza un cronómetro.
