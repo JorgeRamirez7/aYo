@@ -1,8 +1,6 @@
+import configparser
 import logging
 import yaml
-
-AYO_LOCALIZATION = "en_US"
-FOLDER_DIRECTORY = "dialogue"
 
 class ImportDialogue():
     def import_dialogue(self, file_name:str):
@@ -15,7 +13,13 @@ class ImportDialogue():
                 All values in the given file in the form of a dictionary.
                 None if the YAML file was not able to be loaded.
         """
-        file_directory = "{0}\{1}\{2}".format(FOLDER_DIRECTORY, AYO_LOCALIZATION, file_name)
+        config = configparser.ConfigParser()
+        config.read('config/ayo.ini')
+
+        ayo_localization = config.get('general', 'localization')
+        folder_directory = config.get('dialogue', 'directory')
+
+        file_directory = "{0}{1}\{2}".format(folder_directory, ayo_localization, file_name)
 
         try:
             with open(file_directory) as file:
