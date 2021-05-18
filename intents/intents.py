@@ -1,8 +1,10 @@
 """Handles all possible aYo intents that a user may ask"""
-from intents.web_search_intents import WebSearchIntents
+from intents.music_intents import MusicIntents
 from intents.open_documentation_intents import OpenDocumentationIntents
 from intents.search_documentation_intents import SearchDocumentationIntents
-from intents.music_intents import MusicIntents
+from intents.stopwatch_intents import StopwatchIntents
+from intents.web_search_intents import WebSearchIntents
+from utils.find_matching_word import FindMatchingWord
 
 class Intents():
     def intents(self, user_input):
@@ -17,6 +19,9 @@ class Intents():
 
         elif user_input == "Play music":
             return MusicIntents().music_intents(user_input)
+
+        elif FindMatchingWord().find_match(user_input, FindMatchingWord().query["stopwatch"]):
+            return StopwatchIntents().stopwatch_intent(user_input)
         
         else:
             return "Hmm, I don't understand that"
