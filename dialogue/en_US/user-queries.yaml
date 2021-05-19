@@ -1,23 +1,25 @@
 ---
 start:
-  - start
   - begin
-  - initiate
   - commence
+  - initiate
   - set
+  - start
 
 stop:
-  - stop
+  - close
+  - conclude
   - end
-  - terminate
   - finish
   - halt
-  - conclude
-  - close
+  - shut
+  - shut up
+  - stop
+  - terminate
 
 reset:
-  - reset
   - cancel
+  - reset
 
 alarm:
   - alarm
