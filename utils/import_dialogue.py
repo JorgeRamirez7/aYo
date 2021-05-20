@@ -30,3 +30,18 @@ class ImportDialogue():
         except:
             logging.warning("Could not load dialogue located in {0}".format(file_directory))
             return None
+
+    def initialize_dialogue(self, dialogue_reference:str):
+        """Imports dialogue for a user query from a YAML file.'.
+            
+            Args:
+                dialogue_reference: The reference to a dialogue file name, configured under 'dialogue' in ayo.ini.
+
+            Returns:
+                ImportDialogue() object
+        """
+        config = configparser.ConfigParser()
+        config.read('config/ayo.ini')
+
+        dialogue_file_name = config.get('dialogue', dialogue_reference)
+        return ImportDialogue().import_dialogue(dialogue_file_name)

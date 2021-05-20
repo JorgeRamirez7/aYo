@@ -1,5 +1,4 @@
 """Search for a given string in a given list."""
-import configparser
 import re
 
 from utils.import_dialogue import ImportDialogue
@@ -9,11 +8,7 @@ class FindMatchingWord():
 
     def __init__(self):
         """Imports text for all queries from a YAML file and stores it in 'query'."""
-        config = configparser.ConfigParser()
-        config.read('config/ayo.ini')
-
-        user_queries_dialogue_file_name = config.get('dialogue', 'user_queries')
-        FindMatchingWord.query = ImportDialogue().import_dialogue(user_queries_dialogue_file_name)
+        FindMatchingWord.query = ImportDialogue().initialize_dialogue('user_queries')
 
     def find_match(self, input:str, words_list:str) -> bool:
         """Searches for a given input in a given list of words.
