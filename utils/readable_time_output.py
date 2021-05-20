@@ -49,12 +49,12 @@ class ReadableTimeOutput():
         minutes, seconds = divmod(total_time_in_seconds, 60)
         hours, minutes = divmod(minutes, 60)
 
-        seconds_word = (self._dialogue["time"]["second-singular-word"] if seconds == 1 
-                        else self._dialogue["time"]["seconds-plural-word"])
-        minutes_word = (self._dialogue["time"]["minute-singular-word"] if minutes == 1 
-                        else self._dialogue["time"]["minutes-plural-word"])
-        hours_word = (self._dialogue["time"]["hour-singular-word"] if hours == 1 
-                      else self._dialogue["time"]["hours-plural-word"])
+        seconds_word = (self._dialogue["second"]["singular"] if seconds == 1 
+                        else self._dialogue["second"]["plural"])
+        minutes_word = (self._dialogue["minute"]["singular"] if minutes == 1 
+                        else self._dialogue["minute"]["plural"])
+        hours_word = (self._dialogue["hour"]["singular"] if hours == 1 
+                      else self._dialogue["hour"]["plural"])
 
         stopwatch_time_output = {
             "seconds": seconds,
@@ -101,8 +101,8 @@ class ReadableTimeOutput():
         if stopwatch_time != 0:
             self.nonzero_values_remaining -= 1
             if self.requires_and_keyword and self.nonzero_values_remaining == 0:
-                output += self._dialogue["time"]["and-word"] + BLANK_SPACE
-            output += self._dialogue["time"]["time-format"].format(stopwatch_time, stopwatch_words) + BLANK_SPACE
+                output += self._dialogue["time-other"]["and"] + BLANK_SPACE
+            output += self._dialogue["time-other"]["time-format"].format(stopwatch_time, stopwatch_words) + BLANK_SPACE
             if self.nonzero_values_remaining == 0:
                 output = output.rstrip()
 

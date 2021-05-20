@@ -1,15 +1,18 @@
 ---
-time:
-    second-singular-word: segundo
-    seconds-plural-word: segundos
+second:
+    singular: segundo
+    plural: segundos
     
-    minute-singular-word: minuto
-    minutes-plural-word: minutos
+minute:
+    singular: minuto
+    plural: minutos
     
-    hour-singular-word: hora
-    hours-plural-word: horas
+hour:
+    singular: hora
+    plural: horas
     
-    and-word: y
+time-other:
+    and: y
     time-format: "{0} {1}"  # Format: {word} {length} 
                             # Example: 4 minutes
     
@@ -18,4 +21,3 @@ time:
     # Example: "4 hours and 12 seconds"
     # Example: "4 hours 2 minutes and 6 seconds"
     # Example: "1 hour 4 minutes and 1 second"
- 
