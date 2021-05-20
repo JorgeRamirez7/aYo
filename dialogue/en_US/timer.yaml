@@ -1,1 +1,6 @@
 ---
+program-error:
+    error-not-responding: Sorry, Timer is not responding.
+
+user-generic:
+    response: I can create a Timer for you. For example, say ayo, set a Timer for 5 minutes.

@@ -1,1 +1,6 @@
 ---
+program-error:
+    error-not-responding: Sorry, Alarm is not responding.
+
+user-generic:
+    response: I can create an Alarm for you. For example, say ayo, set an Alarm for 5:20 PM.

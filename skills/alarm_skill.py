@@ -14,6 +14,8 @@ class AlarmSkill():
         alarm_dialogue_file_name = config.get('dialogue', 'alarm')
         self._dialogue = ImportDialogue().import_dialogue(alarm_dialogue_file_name)
 
-
+    def generic_response(self) -> str:
+        """Returns a generic response for Alarm."""
+        return self._dialogue["user-generic"]["response"]
 
 

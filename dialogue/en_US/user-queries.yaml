@@ -24,6 +24,16 @@ reset:
 alarm:
   - alarm
   - timer
+  
+trigger-alarm:
+  - AM
+  - PM
+
+trigger-timer:
+  - in
+  - seconds
+  - minutes
+  - hours
 
 stopwatch:
   - stopwatch

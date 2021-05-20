@@ -14,6 +14,8 @@ class TimerSkill():
         timer_dialogue_file_name = config.get('dialogue', 'timer')
         self._dialogue = ImportDialogue().import_dialogue(timer_dialogue_file_name)
 
-
+    def generic_response(self) -> str:
+        """Returns a generic response for Timer."""
+        return self._dialogue["user-generic"]["response"]
 
 

@@ -6,3 +6,15 @@ from utils.find_matching_word import FindMatchingWord
 class AlarmTimerIntents():
     def alarm_timer_intent(self, ayo_input:str) -> str:
         alarm_timer_output = None
+
+        if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-alarm"]):
+            pass
+        elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-timer"]):
+            pass
+        else:
+            alarm_timer_output = AlarmSkill().generic_response()
+
+        if alarm_timer_output == None:
+            pass
+        else:
+            return alarm_timer_output

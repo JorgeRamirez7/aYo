@@ -25,7 +25,7 @@ class Intents():
             return StopwatchIntents().stopwatch_intent(user_input)
 
         elif FindMatchingWord().find_match(user_input, FindMatchingWord().query["alarm"]):
-            return AlarmTimerIntents.alarm_timer_intents(user_input)
+            return AlarmTimerIntents().alarm_timer_intent(user_input)
         
         else:
             return "Hmm, I don't understand that"
