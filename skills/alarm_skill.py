@@ -11,6 +11,7 @@ class AlarmSkill():
 
     def set_alarm(self, user_input:str):
         alarm_time = GetTime().get_clock_time(user_input)
+        alarm_time_proper_format = None
 
         if alarm_time:
             return alarm_time

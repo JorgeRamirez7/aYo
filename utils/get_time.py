@@ -56,6 +56,8 @@ class GetTime():
 
     def get_clock_time(self, user_input:str):
         """Gets the time from user input when in the form of ##:## AM/PM.
+           Time is converted if a single digit hour/minute is present (4 -> 04).
+           Time will be AM if not specified to be PM.
         
             Args:
                 user_input: The string input from a user, which may include time.
@@ -64,5 +66,46 @@ class GetTime():
                 The time in the form '##:## AM/PM' if found in user_input during regex search.
                 None if time is not found in user_input.
         """
-        return re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE).group(0)
+        input_time = re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE).group(0)
         
+        """If time does not contain PM, then it must be AM."""
+        contains_PM = re.search(r"\bPM\b", input_time, re.IGNORECASE)
+
+        if contains_PM:
+            is_PM = True
+        else:
+            is_PM = False
+
+        """Adding zero to hour side if it does not follow the following format: ##:## AM/PM"""
+        time_hour_side = re.search(r"\d{2}:", input_time, re.IGNORECASE)
+
+        if time_hour_side is None:
+            time_hour_side = re.search(r"\d{1}:", input_time, re.IGNORECASE).group(0)
+            time_hour = "0" + time_hour_side.rstrip(time_hour_side[-1])
+        else:
+            time_hour_side = re.search(r"\d{2}:", input_time, re.IGNORECASE).group(0)
+            time_hour = time_hour_side.rstrip(time_hour_side[-1])
+
+        """Adding zero to minute side if it does not follow the following format: ##:## AM/PM"""
+        time_minute_side = re.search(r":\d{2}", input_time, re.IGNORECASE)
+
+        if time_minute_side is None:
+            time_minute_side = re.search(r":\d{1}", input_time, re.IGNORECASE).group(0)
+            time_minute = "0" + time_minute_side[1:]
+        else:
+            time_minute_side = re.search(r":\d{2}", input_time, re.IGNORECASE).group(0)
+            time_minute = time_minute_side[1:]
+
+        """The properly formatted time string."""
+        time_proper = time_hour + ":" + time_minute
+
+        """Military time."""
+        if int(time_hour) > 12:
+            return time_proper
+
+        if is_PM:
+            time_proper += " PM"
+        else:
+            time_proper += " AM"
+
+        return time_proper
