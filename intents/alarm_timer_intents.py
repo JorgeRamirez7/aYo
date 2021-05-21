@@ -10,7 +10,7 @@ class AlarmTimerIntents():
         if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-alarm"]):
             pass
         elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-timer"]):
-            pass
+            alarm_timer_output = AlarmSkill().set_alarm(ayo_input)
         else:
             alarm_timer_output = AlarmSkill().generic_response()
 

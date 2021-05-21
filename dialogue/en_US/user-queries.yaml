@@ -31,8 +31,11 @@ trigger-alarm:
 
 trigger-timer:
   - in
+  - second
   - seconds
+  - minute
   - minutes
+  - hour
   - hours
 
 stopwatch:
