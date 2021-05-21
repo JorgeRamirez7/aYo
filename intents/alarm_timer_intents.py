@@ -2,7 +2,6 @@
 from skills.alarm_skill import AlarmSkill
 from skills.timer_skill import TimerSkill
 from utils.find_matching_word import FindMatchingWord
-from utils.readable_time_output import ReadableTimeOutput
 
 class AlarmTimerIntents():
     def alarm_timer_intent(self, ayo_input:str) -> str:
@@ -11,8 +10,7 @@ class AlarmTimerIntents():
         if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-alarm"]):
             pass
         elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-timer"]):
-            timer_time = AlarmSkill().set_alarm(ayo_input)
-            alarm_timer_output = ReadableTimeOutput().output_time(timer_time)
+            alarm_timer_output = TimerSkill().set_timer(ayo_input)
         else:
             alarm_timer_output = AlarmSkill().generic_response()
 
