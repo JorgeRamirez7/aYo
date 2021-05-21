@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import spotipy
 from intents.music_skills import MusicSkill
 from spotipy.oauth2 import SpotifyOAuth
@@ -26,13 +25,3 @@ class MusicIntents(object):
 
 
 
-=======
-"""Play music"""
-import subprocess
-from playsound import playsound
-#import run
-
-class MusicIntents():
-    def music_intents(self, user_input):
-        subprocess.run('python run.py')
->>>>>>> main

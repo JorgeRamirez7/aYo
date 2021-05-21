@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 """Handles input from a user's microphone; speech to text"""
->>>>>>> main
 import azure.cognitiveservices.speech as speechsdk
 import configparser
 
@@ -18,14 +15,9 @@ class MicrophoneInput():
         result = speech_recognizer.recognize_once()
 
         if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-<<<<<<< HEAD
             result_text = str(result.text).replace('.', '')
             result_text = str(result_text).replace(',', '')
             print("Recognized: {}".format(result_text))
-=======
-            result_text = str(result.text).replace('.', ' ')
-            print("Recognized: {}".format(result.text))
->>>>>>> main
             return result_text
 
         elif result.reason == speechsdk.ResultReason.NoMatch:
@@ -37,8 +29,4 @@ class MicrophoneInput():
             print("Speech Recognition canceled: {}".format(cancellation_details.reason))
             if cancellation_details.reason == speechsdk.CancellationReason.Error:
                 print("Error details: {}".format(cancellation_details.error_details))
-<<<<<<< HEAD
             return None
-=======
-            return None
->>>>>>> main

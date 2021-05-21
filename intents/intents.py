@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-=======
 """Handles all possible aYo intents that a user may ask"""
->>>>>>> main
 from intents.web_search_intents import WebSearchIntents
 from intents.open_documentation_intents import OpenDocumentationIntents
 from intents.search_documentation_intents import SearchDocumentationIntents
 from intents.music_intents import MusicIntents
-<<<<<<< HEAD
 from utils.find_matching_word import FindMatchingWord
-=======
->>>>>>> main
 
 class Intents():
     def intents(self, user_input):
@@ -22,16 +16,8 @@ class Intents():
         elif user_input.split()[0] == "C++" or user_input.split()[0] == "Python":
             return SearchDocumentationIntents().search_documentation_intents(user_input)
 
-<<<<<<< HEAD
         elif FindMatchingWord().find_match(str(user_input.split()[0]), FindMatchingWord.words_for_spotify):
             return MusicIntents().music_intents(user_input)
         
         else:
             return "Hmm, I don't understand that"
-=======
-        elif user_input == "Play music":
-            return MusicIntents().music_intents(user_input)
-        
-        else:
-            return "Hmm, I don't understand that"
->>>>>>> main
