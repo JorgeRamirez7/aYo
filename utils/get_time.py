@@ -1,4 +1,4 @@
-"""Extract  time from user input"""
+"""Extract time from user input."""
 from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
@@ -25,9 +25,9 @@ class GetTime():
         hours = self.get_time_value(user_input, self._time_values["hour"]["singular"])
 
         time = {
-            "seconds": seconds,
-            "minutes": minutes,
-            "hours": hours
+            "seconds": int(seconds),
+            "minutes": int(minutes),
+            "hours": int(hours)
         }
 
         return time
