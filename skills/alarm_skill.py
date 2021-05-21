@@ -16,7 +16,7 @@ class AlarmSkill():
         if alarm_time:
             return alarm_time
 
-        return None
+        return "Sorry, I didn't catch that"
 
     def stop_alarm(self, user_input:str):
         pass

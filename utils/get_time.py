@@ -1,4 +1,5 @@
 """Extract time from user input."""
+import logging
 import re
 
 from utils.find_matching_word import FindMatchingWord
@@ -66,7 +67,12 @@ class GetTime():
                 The time in the form '##:## AM/PM' if found in user_input during regex search.
                 None if time is not found in user_input.
         """
-        input_time = re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE).group(0)
+        input_time = re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE)
+        if not input_time:
+            logging.warning("get_time did not get a proper time value")
+            return None
+        else:
+            input_time = re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE).group(0)
         
         """If time does not contain PM, then it must be AM."""
         contains_PM = re.search(r"\bPM\b", input_time, re.IGNORECASE)
