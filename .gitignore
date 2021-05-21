@@ -128,8 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Visual Studio settings
+# Visual studio
 .vs/
 
-# Configuration folder
-config/
+# aYo config
+config/config.ini
+config.ini

@@ -1,0 +1,23 @@
+---
+second:
+    singular: segundo
+    plural: segundos
+    
+minute:
+    singular: minuto
+    plural: minutos
+    
+hour:
+    singular: hora
+    plural: horas
+    
+time-other:
+    and: y
+    time-format: "{0} {1}"  # Format: {word} {length} 
+                            # Example: 4 minutes
+    
+    # Example: "10 seconds"
+    # Example: "1 minute and 1 second"
+    # Example: "4 hours and 12 seconds"
+    # Example: "4 hours 2 minutes and 6 seconds"
+    # Example: "1 hour 4 minutes and 1 second"

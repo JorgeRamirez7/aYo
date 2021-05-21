@@ -1,0 +1,42 @@
+---
+start:
+
+  - comenzar
+  - comienza
+  - comienze
+  - comienzo
+  - configura
+  - empieza
+  - empieze
+  - empezar
+  - inicia
+  - initiate
+  - pon
+
+stop:
+  - acabe
+  - cierre
+  - detiene
+  - concluye
+  - para
+  - termine
+
+reset:
+  - anula
+  - anular
+  - anule
+  - cancele
+  - reinicia
+  - reiniciar
+  - reinicie
+
+alarm:
+  - alarma
+  - despertador
+  - temporizador
+
+stopwatch:
+  - cronógrafo
+  - cronografo
+  - cronómetro
+  - cronometro
