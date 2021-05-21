@@ -19,8 +19,7 @@ class MusicSkill():
             print("Spotify not open")
 
     def play(self, to_play):
-        to_play = ' '.join(to_play.split()[1:])
-        
+        to_play = ' '.join(to_play.split()[1:])   
         # track info returned in json form
         track_info = self.sp.search(q=to_play,limit=1,type='track')
 
