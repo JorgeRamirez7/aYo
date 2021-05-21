@@ -1,4 +1,7 @@
 ---
+delimeter:
+  - ":"
+  
 program-error:
     error-not-responding: Sorry, Alarm is not responding.
 

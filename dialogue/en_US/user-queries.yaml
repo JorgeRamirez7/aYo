@@ -25,9 +25,13 @@ alarm:
   - alarm
   - timer
   
+stopwatch:
+  - stopwatch
+  
 trigger-alarm:
   - AM
   - PM
+  - ":"   # Azure voice-to-text adds colon to user input if time is recognized.
 
 trigger-timer:
   - in
@@ -37,6 +41,3 @@ trigger-timer:
   - minutes
   - hour
   - hours
-
-stopwatch:
-  - stopwatch

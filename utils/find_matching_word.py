@@ -30,7 +30,7 @@ class FindMatchingWord():
         return False
 
     def find_match_single_word(self, input:str, single_word:str) -> bool:
-        """Searches for a given input in a given list of words.
+        """Searches and determines if input is equal to a single_word.
         
             Args:
                 input: The string input from a user.

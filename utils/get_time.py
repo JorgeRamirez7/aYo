@@ -1,4 +1,6 @@
 """Extract time from user input."""
+import re
+
 from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
@@ -51,3 +53,16 @@ class GetTime():
             return FindMatchingWord().get_previous_word(user_input, self._time_values[time_value]["plural"])
 
         return 0
+
+    def get_clock_time(self, user_input:str):
+        """Gets the time from user input when in the form of ##:## AM/PM.
+        
+            Args:
+                user_input: The string input from a user, which may include time.
+
+            Returns:
+                The time in the form '##:## AM/PM' if found in user_input during regex search.
+                None if time is not found in user_input.
+        """
+        return re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE).group(0)
+        

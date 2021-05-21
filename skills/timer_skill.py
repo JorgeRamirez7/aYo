@@ -15,6 +15,10 @@ class TimerSkill():
         timer_simplified_time = ReadableTimeOutput().output_time(user_timer_time)
         return timer_simplified_time
 
+    def error(self) -> str:
+        """Returns an error string, indicating that Timer is not responding."""
+        return self._dialogue["program-error"]["error-not-responding"]
+
     def generic_response(self) -> str:
         """Returns a generic response for Timer."""
         return self._dialogue["user-generic"]["response"]
