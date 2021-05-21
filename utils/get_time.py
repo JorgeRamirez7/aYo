@@ -1,6 +1,4 @@
 """Extract  time from user input"""
-import re
-
 from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
@@ -12,24 +10,19 @@ class GetTime():
         self._time_values = ImportDialogue().initialize_dialogue('time')
 
     def get_time(self, user_input:str):
-        seconds = 0
-        minutes = 0
-        hours = 0
-
-        if FindMatchingWord().find_match_single_word(user_input, self._time_values["second"]["singular"]):
-            seconds = FindMatchingWord().get_previous_word(user_input, self._time_values["second"]["singular"])
-        elif FindMatchingWord().find_match_single_word(user_input, self._time_values["second"]["plural"]):
-            seconds = FindMatchingWord().get_previous_word(user_input, self._time_values["second"]["plural"])
+        """Gets the time values (seconds, minutes, hours) from user input.
         
-        if FindMatchingWord().find_match_single_word(user_input, self._time_values["minute"]["singular"]):
-            minutes = FindMatchingWord().get_previous_word(user_input, self._time_values["minute"]["singular"])
-        elif FindMatchingWord().find_match_single_word(user_input, self._time_values["minute"]["plural"]):
-            minutes = FindMatchingWord().get_previous_word(user_input, self._time_values["minute"]["plural"])
+            Args:
+                user_input: The string input from a user, which may include time values.
 
-        if FindMatchingWord().find_match_single_word(user_input, self._time_values["hour"]["singular"]):
-            hours = FindMatchingWord().get_previous_word(user_input, self._time_values["hour"]["singular"])
-        elif FindMatchingWord().find_match_single_word(user_input, self._time_values["hour"]["plural"]):
-            hours = FindMatchingWord().get_previous_word(user_input, self._time_values["hour"]["plural"])
+            Returns:
+                A dictionary of time values from user_input.
+        """
+
+        """Values for both singular and plural are checked in get_time_value()."""
+        seconds = self.get_time_value(user_input, self._time_values["second"]["singular"])
+        minutes = self.get_time_value(user_input, self._time_values["minute"]["singular"])
+        hours = self.get_time_value(user_input, self._time_values["hour"]["singular"])
 
         time = {
             "seconds": seconds,
@@ -39,3 +32,22 @@ class GetTime():
 
         return time
 
+    def get_time_value(self, user_input:str, time_value:str):
+        """Helper class to get the time value of a specific time value. 
+           Assumes _time_values follows the format [time_value]["singular" or "plural"].
+        
+            Args:
+                user_input: The string input from a user, which may include time values.
+                time_value: The time value that we are checking.
+
+            Returns:
+                The value of the time value. Ex. 4 from an input of "4 minutes".
+                0 if the time value was not found in the user_input.
+        """
+        if FindMatchingWord().find_match_single_word(user_input, self._time_values[time_value]["singular"]):
+            return FindMatchingWord().get_previous_word(user_input, self._time_values[time_value]["singular"])
+
+        elif FindMatchingWord().find_match_single_word(user_input, self._time_values[time_value]["plural"]):
+            return FindMatchingWord().get_previous_word(user_input, self._time_values[time_value]["plural"])
+
+        return 0
