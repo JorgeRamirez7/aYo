@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 import webbrowser
 
 class OpenDocumentationIntents(object):
+=======
+"""Open documentation website for a specific programming language"""
+import webbrowser
+
+class OpenDocumentationIntents():
+>>>>>>> main
     def open_documentation_intents(self, user_input):
         # Open popular p/l documentation websites
         # Implement website search in future
@@ -10,7 +17,10 @@ class OpenDocumentationIntents(object):
             webbrowser.open('https://docs.python.org/3/')
         elif user_input.split()[1] == "Java":
             webbrowser.open('https://docs.oracle.com/en/java/')
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> main

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+"""Search for a user query through existing programming language documentation available online"""
+>>>>>>> main
 import webbrowser
 
 class SearchDocumentationIntents():
@@ -10,4 +14,8 @@ class SearchDocumentationIntents():
 
         elif user_input.split()[0] == "Python":
             search_for = ' '.join(user_input.split()[1:])
+<<<<<<< HEAD
             webbrowser.open('https://docs.python.org/3/search.html?q={}'.format(search_for))
+=======
+            webbrowser.open('https://docs.python.org/3/search.html?q={}'.format(search_for))
+>>>>>>> main
