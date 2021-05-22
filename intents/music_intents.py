@@ -1,25 +1,25 @@
-import spotipy
-from intents.music_skills import MusicSkill
-from spotipy.oauth2 import SpotifyOAuth
+from skills.music_skills import MusicSkill
+from utils.find_matching_word import FindMatchingWord
 
 class MusicIntents(object):
-    if __name__ == '__main__':
-	    pass
     
     def music_intents(self, user_input):
         key = user_input.split()[0]
         
-        if key == 'Play':
-            MusicSkill().play(user_input)
-        elif key == 'Next':
+        if FindMatchingWord().find_match(user_input, FindMatchingWord.query["play"]):
+            if str(user_input.split()[1]).lower() == 'artist':
+                MusicSkill().play_artist(user_input)
+            else:
+                MusicSkill().play_song(user_input)
+        elif FindMatchingWord().find_match(user_input, FindMatchingWord.query["next"]):
             MusicSkill().next()
-        elif key == 'Previous':
+        elif FindMatchingWord().find_match(user_input, FindMatchingWord.query["previous"]):
             MusicSkill().previous()
-        elif key == 'Pause':
+        elif FindMatchingWord().find_match(user_input, FindMatchingWord.query["pause"]):
             MusicSkill().pause()
-        elif key == 'Resume':
+        elif FindMatchingWord().find_match(user_input, FindMatchingWord.query["resume"]):
             MusicSkill().resume()
-        elif key == 'Shuffle':
+        elif FindMatchingWord().find_match(user_input, FindMatchingWord.query["shuffle"]):
             MusicSkill().shuffle()
         
 
