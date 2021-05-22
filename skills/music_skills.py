@@ -1,9 +1,11 @@
+"""Implementation of Music Intents"""
 import configparser
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 
 class MusicSkill():
+    """Creates/Authenticates Spotify object using aYo Spotify Web API developer credentials"""
     def __init__(self):
         config = configparser.ConfigParser()
         config.read('config/config.ini')
@@ -18,6 +20,11 @@ class MusicSkill():
         except IndexError:
             print("Spotify not open")
 
+    """
+       User must now say Play artist <artist> to start playing a specific artist.
+       Without splitting them, if trying to play a specific song e.g. 'Hotel California'
+       Spotify will shuffle songs from the band named 'Hotel California'.
+    """
     def play_artist(self, to_play):
         to_play = ' '.join(to_play.split()[2:])   
         # track info returned in json form

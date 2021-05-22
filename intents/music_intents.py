@@ -1,3 +1,4 @@
+"""Search for a Stopwatch-related query and perform the desired intent."""
 from skills.music_skills import MusicSkill
 from utils.find_matching_word import FindMatchingWord
 
@@ -22,6 +23,3 @@ class MusicIntents(object):
         elif FindMatchingWord().find_match(user_input, FindMatchingWord.query["shuffle"]):
             MusicSkill().shuffle()
         
-
-
-
