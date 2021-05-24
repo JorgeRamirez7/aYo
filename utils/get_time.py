@@ -115,3 +115,27 @@ class GetTime():
             time_proper += " AM"
 
         return time_proper
+
+    def get_seconds_from_time(self, user_time:dict):
+        """Gets the total number of seconds from a user_time dictionary containing seconds, minutes, and hours values.
+        
+            Args:
+                user_time: A time dictionary containing values "seconds", "minutes", and "hours" with float values.
+
+            Returns:
+                The total time in seconds of the given time dictionary.
+                None if the given time dictionary is not a valid format.
+        """
+        if not ("seconds" in user_time and 
+                "minutes" in user_time and 
+                "hours" in user_time):
+            logging.warning("The dictionary time in GetTime() is missing one or more values.")
+            return None
+
+        try:
+            is_float = float(user_time["seconds"]) and float(user_time["minutes"]) and float(user_time["hours"])
+        except ValueError:
+            logging.warning("The dictionary time in GetTime() has one or more non-float values")
+            return None
+
+        return user_time["seconds"] + (user_time["minutes"] * 60) + (user_time["hours"] * 3600)

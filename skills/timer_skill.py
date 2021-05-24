@@ -12,8 +12,9 @@ class TimerSkill():
 
     def set_timer(self, user_input:str):
         user_timer_time = GetTime().get_time(user_input)
-        timer_simplified_time = ReadableTimeOutput().output_time(user_timer_time)
-        return timer_simplified_time
+        # timer_simplified_time = ReadableTimeOutput().output_time(user_timer_time)
+        user_time_seconds = GetTime().get_seconds_from_time(user_timer_time)
+        return user_time_seconds
 
     def error(self) -> str:
         """Returns an error string, indicating that Timer is not responding."""
