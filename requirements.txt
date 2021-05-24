@@ -2,3 +2,4 @@ azure-cognitiveservices-speech==1.16.0
 playsound==1.2.2
 PyYAML==5.4.1
 spotipy==2.18.0
+PyQt5_sip == 12.8.1
