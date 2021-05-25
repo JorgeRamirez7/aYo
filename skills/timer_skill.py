@@ -1,5 +1,6 @@
 """Perform Timer intents."""
 import datetime
+import multiprocessing
 import threading
 import time
 
@@ -12,6 +13,7 @@ class TimerSkill():
     _timer_seconds = 0
     _timer_simplified_time = None
     _timer_is_running = False
+    _timer = None
 
     def __init__(self):
         """Imports dialogue for Alarm from a YAML file and stores it in '_dialogue'."""
@@ -27,10 +29,15 @@ class TimerSkill():
             self._timer_is_running = True
             self._timer_simplified_time = ReadableTimeOutput().output_time(user_timer_time)
 
-            timer = threading.Thread(target = self.timer_thread)
-            timer.start()
+            self._timer = multiprocessing.Process(target = self.timer_thread)
+            self._timer.start()
 
             return ("Timer set for " + self._timer_simplified_time + ".")
+
+    def cancel_timer(self):
+        """Cancels a timer."""
+        self._timer.Terminate()
+        return "cancelling i think"
 
     def error(self) -> str:
         """Returns an error string, indicating that Timer is not responding."""
@@ -47,6 +54,7 @@ class TimerSkill():
         while(seconds_left != 0):
             time.sleep(1)
             if self._timer_is_running == False:
+                print("cancelling...")
                 break
             seconds_left -= 1
 

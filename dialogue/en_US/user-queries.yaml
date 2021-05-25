@@ -5,6 +5,8 @@ start:
   - initiate
   - set
   - start
+  - create
+  - make
 
 stop:
   - close
@@ -23,6 +25,12 @@ reset:
 
 alarm:
   - alarm
+  - timer
+
+alarm-only:
+  - alarm
+
+timer-only:
   - timer
   
 stopwatch:
