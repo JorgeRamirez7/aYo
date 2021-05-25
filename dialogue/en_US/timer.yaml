@@ -1,4 +1,15 @@
 ---
+set-timer:
+    not-enough-time: Timer must be set for at least 5 seconds.
+    timer-is-set: "Timer set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
+    
+cancel-timer:
+    to-be-implemented: "Cancelling timers is currently not supported"
+    confirmation: "Timer for {} has been cancelled."
+    
+timer-has-finished:
+    confirmation: "Your timer for {} has finished." # {} contains time.
+    
 program-error:
     error-not-responding: Sorry, Timer is not responding.
 

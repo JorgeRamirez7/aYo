@@ -26,7 +26,10 @@ class AlarmTimerIntents():
                 alarm_timer_output = AlarmSkill().generic_response()
 
         else:
-            alarm_timer_output = AlarmSkill().generic_response()
+            if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["timer-only"]):
+                alarm_timer_output = TimerSkill().generic_response()
+            elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["alarm-only"]):
+                alarm_timer_output = AlarmSkill().generic_response()
 
         if alarm_timer_output == None:
             return AlarmSkill().error()
