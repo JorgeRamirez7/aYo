@@ -1,12 +1,12 @@
-from ui_classes.languages_window import LanguagesWindow
+from .languages_window import LanguagesWindow
 from PyQt5 import QtWidgets, uic
-from ui_classes.settings_window import SettingsWindow
+from .settings_window import SettingsWindow
 
 
 class AyoBody(QtWidgets.QMainWindow):
     def __init__(self, parent):
         super(AyoBody, self).__init__()
-        uic.loadUi(r"ui\\ui_files\\aYo_body.ui", self)
+        uic.loadUi("ui\\ui_files\\aYo_body.ui", self)
         self.w = None
         self.parent = parent
 

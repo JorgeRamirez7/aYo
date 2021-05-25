@@ -1,16 +1,22 @@
 import re
+import os
 
-from ui_classes.ayo_body import AyoBody
-from ui_classes.new_user_window import NewUserWindow
+from .ayo_body import AyoBody
+from .new_user_window import NewUserWindow
 from PyQt5 import QtWidgets, uic
-from ui_classes.recover_password_window import RecoverPasswordWindow
+from .recover_password_window import RecoverPasswordWindow
 
 
 class AyoLogin(QtWidgets.QMainWindow):
     #This is the login Screen
     def __init__(self):
         super(AyoLogin, self).__init__()
-        uic.loadUi(r"ui_files\\aYo.ui", self)
+        
+        #This should allow the program to run regardless of where the overarching aYo project is saved.
+        current_path = os.path.dirname(__file__)
+        file_path = os.path.abspath(os.path.join(current_path, "..", "ui_files", "aYo.ui"))
+        
+        uic.loadUi(file_path, self)
         self.w = None
         self.createAccountBtn.clicked.connect(self.new_account_click)
         self.forgotPasswordBtn.clicked.connect(self.forgot_password_click)
