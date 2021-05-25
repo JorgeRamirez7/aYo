@@ -11,4 +11,4 @@ print theDatabase.CreateUserProfile("CoolioMcDoogle", "teryakiGuy7")"""
 
 
 skill = weather()
-print skill.getCurrentWeather("London")
+print weather.getCurrentWeather("London")
