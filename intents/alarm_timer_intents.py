@@ -18,6 +18,7 @@ class AlarmTimerIntents():
         elif (  FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["stop"]) or 
                 FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["reset"])
                 ):
+
             if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["timer-only"]):
                 alarm_timer_output = TimerSkill().cancel_timer()
         

@@ -36,8 +36,7 @@ class TimerSkill():
 
     def cancel_timer(self):
         """Cancels a timer."""
-        self._timer.Terminate()
-        return "cancelling i think"
+        return "Cancelling timers is currently not supported."
 
     def error(self) -> str:
         """Returns an error string, indicating that Timer is not responding."""
