@@ -6,10 +6,10 @@
     it returns the current temperature in the city input into this function
     it will just return just the the number as an interger however.
 """
-import requests, json
+import requests, json, math
 class weather:
 
-    def getCurrentWeather(cityName):
+    def getCurrentWeather(self, cityName):
         # this is where the api key goes
         api_key = "6e990ec0c9142339278312a4b5781668"
 
@@ -48,7 +48,7 @@ class weather:
             #        thus the formula (K - 275.15) * 9/5 + 32
             #        was used to convert to Farenheight
             current_temperature = y["temp"]
-            updated_temperature = (float(current_temperature) - 275.15) * (9/5) + 32
+            updated_temperature = math.trunc((float(current_temperature) - 275.15) * (9/5) + 32)
 
             # store the value corresponding to the "pressure" key of y
             # probably will not use that
