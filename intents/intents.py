@@ -17,11 +17,11 @@ class Intents():
         elif user_input.split()[0] == "C++" or user_input.split()[0] == "Python":
             return SearchDocumentationIntents().search_documentation_intents(user_input)
 
-        elif user_input == "Play music":
-            return MusicIntents().music_intents(user_input)
-
         elif FindMatchingWord().find_match(user_input, FindMatchingWord().query["stopwatch"]):
             return StopwatchIntents().stopwatch_intent(user_input)
         
+        elif FindMatchingWord().find_match(user_input, FindMatchingWord().query["music"]):
+            return MusicIntents().music_intents(user_input)
+
         else:
             return "Hmm, I don't understand that"

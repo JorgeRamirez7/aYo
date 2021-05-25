@@ -27,3 +27,46 @@ alarm:
 
 stopwatch:
   - stopwatch
+  - stop watch
+
+music:
+  - play
+  - skip
+  - next
+  - back
+  - go back
+  - previous
+  - pause
+  - stop
+  - shut up
+  - resume
+  - continue
+  - proceed
+  - shuffle
+
+play:
+  - play
+
+next:
+  - skip
+  - next
+
+previous:
+  - back
+  - go back
+  - previous
+
+pause:
+  - pause
+  - stop
+  - shut up
+
+resume:
+  - resume
+  - continue
+  - proceed
+
+shuffle:
+  - shuffle
+
+
