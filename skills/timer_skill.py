@@ -13,7 +13,7 @@ class TimerSkill():
     _timer = None
     _timer_is_running = False
     _timer_seconds = 0
-    _timer_sfx = 'data/ayo_timer.wav'
+    _timer_sfx = 'data/alarm.wav'
     _timer_simplified_time = None
     
     def __init__(self):

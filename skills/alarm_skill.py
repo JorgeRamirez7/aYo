@@ -2,6 +2,7 @@
 import multiprocessing
 import time
 
+from playsound import playsound
 from utils.get_time import GetTime
 from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
@@ -9,8 +10,10 @@ from utils.readable_time_output import ReadableTimeOutput
 class AlarmSkill():
     _dialogue = None
 
+    _alarm = None
     _alarm_is_running = False
     _alarm_seconds = None
+    _alarm_sfx = 'data/alarm.wav'
     _alarm_simplified_time = None
 
     def __init__(self):
@@ -26,22 +29,21 @@ class AlarmSkill():
             self._alarm_is_running = True
 
             alarm_clock_dict = GetTime().get_clock_time_dict(user_input)
-            total_alarm_seconds = GetTime().get_seconds_from_time(alarm_clock_dict
+            total_alarm_seconds = GetTime().get_seconds_from_time(alarm_clock_dict)
 
-            return "Alarm has been set for {}.".format(self._alarm_simplified_time)
+            self._alarm_seconds = self.seconds_until_alarm(total_alarm_seconds)
 
-        #return alarm_time
-        #readable_time = ReadableTimeOutput().output_clock_time(alarm_time)
-        #alarm_time_proper_format = None
+            self._alarm = multiprocessing.Process(target = self.alarm_thread)
+            self._alarm.start()
 
-        
+            return "Alarm has been set for {}.".format(self._alarm_seconds)
 
     def get_current_time(self) -> dict:
         """Gets the current time and stores it in a dictionary of time values."""
         local_time = time.localtime()
-        hours_current = time.strftime("%H", local_time)
-        minutes_current = time.strftime("%M", local_time)
-        seconds_current = time.strftime("%S", local_time)
+        hours_current = int(time.strftime("%H", local_time))
+        minutes_current =int( time.strftime("%M", local_time))
+        seconds_current = int(time.strftime("%S", local_time))
         
         current_time = {
             "seconds": seconds_current,
@@ -70,19 +72,19 @@ class AlarmSkill():
 
         while(seconds_left != 0):
             time.sleep(1)
-            if self._timer_is_running == False:
+            if self._alarm_is_running == False:
                 print("cancelling...")
                 break
             seconds_left -= 1
 
         if self._alarm_is_running:
             """Notify user that timer has been set with sound and text/voice."""
-            playsound(self._timer_sfx)
-            print(self._dialogue["alarm-has-finished"]["confirmation"].format(self._timer_simplified_time))
+            playsound(self._alarm_sfx)
+            print(self._dialogue["alarm-has-finished"]["confirmation"].format(self._alarm_simplified_time))
             """TODO: Change this from a print statement to calling a function that forces TTS."""
         else:
-            print(self._dialogue["cancel-timer"]["confirmation"].format(self._timer_simplified_time))
-            self._timer_is_running = False        
+            print(self._dialogue["cancel-alarm"]["confirmation"].format(self._timer_simplified_time))
+            self._alarm_is_running = False        
 
     def cancel_alarm(self):
         """Cancels an alarm."""
