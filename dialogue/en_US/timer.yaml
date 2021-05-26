@@ -4,7 +4,7 @@ user-set:
     success-set: "Timer set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
     
 user-cancel:
-    to-be-implemented: "Sorry, cancelling timers is not supported yet."
+    to-be-implemented: "orry, cancelling timers is not supported yet.
     success-confirmation: "Timer for {} has been cancelled."
     
 program-has-finished:
@@ -14,4 +14,4 @@ program-error:
     error-not-responding: Sorry, Timer is not responding.
 
 user-generic:
-    response: I can create a Timer for you. For example, say ayo, set a Timer for 5 minutes.
+    response: I can create a Timer for you. Try asking me to set a Timer for 5 minutes.
