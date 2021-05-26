@@ -21,6 +21,15 @@ class TimerSkill():
         self._dialogue = ImportDialogue().initialize_dialogue('timer')
 
     def set_timer(self, user_input:str):
+        """Informs user if timer was successfully set and calls a timer process.
+            
+            Args:
+                user_input: The string input from a user, which may include time in the format "# minutes and # seconds".
+
+            Returns:
+                A string confirming that a timer has been set.
+                A string telling the user that the timer has been set for less than 5 seconds.
+        """
         user_timer_time = GetTime().get_time(user_input)
         self._timer_seconds = GetTime().get_seconds_from_time(user_timer_time)
 
@@ -30,12 +39,12 @@ class TimerSkill():
             self._timer_is_running = True
             self._timer_simplified_time = ReadableTimeOutput().output_time(user_timer_time)
 
-            self._timer = multiprocessing.Process(target = self.timer_thread)
+            self._timer = multiprocessing.Process(target = self.timer_process)
             self._timer.start()
 
             return self._dialogue["user-set"]["success-set"].format(self._timer_simplified_time)
 
-    def timer_thread(self):
+    def timer_process(self):
         """Timer action once the timer has reached 0 seconds. Notification sound plays and a message is displayed."""
         seconds_left = self._timer_seconds
 

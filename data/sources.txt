@@ -1,1 +1,1 @@
-ayo_timer: https://freetone.org/ringtones/sms/dilin-10576
+alarm.wav: https://freetone.org/ringtones/sms/dilin-10576

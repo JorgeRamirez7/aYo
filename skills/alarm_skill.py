@@ -21,6 +21,15 @@ class AlarmSkill():
         self._dialogue = ImportDialogue().initialize_dialogue('alarm')
 
     def set_alarm(self, user_input:str):
+        """Informs user if alarm was successfully set and calls an alarm process.
+            
+            Args:
+                user_input: The string input from a user, which may include time in the format ##:## AM/PM
+
+            Returns:
+                A string confirming that an alarm has been set.
+                None if an improper time format was given.
+        """
         self._alarm_simplified_time = GetTime().get_clock_time(user_input)
 
         if not self._alarm_simplified_time:
@@ -29,11 +38,13 @@ class AlarmSkill():
             self._alarm_is_running = True
 
             alarm_clock_dict = GetTime().get_clock_time_dict(user_input)
+
+            """Ex. 2:20 PM = 14 hours and 20 minutes = 51600 seconds."""
             total_alarm_seconds = GetTime().get_seconds_from_time(alarm_clock_dict)
 
             self._alarm_seconds = self.seconds_until_alarm(total_alarm_seconds)
 
-            self._alarm = multiprocessing.Process(target = self.alarm_thread)
+            self._alarm = multiprocessing.Process(target = self.alarm_process)
             self._alarm.start()
 
             return self._dialogue["user-set"]["success-set"].format(self._alarm_simplified_time)
@@ -53,7 +64,15 @@ class AlarmSkill():
 
         return current_time
 
-    def seconds_until_alarm(self, total_alarm_seconds):
+    def seconds_until_alarm(self, total_alarm_seconds) -> int:
+        """Obtains the number of seconds remaining until the alarm is set off.
+            
+            Args:
+                total_alarm_seconds: The alarm time converted into seconds.
+
+            Returns:
+                The total number of seconds remaining until the alarm is set off.
+        """
         current_time_dict = self.get_current_time()
         total_current_time_seconds = GetTime().get_seconds_from_time(current_time_dict)
 
@@ -61,11 +80,12 @@ class AlarmSkill():
             return total_alarm_seconds - total_current_time_seconds
         else:
             """If alarm is for next day, figure out how many seconds remain for that day."""
+            """12 hours = 43200 seconds."""
             seconds_until_twelve = 43200 - total_current_time_seconds
             """Add the remaining seconds for the previous day and the alarm seconds to get correct number of alarm seconds."""
             return seconds_until_twelve + total_alarm_seconds
 
-    def alarm_thread(self):
+    def alarm_process(self):
         """Alarm action once the alarm has reached 0 seconds. Notification sound plays and a message is displayed."""
         seconds_left = self._alarm_seconds
 
@@ -79,8 +99,10 @@ class AlarmSkill():
         if self._alarm_is_running:
             """Notify user that timer has been set with sound and text/voice."""
             playsound(self._alarm_sfx)
-            print(self._dialogue["program-finished"]["confirmation"].format(self._alarm_simplified_time))
+
             """TODO: Change this from a print statement to calling a function that forces TTS."""
+            print(self._dialogue["program-finished"]["confirmation"].format(self._alarm_simplified_time))
+            
         else:
             print(self._dialogue["user-cancel"]["confirmation"].format(self._timer_simplified_time))
             self._alarm_is_running = False        
