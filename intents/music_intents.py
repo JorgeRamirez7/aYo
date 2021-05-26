@@ -10,6 +10,8 @@ class MusicIntents(object):
         if FindMatchingWord().find_match(user_input, FindMatchingWord.query["play"]):
             if str(user_input.split()[1]).lower() == 'artist':
                 MusicSkill().play_artist(user_input)
+            elif str(user_input.split()[1]).lower() == 'podcast':
+                MusicSkill().play_podcast(user_input)
             else:
                 MusicSkill().play_song(user_input)
         elif FindMatchingWord().find_match(user_input, FindMatchingWord.query["next"]):
