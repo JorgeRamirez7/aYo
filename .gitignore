@@ -130,7 +130,10 @@ dmypy.json
 
 # Visual studio
 .vs/
+.vscode/
 
 # aYo config
 config/config.ini
 config.ini
+.vscode/settings.json
+.vscode/settings.json
