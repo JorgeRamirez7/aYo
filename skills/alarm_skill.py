@@ -30,7 +30,7 @@ class AlarmSkill():
                 A string confirming that an alarm has been set.
                 None if an improper time format was given.
         """
-        self._alarm_simplified_time = GetTime().get_clock_time(user_input)
+        self._alarm_simplified_time = GetTime().get_clock_time_string(user_input)
 
         if not self._alarm_simplified_time:
             return self._dialogue["user-set"]["error"]
