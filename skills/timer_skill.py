@@ -25,7 +25,7 @@ class TimerSkill():
         self._timer_seconds = GetTime().get_seconds_from_time(user_timer_time)
 
         if self._timer_seconds < 5:
-            return self._dialogue["set-timer"]["not-enough-time"]
+            return self._dialogue["user-set"]["error-not-at-least-5-seconds"]
         else:
             self._timer_is_running = True
             self._timer_simplified_time = ReadableTimeOutput().output_time(user_timer_time)
@@ -33,7 +33,7 @@ class TimerSkill():
             self._timer = multiprocessing.Process(target = self.timer_thread)
             self._timer.start()
 
-            return self._dialogue["set-timer"]["timer-is-set"].format(self._timer_simplified_time)
+            return self._dialogue["user-set"]["success-set"].format(self._timer_simplified_time)
 
     def timer_thread(self):
         """Timer action once the timer has reached 0 seconds. Notification sound plays and a message is displayed."""
@@ -49,17 +49,17 @@ class TimerSkill():
         if self._timer_is_running:
             """Notify user that timer has been set with sound and text/voice."""
             playsound(self._timer_sfx)
-            print(self._dialogue["timer-has-finished"]["confirmation"].format(self._timer_simplified_time))
+            print(self._dialogue["program-has-finished"]["confirmation"].format(self._timer_simplified_time))
             """TODO: Change this from a print statement to calling a function that forces TTS."""
             self._timer_is_running = False
         else:
-            print(self._dialogue["cancel-timer"]["confirmation"].format(self._timer_simplified_time))
+            print(self._dialogue["user-cancel"]["success-confirmation"].format(self._timer_simplified_time))
             self._timer_is_running = False
 
     def cancel_timer(self):
         """Cancels a timer."""
         """TODO: Implement timer cancellation."""
-        return self._dialogue["cancel-timer"]["to-be-implemented"]  
+        return self._dialogue["user-cancel"]["to-be-implemented"]  
 
     def error(self) -> str:
         """Returns an error string, indicating that Timer is not responding."""

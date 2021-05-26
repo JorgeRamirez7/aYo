@@ -1,13 +1,13 @@
 ---
-set-timer:
-    not-enough-time: Timer must be set for at least 5 seconds.
-    timer-is-set: "Timer set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
+user-set:
+    error-not-at-least-5-seconds: Timer must be set for at least 5 seconds.
+    success-set: "Timer set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
     
-cancel-timer:
+user-cancel:
     to-be-implemented: "Cancelling timers is currently not supported"
-    confirmation: "Timer for {} has been cancelled."
+    success-confirmation: "Timer for {} has been cancelled."
     
-timer-has-finished:
+program-has-finished:
     confirmation: "Your timer for {} has finished." # {} contains time.
     
 program-error:
