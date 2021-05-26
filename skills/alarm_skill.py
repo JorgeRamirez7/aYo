@@ -32,6 +32,10 @@ class AlarmSkill():
         #readable_time = ReadableTimeOutput().output_clock_time(alarm_time)
         #alarm_time_proper_format = None
 
+        
+
+    def get_current_time(self) -> dict:
+        """Gets the current time and stores it in a dictionary of time values."""
         local_time = time.localtime()
         hours_current = time.strftime("%H", local_time)
         minutes_current = time.strftime("%M", local_time)
@@ -43,6 +47,7 @@ class AlarmSkill():
             "hours": hours_current
         }
 
+        return current_time
 
     def alarm_thread(self):
         """Alarm action once the alarm has reached 0 seconds. Notification sound plays and a message is displayed."""
@@ -63,9 +68,6 @@ class AlarmSkill():
         else:
             print(self._dialogue["cancel-timer"]["confirmation"].format(self._timer_simplified_time))
             self._timer_is_running = False        
-
-    def stop_alarm(self, user_input:str):
-        pass
 
     def cancel_alarm(self):
         """Cancels an alarm."""
