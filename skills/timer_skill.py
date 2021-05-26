@@ -1,7 +1,7 @@
 """Perform Timer intents."""
 import datetime
 import multiprocessing
-import threading
+from playsound import playsound
 import time
 
 from utils.get_time import GetTime
@@ -10,11 +10,12 @@ from utils.readable_time_output import ReadableTimeOutput
 
 class TimerSkill():
     _dialogue = None
-    _timer_seconds = 0
-    _timer_simplified_time = None
-    _timer_is_running = False
     _timer = None
-
+    _timer_is_running = False
+    _timer_seconds = 0
+    _timer_sfx = 'data/ayo_timer.wav'
+    _timer_simplified_time = None
+    
     def __init__(self):
         """Imports dialogue for Alarm from a YAML file and stores it in '_dialogue'."""
         self._dialogue = ImportDialogue().initialize_dialogue('timer')
@@ -46,6 +47,7 @@ class TimerSkill():
             seconds_left -= 1
 
         if self._timer_is_running:
+            playsound(self._timer_sfx)
             print(self._dialogue["timer-has-finished"]["confirmation"].format(self._timer_simplified_time))
             """TODO: Change this from a print statement to calling a function that forces TTS."""
         else:
