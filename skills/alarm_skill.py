@@ -24,8 +24,10 @@ class AlarmSkill():
             return "Sorry, I didn't catch that."
         else:
             self._alarm_is_running = True
-            clock_dict = GetTime().get_clock_time_dict(user_input)
-            total_seconds = GetTime().get_seconds_from_time(clock_dict)
+
+            alarm_clock_dict = GetTime().get_clock_time_dict(user_input)
+            total_alarm_seconds = GetTime().get_seconds_from_time(alarm_clock_dict
+
             return "Alarm has been set for {}.".format(self._alarm_simplified_time)
 
         #return alarm_time
@@ -48,6 +50,19 @@ class AlarmSkill():
         }
 
         return current_time
+
+    def seconds_until_alarm(self, total_alarm_seconds):
+        current_time_dict = self.get_current_time()
+        total_current_time_seconds = GetTime().get_seconds_from_time(current_time_dict)
+
+        if total_alarm_seconds > total_current_time_seconds:
+            return total_alarm_seconds - total_current_time_seconds
+        else:
+            """If alarm is for next day, figure out how many seconds remain for that day."""
+            seconds_until_twelve = 43200 - total_current_time_seconds
+            """Add the remaining seconds for the previous day and the alarm seconds to get correct number of alarm seconds."""
+            return seconds_until_twelve + total_alarm_seconds
+
 
     def alarm_thread(self):
         """Alarm action once the alarm has reached 0 seconds. Notification sound plays and a message is displayed."""
