@@ -1,9 +1,9 @@
 """Perform Timer intents."""
 import datetime
 import multiprocessing
-from playsound import playsound
 import time
 
+from playsound import playsound
 from utils.get_time import GetTime
 from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
@@ -47,9 +47,11 @@ class TimerSkill():
             seconds_left -= 1
 
         if self._timer_is_running:
+            """Notify user that timer has been set with sound and text/voice."""
             playsound(self._timer_sfx)
             print(self._dialogue["timer-has-finished"]["confirmation"].format(self._timer_simplified_time))
             """TODO: Change this from a print statement to calling a function that forces TTS."""
+            self._timer_is_running = False
         else:
             print(self._dialogue["cancel-timer"]["confirmation"].format(self._timer_simplified_time))
             self._timer_is_running = False

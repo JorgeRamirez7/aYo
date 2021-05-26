@@ -2,6 +2,13 @@
 delimeter:
   - ":"
   
+cancel-alarm:
+    to-be-implemented: "Cancelling alarms is currently not supported"
+    confirmation: "Alarm for {} has been cancelled."
+
+alarm-has-finished:
+    confirmation: "Your alarm for {} has finished." # {} contains time.    
+
 program-error:
     error-not-responding: Sorry, Alarm is not responding.
 

@@ -73,14 +73,6 @@ class GetTime():
             return None
         else:
             input_time = re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE).group(0)
-        
-        """If time does not contain PM, then it must be AM."""
-        contains_PM = re.search(r"\bPM\b", input_time, re.IGNORECASE)
-
-        if contains_PM:
-            is_PM = True
-        else:
-            is_PM = False
 
         """Adding zero to hour side if it does not follow the following format: ##:## AM/PM"""
         time_hour_side = re.search(r"\d{2}:", input_time, re.IGNORECASE)
@@ -109,12 +101,83 @@ class GetTime():
         if int(time_hour) > 12:
             return time_proper
 
+        """If time does not contain PM, then it must be AM."""
+        contains_PM = re.search(r"\bPM\b", input_time, re.IGNORECASE)
+
+        if contains_PM:
+            is_PM = True
+        else:
+            is_PM = False
+
         if is_PM:
             time_proper += " PM"
         else:
             time_proper += " AM"
 
         return time_proper
+
+
+
+
+
+
+    def get_clock_time_dict(self, user_input:str):
+        input_time = re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE)
+        if not input_time:
+            logging.warning("get_time did not get a proper time value")
+            return None
+        else:
+            input_time = re.search(r"\d*:\d*(( AM)|( PM))*", user_input, re.IGNORECASE).group(0)
+
+        """Adding zero to hour side if it does not follow the following format: ##:## AM/PM"""
+        time_hour_side = re.search(r"\d{2}:", input_time, re.IGNORECASE)
+
+        if time_hour_side is None:
+            time_hour_side = re.search(r"\d{1}:", input_time, re.IGNORECASE).group(0)
+            time_hour = "0" + time_hour_side.rstrip(time_hour_side[-1])
+        else:
+            time_hour_side = re.search(r"\d{2}:", input_time, re.IGNORECASE).group(0)
+            time_hour = time_hour_side.rstrip(time_hour_side[-1])
+
+        """Adding zero to minute side if it does not follow the following format: ##:## AM/PM"""
+        time_minute_side = re.search(r":\d{2}", input_time, re.IGNORECASE)
+
+        if time_minute_side is None:
+            time_minute_side = re.search(r":\d{1}", input_time, re.IGNORECASE).group(0)
+            time_minute = "0" + time_minute_side[1:]
+        else:
+            time_minute_side = re.search(r":\d{2}", input_time, re.IGNORECASE).group(0)
+            time_minute = time_minute_side[1:]
+
+        """The properly formatted time string."""
+        time_proper = time_hour + ":" + time_minute
+
+        """Military time."""
+        if int(time_hour) > 12:
+            return time_proper
+
+
+
+
+
+        """If time does not contain PM, then it must be AM."""
+        contains_PM = re.search(r"\bPM\b", input_time, re.IGNORECASE)
+
+        if contains_PM:
+            is_PM = True
+        else:
+            is_PM = False
+
+        if is_PM:
+            time_hour = int(time_hour) + 12
+
+        user_time = {
+            "seconds": 0,
+            "minutes": int(time_minute),
+            "hours": int(time_hour)
+        }
+
+        return user_time
 
     def get_seconds_from_time(self, user_time:dict):
         """Gets the total number of seconds from a user_time dictionary containing seconds, minutes, and hours values.

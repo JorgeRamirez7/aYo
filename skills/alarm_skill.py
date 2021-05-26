@@ -1,25 +1,76 @@
 """Perform Alarm intents."""
+import multiprocessing
+import time
+
 from utils.get_time import GetTime
 from utils.import_dialogue import ImportDialogue
+from utils.readable_time_output import ReadableTimeOutput
 
 class AlarmSkill():
     _dialogue = None
+
+    _alarm_is_running = False
+    _alarm_seconds = None
+    _alarm_simplified_time = None
 
     def __init__(self):
         """Imports dialogue for Alarm from a YAML file and stores it in '_dialogue'."""
         self._dialogue = ImportDialogue().initialize_dialogue('alarm')
 
     def set_alarm(self, user_input:str):
-        alarm_time = GetTime().get_clock_time(user_input)
-        alarm_time_proper_format = None
+        self._alarm_simplified_time = GetTime().get_clock_time(user_input)
 
-        if alarm_time:
-            return alarm_time
+        if not self._alarm_simplified_time:
+            return "Sorry, I didn't catch that."
+        else:
+            self._alarm_is_running = True
+            clock_dict = GetTime().get_clock_time_dict(user_input)
+            total_seconds = GetTime().get_seconds_from_time(clock_dict)
+            return "Alarm has been set for {}.".format(self._alarm_simplified_time)
 
-        return "Sorry, I didn't catch that"
+        #return alarm_time
+        #readable_time = ReadableTimeOutput().output_clock_time(alarm_time)
+        #alarm_time_proper_format = None
+
+        local_time = time.localtime()
+        hours_current = time.strftime("%H", local_time)
+        minutes_current = time.strftime("%M", local_time)
+        seconds_current = time.strftime("%S", local_time)
+        
+        current_time = {
+            "seconds": seconds_current,
+            "minutes": minutes_current,
+            "hours": hours_current
+        }
+
+
+    def alarm_thread(self):
+        """Alarm action once the alarm has reached 0 seconds. Notification sound plays and a message is displayed."""
+        seconds_left = self._alarm_seconds
+
+        while(seconds_left != 0):
+            time.sleep(1)
+            if self._timer_is_running == False:
+                print("cancelling...")
+                break
+            seconds_left -= 1
+
+        if self._alarm_is_running:
+            """Notify user that timer has been set with sound and text/voice."""
+            playsound(self._timer_sfx)
+            print(self._dialogue["alarm-has-finished"]["confirmation"].format(self._timer_simplified_time))
+            """TODO: Change this from a print statement to calling a function that forces TTS."""
+        else:
+            print(self._dialogue["cancel-timer"]["confirmation"].format(self._timer_simplified_time))
+            self._timer_is_running = False        
 
     def stop_alarm(self, user_input:str):
         pass
+
+    def cancel_alarm(self):
+        """Cancels an alarm."""
+        """TODO: Implement alarm cancellation."""
+        return self._dialogue["cancel-alarm"]["to-be-implemented"]  
 
     def error(self) -> str:
         """Returns an error string, indicating that Alarm is not responding."""
@@ -28,5 +79,3 @@ class AlarmSkill():
     def generic_response(self) -> str:
         """Returns a generic response for Alarm."""
         return self._dialogue["user-generic"]["response"]
-
-
