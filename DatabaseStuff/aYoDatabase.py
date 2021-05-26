@@ -1,3 +1,11 @@
+#from csv import reader
+
+def encode(aString):
+    return aString
+
+def decode(aString):
+    return aString
+
 
 def ReadFileContents(fileName):
     # r tells python to open in read-only mode
@@ -7,6 +15,19 @@ def ReadFileContents(fileName):
     fileObjectInput.close()
     return fileContents
 # end readFileContents
+
+def getList(text):
+    theList = []
+
+    lines = text.split( '\n' )
+
+    # removes all empty lines (especially the last one ...)
+    lines = [ line for line in lines if line.strip() ]
+
+    for i, line in enumerate( lines ):
+        theList.append(line)
+
+    return theList
 
 class DataBase:
 
@@ -20,8 +41,15 @@ class DataBase:
     def CheckLogIn( self, name, password ):
         userNames = ReadFileContents("SampleDatabase.csv")
         thePasswords = ReadFileContents("passwords.csv")
-        if userNames.find("" + name) > -1:
-            if thePasswords.find("" + password) > -1:
+
+        username_list = getList(userNames)
+        password_list = getList(thePasswords)
+
+        #print (username_list)
+        checkUser = userNames.find(name)
+
+        if checkUser > -1:
+            if password_list[checkUser] == password:
                 return True
         return False
 
