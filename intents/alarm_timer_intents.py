@@ -8,12 +8,20 @@ class AlarmTimerIntents():
         alarm_timer_output = None
 
         if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-alarm"]):
-            alarm_timer_output = AlarmSkill().set_alarm(ayo_input)
-        
-        elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-timer"]):
             
             if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["start"]):
+                alarm_timer_output = AlarmSkill().set_alarm(ayo_input)
+
+            else:
+                alarm_timer_output = None
+        
+        elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-timer"]):
+
+            if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["start"]):
                 alarm_timer_output = TimerSkill().set_timer(ayo_input)
+
+            else:
+                alarm_timer_output = None
             
         elif (  FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["stop"]) or 
                 FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["reset"])
@@ -21,17 +29,26 @@ class AlarmTimerIntents():
 
             if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["timer-only"]):
                 alarm_timer_output = TimerSkill().cancel_timer()
-        
-            else: 
-                alarm_timer_output = AlarmSkill().generic_response()
+
+            elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["alarm-only"]): 
+                alarm_timer_output = AlarmSkill().cancel_alarm()
+
+            else:
+                alarm_timer_output = None
 
         else:
+
             if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["timer-only"]):
                 alarm_timer_output = TimerSkill().generic_response()
+
             elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["alarm-only"]):
                 alarm_timer_output = AlarmSkill().generic_response()
 
+            else:
+                alarm_timer_output = None
+
         if alarm_timer_output == None:
             return AlarmSkill().error()
+
         else:
             return alarm_timer_output

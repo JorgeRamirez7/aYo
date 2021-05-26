@@ -4,7 +4,7 @@ user-set:
     success-set: "Timer set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
     
 user-cancel:
-    to-be-implemented: "Cancelling timers is currently not supported"
+    to-be-implemented: "Sorry, cancelling timers is not supported yet."
     success-confirmation: "Timer for {} has been cancelled."
     
 program-has-finished:

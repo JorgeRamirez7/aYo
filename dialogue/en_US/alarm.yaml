@@ -6,7 +6,7 @@ user-set:
     success-set: "Alarm set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
     
 user-cancel:
-    to-be-implemented: "Sorry, cancelling alarms is currently not supported."
+    to-be-implemented: "Sorry, cancelling alarms is not supported yet."
     success-confirmation: "Alarm for {} has been cancelled."
 
 program-finished:
