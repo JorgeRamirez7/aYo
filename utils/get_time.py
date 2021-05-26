@@ -94,13 +94,6 @@ class GetTime():
             time_minute_side = re.search(r":\d{2}", input_time, re.IGNORECASE).group(0)
             time_minute = time_minute_side[1:]
 
-        """The properly formatted time string."""
-        time_proper = time_hour + ":" + time_minute
-
-        """Military time."""
-        if int(time_hour) > 12:
-            return time_proper
-
         """If time does not contain PM, then it must be AM."""
         contains_PM = re.search(r"\bPM\b", input_time, re.IGNORECASE)
 
@@ -108,6 +101,13 @@ class GetTime():
             is_PM = True
         else:
             is_PM = False
+
+        """The properly formatted time string."""
+        time_proper = time_hour + ":" + time_minute
+
+        """Military time."""
+        if int(time_hour) > 12:
+            return time_proper
 
         if is_PM:
             time_proper += " PM"
@@ -168,6 +168,9 @@ class GetTime():
         else:
             is_PM = False
 
+        """If it is 12:## AM, set hour to 00:##"""
+        if int(time_hour) == 12 and not is_PM:
+            time_hour = 0
         if is_PM:
             time_hour = int(time_hour) + 12
 
