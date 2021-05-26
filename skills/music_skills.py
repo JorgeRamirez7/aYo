@@ -21,7 +21,7 @@ class MusicSkill():
             print("Spotify not open")
 
     """
-       User must now say Play artist <artist> to start playing a specific artist.
+       User must now say Play artist <artist> or Play podcast <podcast> to start playing a specific artist/podcast.
        Without splitting them, if trying to play a specific song e.g. 'Hotel California'
        Spotify will shuffle songs from the band named 'Hotel California'.
     """
@@ -32,12 +32,23 @@ class MusicSkill():
 
         # if length of track_info is 0, no artist or track found
         if len(track_info['artists']['items']) != 0:
-            track_artist = track_info['artists']['items'][0]['name']
             track_artist_uri = track_info['artists']['items'][0]['uri']
             self.sp.start_playback(device_id=self.device_id,context_uri=track_artist_uri)
         else:
             print("Artist not found")
-    
+
+    def play_podcast(self, to_play):
+        to_play = ' '.join(to_play.split()[2:])
+        # track info returned in json form
+        track_info = self.sp.search(q=to_play,limit=1,type='show')
+
+        # if length of track_info is 0, no artist or track found
+        if len(track_info['shows']['items']) != 0:
+            track_artist_uri = track_info['shows']['items'][0]['uri']
+            self.sp.start_playback(device_id=self.device_id,context_uri=track_artist_uri)
+        else:
+            print("Podcast not found")
+
     def play_song(self, to_play):
         to_play = ' '.join(to_play.split()[1:])   
         # track info returned in json form
