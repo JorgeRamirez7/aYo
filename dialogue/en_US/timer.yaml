@@ -1,6 +1,7 @@
 ---
 user-set:
     error-not-at-least-5-seconds: Timer must be set for at least 5 seconds.
+    error-not-number: Sorry, I didn't catch that.
     success-set: "Timer set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
     
 user-cancel:

@@ -31,6 +31,9 @@ class TimerSkill():
                 A string telling the user that the timer has been set for less than 5 seconds.
         """
         user_timer_time = GetTime().get_time(user_input)
+        if (user_timer_time is None):
+            return self._dialogue["user-set"]["error-not-number"]
+
         self._timer_seconds = GetTime().get_seconds_from_time(user_timer_time)
 
         if self._timer_seconds < 5:

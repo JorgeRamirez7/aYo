@@ -27,11 +27,16 @@ class GetTime():
         minutes = self.get_time_value(user_input, self._time_values["minute"]["singular"])
         hours = self.get_time_value(user_input, self._time_values["hour"]["singular"])
 
-        time = {
-            "seconds": int(seconds),
-            "minutes": int(minutes),
-            "hours": int(hours)
-        }
+        try:
+            time = {
+                "seconds": int(seconds),
+                "minutes": int(minutes),
+                "hours": int(hours)
+            }
+
+        except:
+            logging.warning("Did not receive a number value in get_time.")
+            return None
 
         return time
 
