@@ -24,7 +24,7 @@ class AlarmSkill():
         self._alarm_simplified_time = GetTime().get_clock_time(user_input)
 
         if not self._alarm_simplified_time:
-            return "Sorry, I didn't catch that."
+            return self._dialogue["user-set"]["error"]
         else:
             self._alarm_is_running = True
 
@@ -36,7 +36,7 @@ class AlarmSkill():
             self._alarm = multiprocessing.Process(target = self.alarm_thread)
             self._alarm.start()
 
-            return "Alarm has been set for {}.".format(self._alarm_seconds)
+            return self._dialogue["user-set"]["success-set"].format(self._alarm_simplified_time)
 
     def get_current_time(self) -> dict:
         """Gets the current time and stores it in a dictionary of time values."""
@@ -65,7 +65,6 @@ class AlarmSkill():
             """Add the remaining seconds for the previous day and the alarm seconds to get correct number of alarm seconds."""
             return seconds_until_twelve + total_alarm_seconds
 
-
     def alarm_thread(self):
         """Alarm action once the alarm has reached 0 seconds. Notification sound plays and a message is displayed."""
         seconds_left = self._alarm_seconds
@@ -80,16 +79,16 @@ class AlarmSkill():
         if self._alarm_is_running:
             """Notify user that timer has been set with sound and text/voice."""
             playsound(self._alarm_sfx)
-            print(self._dialogue["alarm-has-finished"]["confirmation"].format(self._alarm_simplified_time))
+            print(self._dialogue["program-finished"]["confirmation"].format(self._alarm_simplified_time))
             """TODO: Change this from a print statement to calling a function that forces TTS."""
         else:
-            print(self._dialogue["cancel-alarm"]["confirmation"].format(self._timer_simplified_time))
+            print(self._dialogue["user-cancel"]["confirmation"].format(self._timer_simplified_time))
             self._alarm_is_running = False        
 
     def cancel_alarm(self):
         """Cancels an alarm."""
         """TODO: Implement alarm cancellation."""
-        return self._dialogue["cancel-alarm"]["to-be-implemented"]  
+        return self._dialogue["user-cancel"]["to-be-implemented"]  
 
     def error(self) -> str:
         """Returns an error string, indicating that Alarm is not responding."""

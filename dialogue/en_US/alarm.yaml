@@ -1,12 +1,15 @@
 ---
 delimeter:
   - ":"
-  
-cancel-alarm:
-    to-be-implemented: "Cancelling alarms is currently not supported"
-    confirmation: "Alarm for {} has been cancelled."
+user-set:
+    error: Sorry, I didn't catch that.
+    success-set: "Alarm set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
+    
+user-cancel:
+    to-be-implemented: "Sorry, cancelling alarms is currently not supported."
+    success-confirmation: "Alarm for {} has been cancelled."
 
-alarm-has-finished:
+program-finished:
     confirmation: "Your alarm for {} has finished." # {} contains time.    
 
 program-error:
