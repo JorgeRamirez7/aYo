@@ -1,5 +1,4 @@
 """Search for a given string in a given list."""
-import configparser
 import re
 
 from utils.import_dialogue import ImportDialogue
@@ -9,11 +8,7 @@ class FindMatchingWord():
 
     def __init__(self):
         """Imports text for all queries from a YAML file and stores it in 'query'."""
-        config = configparser.ConfigParser()
-        config.read('config/ayo.ini')
-
-        user_queries_dialogue_file_name = config.get('dialogue', 'user_queries')
-        FindMatchingWord.query = ImportDialogue().import_dialogue(user_queries_dialogue_file_name)
+        FindMatchingWord.query = ImportDialogue().initialize_dialogue('user_queries')
 
     def find_match(self, input:str, words_list:str) -> bool:
         """Searches for a given input in a given list of words.
@@ -33,3 +28,34 @@ class FindMatchingWord():
                 return True
         
         return False
+
+    def find_match_single_word(self, input:str, single_word:str) -> bool:
+        """Searches and determines if input is equal to a single_word.
+        
+            Args:
+                input: The string input from a user.
+                single_word: The word we are comparing input with.
+
+            Returns:
+                True if the input matches the single_word.
+                False if the input does not match the single_word.
+        """
+        word_found = re.search(r"\b{}\b".format(single_word), input, re.IGNORECASE)
+
+        if word_found:
+            return True
+
+        return False
+
+    def get_previous_word(self, input:str, word_search:str):
+        """Searches for the word before a given word in an input.
+        
+            Args:
+                input: The string input from a user.
+                word_search: The word that is being searched.
+
+            Returns:
+                The word before 'word_search' if found during regex search.
+                None if the word before 'word_search' is not found.
+        """
+        return re.search(r"\w+(?=\s+{})".format(word_search), input, re.IGNORECASE).group(0)
