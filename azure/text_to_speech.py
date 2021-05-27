@@ -25,12 +25,13 @@ class TextToSpeech():
 
         audio_config = AudioOutputConfig(use_default_speaker=True)
         synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-        
-        print("TTS: {}".format(user_input))
-        result = synthesizer.speak_text_async(user_input).get()
+    
+        ssml_file = "azure/speech_settings/en_US/Guy.xml"
+        ssml_string = open(ssml_file, "r").read()
+        result = synthesizer.speak_ssml_async(ssml_string.format(user_input)).get()
 
         if result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
-            print("Speech synthesized to speaker for text [{}]".format(user_input))
+            print("TTS: {}".format(user_input))
 
         elif result.reason == speechsdk.ResultReason.Canceled:
             cancellation_details = result.cancellation_details
