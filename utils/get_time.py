@@ -2,6 +2,7 @@
 import logging
 import re
 
+from word2number import w2n
 from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
@@ -27,6 +28,14 @@ class GetTime():
         minutes = self.get_time_value(user_input, self._time_values["minute"]["singular"])
         hours = self.get_time_value(user_input, self._time_values["hour"]["singular"])
 
+        """If a string value of a time value was received, convert it to a float. Ex. "five" -> 5."""
+        if not self.is_float(seconds):
+            seconds = w2n.word_to_num(str(seconds))
+        if not self.is_float(minutes): 
+            minutes = w2n.word_to_num(str(minutes))
+        if not self.is_float(hours):
+            hours = w2n.word_to_num(str(hours))
+
         try:
             time = {
                 "seconds": int(seconds),
@@ -39,6 +48,24 @@ class GetTime():
             return None
 
         return time
+
+    def is_float(self, input):
+        """Determines if a given input is a float.
+        
+            Args:
+                input: The input that we are checking if it is a float, most likely a string value.
+
+            Returns:
+                True if input is a float.
+                False if input is not a float.
+        """
+        try:
+            float(input)
+
+        except:
+            return False
+
+        return True
 
     def get_time_value(self, user_input:str, time_value:str):
         """Helper class to get the time value of a specific time value. 
