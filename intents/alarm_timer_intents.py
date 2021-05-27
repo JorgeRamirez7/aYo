@@ -8,20 +8,10 @@ class AlarmTimerIntents():
         alarm_timer_output = None
 
         if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-alarm"]):
-            
-            if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["start"]):
-                alarm_timer_output = AlarmSkill().set_alarm(ayo_input)
-
-            else:
-                alarm_timer_output = AlarmSkill().generic_response()
+            alarm_timer_output = AlarmSkill().set_alarm(ayo_input)
         
         elif FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["trigger-timer"]):
-
-            if FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["start"]):
-                alarm_timer_output = TimerSkill().set_timer(ayo_input)
-
-            else:
-                alarm_timer_output = TimerSkill().generic_response()
+            alarm_timer_output = TimerSkill().set_timer(ayo_input)
             
         elif (  FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["stop"]) or 
                 FindMatchingWord().find_match(ayo_input, FindMatchingWord.query["reset"])
