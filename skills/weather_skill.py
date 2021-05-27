@@ -7,9 +7,9 @@
     it will just return just the the number as an interger however.
 """
 import requests, json, math
-class weather:
+class Weather:
 
-    def getCurrentWeather(self, cityName):
+    def Get_Current_Weather(self, the_city_name):
         # this is where the api key goes
         api_key = "6e990ec0c9142339278312a4b5781668"
 
@@ -17,7 +17,7 @@ class weather:
         base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
         # the city name as parameter
-        city_name = cityName
+        city_name = the_city_name
 
         # the compleate url which is variable to cite
         # complete url address which works with openweathermap.org
@@ -52,10 +52,10 @@ class weather:
 
             # store the value corresponding to the "pressure" key of y
             # probably will not use that
-            current_pressure = y["pressure"]
+            # current_pressure = y["pressure"]
 
             # store the value corresponding to the "humidity" key of y
-            current_humidiy = y["humidity"]
+            # current_humidiy = y["humidity"]
 
             # store the value of "weather key in variable z
             z = x["weather"]
