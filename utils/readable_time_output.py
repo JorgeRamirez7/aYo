@@ -1,5 +1,4 @@
 """Convert time values into a readable output."""
-import configparser
 import logging
 
 from utils.import_dialogue import ImportDialogue
@@ -11,11 +10,7 @@ class ReadableTimeOutput():
 
     def __init__(self):
         """Imports dialogue for stopwatch values from a YAML file and stores it in '_dialogue'."""
-        config = configparser.ConfigParser()
-        config.read('config/ayo.ini')
-
-        time_words_dialogue_file_name = config.get('dialogue', 'time')
-        self._dialogue = ImportDialogue().import_dialogue(time_words_dialogue_file_name)
+        self._dialogue = ImportDialogue().initialize_dialogue('time')
 
     def output_time(self, stopwatch_time:dict):
         """Returns a properly formatted time output given a dictionary with time values.
