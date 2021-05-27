@@ -23,31 +23,14 @@ class TextToSpeech():
         azure_config = configparser.ConfigParser()
         azure_config.read('config/config.ini')
 
-        ayo_config = configparser.ConfigParser()
-        ayo_config.read('config/ayo.ini')
-
         speech_key = azure_config.get('azure_speech', 'key')
         service_region = azure_config.get('azure_speech', 'service_region')
         speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
         audio_config = AudioOutputConfig(use_default_speaker=True)
         synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-    
-        ayo_localization = ayo_config.get('general', 'localization')
-        ayo_voice_gender = ayo_config.get('general', 'voice')
-        ayo_voices = ImportDialogue().import_dialogue("default-voices.yaml")
-        voice_to_use = None
 
-        if ayo_voice_gender == "male":
-            voice_to_use = ayo_voices["male"]
-        elif ayo_voice_gender == "female":
-            voice_to_use = ayo_voices["female"]
-        elif ayo_voice_gender == "nonbinary":
-            voice_to_use = ayo_voices["nonbinary"]
-        else:
-            logging.warning("There is no supported gender in ayo.ini")
-
-        ssml_file = "azure/speech_settings/{0}/{1}".format(ayo_localization, voice_to_use)
+        ssml_file = self.get_voice_settings()
         ssml_string = open(ssml_file, "r").read()
         result = synthesizer.speak_ssml_async(ssml_string.format(user_input)).get()
 
@@ -61,3 +44,30 @@ class TextToSpeech():
             if cancellation_details.reason == speechsdk.CancellationReason.Error:
                 if cancellation_details.error_details:
                     print("Error details: {}".format(cancellation_details.error_details))
+
+    def get_voice_settings(self):
+        """Gets the default voice settings for the specified gender in ayo.ini."""
+        ayo_config = configparser.ConfigParser()
+        ayo_config.read('config/ayo.ini')
+
+        ayo_localization = ayo_config.get('general', 'localization')
+        ayo_voice_gender = ayo_config.get('general', 'voice')
+        ayo_voices = ImportDialogue().import_dialogue("default-voices.yaml")
+        voice_to_use = None
+
+        if ayo_voice_gender == "male":
+            voice_to_use = ayo_voices["male"]
+
+        elif ayo_voice_gender == "female":
+            voice_to_use = ayo_voices["female"]
+
+        elif ayo_voice_gender == "nonbinary":
+            voice_to_use = ayo_voices["nonbinary"]
+
+        else:
+            logging.warning("There is no supported gender in ayo.ini")
+            return None
+
+        voice_settings = "azure/speech_settings/{0}/{1}".format(ayo_localization, voice_to_use)
+            
+        return voice_settings
