@@ -1,5 +1,4 @@
 """Perform Stopwatch intents."""
-import configparser
 import logging
 import time
 
@@ -15,11 +14,7 @@ class StopwatchSkill():
 
     def __init__(self):
         """Imports dialogue for stopwatch from a YAML file and stores it in '_dialogue'."""
-        config = configparser.ConfigParser()
-        config.read('config/ayo.ini')
-
-        stopwatch_dialogue_file_name = config.get('dialogue', 'stopwatch')
-        self._dialogue = ImportDialogue().import_dialogue(stopwatch_dialogue_file_name)
+        self._dialogue = ImportDialogue().initialize_dialogue('stopwatch')
 
     def start_stopwatch(self) -> str:
         """Starts Stopwatch by storing the current time and returns a Stopwatch status string."""
