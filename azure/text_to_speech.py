@@ -31,6 +31,11 @@ class TextToSpeech():
         synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 
         ssml_file = self.get_voice_settings()
+        if ssml_file is None:
+            logging.warning("TTS Failed - no supported gender found in ayo.ini")
+            print("ayo output: {}".format(user_input))
+            return None
+
         ssml_string = open(ssml_file, "r").read()
         result = synthesizer.speak_ssml_async(ssml_string.format(user_input)).get()
 
@@ -65,7 +70,6 @@ class TextToSpeech():
             voice_to_use = ayo_voices["nonbinary"]
 
         else:
-            logging.warning("There is no supported gender in ayo.ini")
             return None
 
         voice_settings = "azure/speech_settings/{0}/{1}".format(ayo_localization, voice_to_use)
