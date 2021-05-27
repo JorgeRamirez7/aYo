@@ -1,0 +1,17 @@
+---
+user-trigger:
+  - hi
+  - hello
+  - good morning
+  - good afternoon
+  - good evening
+  - what's up
+  - what up
+  - yo
+  
+program-response:
+  - Hello! I hope you're having a great day.
+  - What's up.
+  - Hello there.
+  - Hey!
+  - Hi! I can help you search through programming language documentation. Try saying, Java Arrays.

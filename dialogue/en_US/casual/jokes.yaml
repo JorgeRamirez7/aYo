@@ -1,0 +1,10 @@
+---
+user-trigger:
+  - joke
+  - jokes
+  - funny
+  
+program-response:
+  - Funny joke goes here.
+  - Another funny joke. Funny response.
+  
