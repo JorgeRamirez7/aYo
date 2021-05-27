@@ -7,12 +7,22 @@ from utils.import_dialogue import ImportDialogue
 class RandomElementSkill():
     def __init__(self, list):
         self.list = list
-        self.add_random_elements_to_queue(self.dialogue)
+        random_stack = self.add_random_elements_to_stack(self.list)
+        self.stack = random_stack
 
-    def add_random_elements_to_queue(self, list):
-        self.stack = deque()
+    def add_random_elements_to_stack(self, list):
+        elements_stack = deque()
         
-        for dialogue in list:
-            stack.append(dialogue)
+        while list:
+            random_element = random.choice(list)
+            elements_stack.append(random_element)
+            list.remove(random_element)
 
-        print(self.stack)
+        return elements_stack
+
+    def get_random_element(self):
+        if not self.stack:
+            self.add_random_elements_to_stack(self.list)
+            
+        element = self.stack.pop()
+        return element
