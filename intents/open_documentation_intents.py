@@ -29,7 +29,7 @@ class OpenDocumentationIntents():
         elif language == "go":
             webbrowser.open('https://golang.org/ref/spec')
 
-        elif language == "c#" or language == 'c sharp':
+        elif language == "c#" or language == "c sharp":
             webbrowser.open('https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/')
 
         elif language == "c":
