@@ -1,14 +1,24 @@
 """Search for a user query through existing programming language documentation available online"""
 import webbrowser
 
+
 class SearchDocumentationIntents():
+    # P/L name as keyword
+    # Automatically searches documentation website for following words
     def search_documentation_intents(self, user_input):
-        # P/L name as keyword
-        # Automatically searches documentation website for following words
-        if user_input.split()[0] == "C++":
-            search_for = ' '.join(user_input.split()[1:])
+        language = user_input.split()[0]
+        language = language.lower()
+
+        search_for = '+'.join(user_input.split()[1:])
+        
+        if language == "c++":
             webbrowser.open('http://www.cplusplus.com/search.do?q={}'.format(search_for))
 
-        elif user_input.split()[0] == "Python":
-            search_for = ' '.join(user_input.split()[1:])
+        elif language == "python":
             webbrowser.open('https://docs.python.org/3/search.html?q={}'.format(search_for))
+        
+        elif language == "javascript" or language == "html" or language == "css":
+            webbrowser.open('https://developer.mozilla.org/en-US/search?q={}'.format(search_for))
+        
+        else:
+            print("Language not currently supported")
