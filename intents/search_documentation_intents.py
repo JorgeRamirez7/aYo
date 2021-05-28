@@ -6,7 +6,7 @@ class SearchDocumentationIntents():
     # P/L name as keyword
     # Automatically searches documentation website for following words
     def search_documentation_intents(self, user_input):
-        language = ' '.join(user_input.split()[0])
+        language = user_input.split()[0]
         language = language.lower()
 
         search_for = '+'.join(user_input.split()[1:])
