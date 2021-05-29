@@ -11,7 +11,7 @@ class GetTime():
 
     def __init__(self):
         """Imports time values from a YAML file and stores it in '_time_values'."""
-        self._time_values = ImportDialogue().initialize_dialogue('time')
+        self._time_values = ImportDialogue().import_dialogue("time-words.yaml")
 
     def get_time(self, user_input:str):
         """Gets the time values (seconds, minutes, hours) from user input.

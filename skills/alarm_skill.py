@@ -10,7 +10,7 @@ from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class AlarmSkill():
-    _dialogue = ImportDialogue().initialize_dialogue('alarm')
+    _dialogue = ImportDialogue().import_dialogue("alarm.yaml")
 
     _alarm = None
     _alarm_is_running = False

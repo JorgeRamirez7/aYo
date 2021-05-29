@@ -11,7 +11,8 @@ from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class TimerSkill():
-    _dialogue = ImportDialogue().initialize_dialogue('timer')
+    _dialogue = ImportDialogue().import_dialogue("timer.yaml")
+
     _timer = None
     _timer_is_running = False
     _timer_seconds = 0

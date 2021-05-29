@@ -10,7 +10,7 @@ class ReadableTimeOutput():
 
     def __init__(self):
         """Imports dialogue for stopwatch values from a YAML file and stores it in '_dialogue'."""
-        self._dialogue = ImportDialogue().initialize_dialogue('time')
+        self._dialogue = ImportDialogue().import_dialogue("time-words.yaml")
 
     def output_time(self, stopwatch_time:dict):
         """Returns a properly formatted time output given a dictionary with time values.

@@ -6,7 +6,8 @@ from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class StopwatchSkill():
-    _dialogue = ImportDialogue().initialize_dialogue('stopwatch')
+    _dialogue = ImportDialogue().import_dialogue("stopwatch.yaml")
+
     _times = {
     "start_time": None,
     "end_time": None
