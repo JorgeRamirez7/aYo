@@ -1,0 +1,12 @@
+---
+# Unknown - This triggers when the users asks for something not supported by aYo.
+# This can also trigger if the user misspoke and aYo's voice input did not parse the user's intent correctly.
+#   Ex. User intended to say "Please create an alarm...", aYo understands "Please create an arm..."
+program-response:
+  - Sorry, I didn't catch that.
+  - Pardon me, I didn't understand that.
+  - I'm afraid I can't do that.
+  - Excuse me, I couldn't hear what you were saying.
+  - Apologies, I didn't catch that.
+  - My ears are failing me, please ask again.
+  
