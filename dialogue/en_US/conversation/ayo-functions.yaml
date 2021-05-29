@@ -1,0 +1,18 @@
+---
+user-trigger:
+  - you do          # what can you do?
+  - you do this     # can you do this?
+  - you can do      # what are the things that you can do?
+  - ayo do          # can ayo do ____ ?
+  - hey yo do
+  - can you         # can you ____ ?
+
+program-response:
+  - I can help you navigate programming documentation. Try asking - ayo, Java arrays.
+  - I can set alarms for you, try asking me to set an alarm for 6 PM.
+  - I can give you the weather forecast for today, just ask.
+  - I can help you control your favorite music with Spotify Premium.
+  - I can set a timer to help you focus, try asking me to set a timer for 30 minutes.
+  - I can help you track how long you've been working, try asking me to set a stopwatch.
+  
+  

@@ -5,9 +5,11 @@ from utils.import_dialogue import ImportDialogue
 class ConversationIntents():
     jokes_queries = ImportDialogue().import_dialogue("conversation/jokes.yaml")
     greetings_queries = ImportDialogue().import_dialogue("conversation/greetings.yaml")
+    ayo_functions_queries = ImportDialogue().import_dialogue("conversation/ayo-functions.yaml")
 
     jokes = RandomElementSkill(jokes_queries["program-response"])
     greetings = RandomElementSkill(greetings_queries["program-response"])
+    ayo_functions = RandomElementSkill(ayo_functions_queries["program-response"])
 
     def conversation_intents(self, user_input:str) -> str:
         """Performs an action given a Conversation intent.
@@ -23,3 +25,9 @@ class ConversationIntents():
         
         elif FindMatchingWord().find_match(user_input, self.greetings_queries["user-trigger"]):
             return self.greetings.get_random_element()
+
+        elif FindMatchingWord().find_match(user_input, self.ayo_functions_queries["user-trigger"]):
+            return self.ayo_functions.get_random_element()
+
+        else:
+            print ("Sorry, I didn't catch that")
