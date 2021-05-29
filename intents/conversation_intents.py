@@ -3,8 +3,8 @@ from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class ConversationIntents():
-    jokes_queries = ImportDialogue().import_dialogue("casual/jokes.yaml")
-    greetings_queries = ImportDialogue().import_dialogue("casual/greetings.yaml")
+    jokes_queries = ImportDialogue().import_dialogue("conversation/jokes.yaml")
+    greetings_queries = ImportDialogue().import_dialogue("conversation/greetings.yaml")
 
     jokes = RandomElementSkill(jokes_queries["program-response"])
     greetings = RandomElementSkill(greetings_queries["program-response"])
