@@ -28,9 +28,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# Use hashtable of keywords
-# str.split() for first word in a string
-# 1. Get first word of string
-# 2. Check word against hashtable of keywords, return true or false
-# 3. If true send result.text
