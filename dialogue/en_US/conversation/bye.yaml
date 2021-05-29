@@ -1,0 +1,20 @@
+---
+user-trigger:
+  - bye
+  - goodbye
+  - good bye
+  - see ya
+  - later
+  - sayonara
+  - so long
+  - farewell
+  
+program-response:
+  - Bye!
+  - Goodbye!
+  - Take care!
+  - See ya!
+  - See ya later alligator!
+  - Catch ya later!
+  - Have a good one!
+  

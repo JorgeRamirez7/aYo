@@ -13,6 +13,7 @@ class ConversationIntents():
     credits_queries = ImportDialogue().import_dialogue("conversation/credits.yaml")
     how_am_i_queries = ImportDialogue().import_dialogue("conversation/how-am-i.yaml")
     user_apologies_queries = ImportDialogue().import_dialogue("conversation/user-apologies.yaml")
+    bye_queries = ImportDialogue().import_dialogue("conversation/bye.yaml")
     unknown_queries = ImportDialogue().import_dialogue("conversation/unknown.yaml")
 
     jokes = RandomElementSkill(jokes_queries["program-response"])
@@ -23,6 +24,7 @@ class ConversationIntents():
     credits = RandomElementSkill(credits_queries["program-response"])
     how_am_i = RandomElementSkill(how_am_i_queries["program-response"])
     user_apologies = RandomElementSkill(user_apologies_queries["program-response"])
+    bye = RandomElementSkill(bye_queries["program-response"])
     unknown = RandomElementSkill(unknown_queries["program-response"])
 
     def conversation_intents(self, user_input:str) -> str:
@@ -57,6 +59,9 @@ class ConversationIntents():
 
         elif FindMatchingWord().find_match(user_input, self.user_apologies_queries["user-trigger"]):
             return self.user_apologies.get_random_element()
+
+        elif FindMatchingWord().find_match(user_input, self.bye_queries["user-trigger"]):
+            return self.bye.get_random_element()
 
         else:
             return self.unknown.get_random_element()
