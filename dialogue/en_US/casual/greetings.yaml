@@ -3,10 +3,10 @@ user-trigger:
   - hi
   - hello
   - good morning
-  - good afternoon
-  - good evening
+  - hey
   - what's up
   - what up
+  - howdy
   - yo
   
 program-response:
@@ -15,3 +15,7 @@ program-response:
   - Hello there.
   - Hey!
   - Hi! I can help you search through programming language documentation. Try saying, Java Arrays.
+  - Hello! Try asking me for the weather.
+  - Hey! I can help you set alarms, just ask anytime.
+  - Hi! If you link your Spotify Premium account with ayo, I can help you navigate through your favorite music.
+  
