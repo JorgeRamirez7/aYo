@@ -1,9 +1,9 @@
-"""Import a YAML file into a dictionary."""
 import configparser
 import logging
 import yaml
 
 class ImportDialogue():
+    """Import a YAML file into a dictionary."""
     def import_dialogue(self, file_name:str):
         """Imports dialogue from a given YAML file.
         

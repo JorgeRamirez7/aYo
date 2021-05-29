@@ -1,9 +1,9 @@
-"""Convert time values into a readable output."""
 import logging
 
 from utils.import_dialogue import ImportDialogue
 
 class ReadableTimeOutput():
+    """Convert time values into a readable output."""
     _dialogue = None
     requires_and_keyword = False
     nonzero_values_remaining = -1

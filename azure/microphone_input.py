@@ -1,8 +1,9 @@
-"""Handles input from a user's microphone; speech to text"""
 import azure.cognitiveservices.speech as speechsdk
 import configparser
 
 class MicrophoneInput():
+    """Handles input from a user's microphone; speech to text"""
+
     def get_voice_input(self):
         config = configparser.ConfigParser()
         config.read('config/config.ini')

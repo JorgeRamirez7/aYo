@@ -1,4 +1,3 @@
-"""Handles all possible aYo intents that a user may ask"""
 from intents.alarm_timer_intents import AlarmTimerIntents
 from intents.conversation_intents import ConversationIntents
 from intents.music_intents import MusicIntents
@@ -10,6 +9,8 @@ from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class Intents():
+    """Handles all possible aYo intents that a user may ask"""
+
     user_queries = ImportDialogue().import_dialogue("user-queries.yaml")
 
     def intents(self, user_input):

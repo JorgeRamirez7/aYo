@@ -1,9 +1,9 @@
-"""Search for a Stopwatch-related query and perform the desired intent."""
 from skills.music_skills import MusicSkill
 from utils.find_matching_word import FindMatchingWord
 
 class MusicIntents(object):
-    
+    """Search for a Stopwatch-related query and perform the desired intent."""
+
     def music_intents(self, user_input):
         key = user_input.split()[0]
         

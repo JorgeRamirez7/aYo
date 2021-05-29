@@ -1,7 +1,8 @@
-"""Open documentation website for a specific programming language"""
 import webbrowser
 
 class OpenDocumentationIntents():
+    """Open documentation website for a specific programming language"""
+
     def open_documentation_intents(self, user_input):
         language = ' '.join(user_input.split()[1:])
         language = language.lower()

@@ -1,13 +1,13 @@
-"""
- This is a Python program to find current weather details of any city
- using openweathermap api
-
- function getCurrentWeather("City Name Here") is the only method needed
-    it returns the current temperature in the city input into this function
-    it will just return just the the number as an interger however.
-"""
 import requests, json, math
 class Weather:
+    """
+     This is a Python program to find current weather details of any city
+     using openweathermap api
+
+     function getCurrentWeather("City Name Here") is the only method needed
+        it returns the current temperature in the city input into this function
+        it will just return just the the number as an interger however.
+    """
 
     def Get_Current_Weather(self, the_city_name):
         # this is where the api key goes

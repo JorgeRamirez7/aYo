@@ -1,8 +1,9 @@
-"""Search for a Stopwatch-related query and perform the desired intent."""
 from skills.stopwatch_skill import StopwatchSkill
 from utils.find_matching_word import FindMatchingWord
 
 class StopwatchIntents():
+    """Search for a Stopwatch-related query and perform the desired intent."""
+
     def stopwatch_intent(self, ayo_input:str) -> str:
         """Performs an action given a user intent for Stopwatch.
         

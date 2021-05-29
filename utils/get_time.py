@@ -1,4 +1,3 @@
-"""Extract time from user input."""
 import logging
 import re
 
@@ -7,6 +6,7 @@ from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class GetTime():
+    """Extract time from user input."""
     _time_values = None
 
     def __init__(self):

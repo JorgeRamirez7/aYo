@@ -1,4 +1,3 @@
-"""Perform Timer intents."""
 import datetime
 import multiprocessing
 import time
@@ -11,6 +10,7 @@ from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class TimerSkill():
+    """Perform Timer intents."""
     _dialogue = ImportDialogue().import_dialogue("timer.yaml")
 
     _timer = None

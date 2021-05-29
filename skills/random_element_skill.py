@@ -1,11 +1,12 @@
-"""Gets a unique random element from a list.
-There is never a repeated list item for at least 4 calls. 
-Must be a minimum of 4 variables"""
 import random
 
 from collections import deque
 
 class RandomElementSkill():
+    """Gets a unique random element from a list.
+       There is never a repeated list item for at least 4 calls. 
+       Must be a minimum of 4 variables
+    """
     def __init__(self, original_list):
         """Copies the parameter original_list to it's own self variable and a randomized list.
             

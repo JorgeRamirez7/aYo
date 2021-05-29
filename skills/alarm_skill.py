@@ -1,4 +1,3 @@
-"""Perform Alarm intents."""
 import multiprocessing
 import time
 
@@ -10,6 +9,7 @@ from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class AlarmSkill():
+    """Perform Alarm intents."""
     _dialogue = ImportDialogue().import_dialogue("alarm.yaml")
 
     _alarm = None

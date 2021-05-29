@@ -1,4 +1,3 @@
-"""Converts text to speech that is spoken out loud."""
 import azure.cognitiveservices.speech as speechsdk
 import configparser
 import logging
@@ -10,6 +9,8 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 from utils.import_dialogue import ImportDialogue
 
 class TextToSpeech():
+    """Converts text to speech that is spoken out loud."""
+
     def text_to_speech(self, user_input:str):
         """Speaks a given user_input string.
         

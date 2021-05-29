@@ -1,9 +1,9 @@
-"""Search for a given string in a given list."""
 import re
 
 from utils.import_dialogue import ImportDialogue
 
 class FindMatchingWord():
+    """Search for a given string in a given list."""
     query = None
 
     def __init__(self):

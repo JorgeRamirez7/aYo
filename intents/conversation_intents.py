@@ -3,6 +3,8 @@ from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class ConversationIntents():
+    """Handles Conversation intents that a user may ask"""
+
     jokes_queries = ImportDialogue().import_dialogue("conversation/jokes.yaml")
     greetings_queries = ImportDialogue().import_dialogue("conversation/greetings.yaml")
     ayo_functions_queries = ImportDialogue().import_dialogue("conversation/ayo-functions.yaml")
