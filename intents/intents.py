@@ -1,6 +1,6 @@
 """Handles all possible aYo intents that a user may ask"""
 from intents.alarm_timer_intents import AlarmTimerIntents
-from intents.casual_intents import CasualIntents
+from intents.conversation_intents import ConversationIntents
 from intents.music_intents import MusicIntents
 from intents.open_documentation_intents import OpenDocumentationIntents
 from intents.search_documentation_intents import SearchDocumentationIntents
@@ -33,4 +33,4 @@ class Intents():
             return MusicIntents().music_intents(user_input)
 
         else:
-            return CasualIntents().casual_intents(user_input)
+            return ConversationIntents().conversation_intents(user_input)
