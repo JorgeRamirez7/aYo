@@ -10,17 +10,13 @@ from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class AlarmSkill():
-    _dialogue = None
+    _dialogue = ImportDialogue().initialize_dialogue('alarm')
 
     _alarm = None
     _alarm_is_running = False
     _alarm_seconds = None
     _alarm_sfx = 'data/alarm.wav'
     _alarm_simplified_time = None
-
-    def __init__(self):
-        """Imports dialogue for Alarm from a YAML file and stores it in '_dialogue'."""
-        self._dialogue = ImportDialogue().initialize_dialogue('alarm')
 
     def set_alarm(self, user_input:str):
         """Informs user if alarm was successfully set and calls an alarm process.

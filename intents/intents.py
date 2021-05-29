@@ -10,8 +10,7 @@ from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class Intents():
-    def __init__(self):
-        self.user_queries = ImportDialogue().import_dialogue("user-queries.yaml")
+    user_queries = ImportDialogue().import_dialogue("user-queries.yaml")
 
     def intents(self, user_input):
         key = user_input.split()[0]
