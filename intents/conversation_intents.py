@@ -6,6 +6,7 @@ class ConversationIntents():
     """Handles Conversation intents that a user may ask"""
 
     jokes_queries = ImportDialogue().import_dialogue("conversation/jokes.yaml")
+    fun_facts_queries = ImportDialogue().import_dialogue("conversation/fun-facts.yaml")
     greetings_queries = ImportDialogue().import_dialogue("conversation/greetings.yaml")
     ayo_functions_queries = ImportDialogue().import_dialogue("conversation/ayo-functions.yaml")
     credits_queries = ImportDialogue().import_dialogue("conversation/credits.yaml")
@@ -14,6 +15,7 @@ class ConversationIntents():
     unknown_queries = ImportDialogue().import_dialogue("conversation/unknown.yaml")
 
     jokes = RandomElementSkill(jokes_queries["program-response"])
+    fun_facts = RandomElementSkill(fun_facts_queries["program-response"])
     greetings = RandomElementSkill(greetings_queries["program-response"])
     ayo_functions = RandomElementSkill(ayo_functions_queries["program-response"])
     credits = RandomElementSkill(credits_queries["program-response"])
@@ -33,6 +35,9 @@ class ConversationIntents():
         if FindMatchingWord().find_match(user_input, self.jokes_queries["user-trigger"]):
             return self.jokes.get_random_element()
         
+        if FindMatchingWord().find_match(user_input, self.fun_facts_queries["user-trigger"]):
+            return self.fun_facts.get_random_element()
+
         elif FindMatchingWord().find_match(user_input, self.greetings_queries["user-trigger"]):
             return self.greetings.get_random_element()
 
