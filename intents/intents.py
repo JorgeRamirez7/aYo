@@ -14,13 +14,17 @@ class Intents():
         self.user_queries = ImportDialogue().import_dialogue("user-queries.yaml")
 
     def intents(self, user_input):
-        if user_input[-1] == '?' or user_input.split()[0] == "Search":
+        key = user_input.split()[0]
+        key = key.lower()
+
+        if user_input[-1] == "?" or key == "search":
             return WebSearchIntents().web_search_intents(user_input)
     
-        elif user_input.split()[0] == "Open":
+        elif key == "open":
             return OpenDocumentationIntents().open_documentation_intents(user_input)
 
-        elif user_input.split()[0] == "C++" or user_input.split()[0] == "Python":
+        # probably should change this to use find_match in the future with more language support. works fine for now
+        elif key == "c++" or key == "python" or key == "css" or key == "html" or key == "javascript":
             return SearchDocumentationIntents().search_documentation_intents(user_input)
 
         elif FindMatchingWord().find_match(user_input, self.user_queries["stopwatch"]):

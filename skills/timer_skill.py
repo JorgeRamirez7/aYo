@@ -4,6 +4,8 @@ import multiprocessing
 import time
 
 from playsound import playsound
+
+from azure.text_to_speech import TextToSpeech
 from utils.get_time import GetTime
 from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
@@ -61,9 +63,11 @@ class TimerSkill():
         if self._timer_is_running:
             """Notify user that timer has been set with sound and text/voice."""
             playsound(self._timer_sfx)
-            print(self._dialogue["program-has-finished"]["confirmation"].format(self._timer_simplified_time))
-            """TODO: Change this from a print statement to calling a function that forces TTS."""
             self._timer_is_running = False
+
+            timer_message = self._dialogue["program-has-finished"]["confirmation"].format(self._timer_simplified_time)
+            TextToSpeech().text_to_speech(timer_message)
+
         else:
             print(self._dialogue["user-cancel"]["success-confirmation"].format(self._timer_simplified_time))
             self._timer_is_running = False
