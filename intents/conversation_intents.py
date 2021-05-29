@@ -8,6 +8,7 @@ class ConversationIntents():
     jokes_queries = ImportDialogue().import_dialogue("conversation/jokes.yaml")
     fun_facts_queries = ImportDialogue().import_dialogue("conversation/fun-facts.yaml")
     greetings_queries = ImportDialogue().import_dialogue("conversation/greetings.yaml")
+    thanks_queries = ImportDialogue().import_dialogue("conversation/thanks.yaml")
     ayo_functions_queries = ImportDialogue().import_dialogue("conversation/ayo-functions.yaml")
     credits_queries = ImportDialogue().import_dialogue("conversation/credits.yaml")
     how_am_i_queries = ImportDialogue().import_dialogue("conversation/how-am-i.yaml")
@@ -17,6 +18,7 @@ class ConversationIntents():
     jokes = RandomElementSkill(jokes_queries["program-response"])
     fun_facts = RandomElementSkill(fun_facts_queries["program-response"])
     greetings = RandomElementSkill(greetings_queries["program-response"])
+    thanks = RandomElementSkill(thanks_queries["program-response"])
     ayo_functions = RandomElementSkill(ayo_functions_queries["program-response"])
     credits = RandomElementSkill(credits_queries["program-response"])
     how_am_i = RandomElementSkill(how_am_i_queries["program-response"])
@@ -40,6 +42,9 @@ class ConversationIntents():
 
         elif FindMatchingWord().find_match(user_input, self.greetings_queries["user-trigger"]):
             return self.greetings.get_random_element()
+
+        elif FindMatchingWord().find_match(user_input, self.thanks_queries["user-trigger"]):
+            return self.thanks.get_random_element()
 
         elif FindMatchingWord().find_match(user_input, self.ayo_functions_queries["user-trigger"]):
             return self.ayo_functions.get_random_element()
