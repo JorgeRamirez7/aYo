@@ -1,15 +1,5 @@
 ---
 # "Ayo, hello!"
-user-trigger:
-  - hi
-  - hello
-  - good morning
-  - hey
-  - what's up
-  - what up
-  - howdy
-  - yo
-  
 program-response:
   - Hello, I hope you're having a great day.
   - What's up.

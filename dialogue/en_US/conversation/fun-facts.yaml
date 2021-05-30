@@ -1,11 +1,5 @@
 ---
 # "Ayo, tell me a fun fact."
-user-trigger:
-  - fun
-  - interesting
-  - fact
-  - cool
-
 program-response:
   - Did you know that people using computers blink around seven times per minute? That's 13 less blinks than normal.
   - Did you know that NASA was once hacked by a 15 year old student?

@@ -1,15 +1,5 @@
 ---
 # "Ayo, goodbye!"
-user-trigger:
-  - bye
-  - goodbye
-  - good bye
-  - see ya
-  - later
-  - sayonara
-  - so long
-  - farewell
-  
 program-response:
   - Bye!
   - Goodbye!

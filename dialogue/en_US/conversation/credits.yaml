@@ -1,13 +1,5 @@
 ---
 # "Ayo, who created you?"
-user-trigger:
-  - made you            # Who made you?
-  - credits
-  - created you
-  - were you made       # By whom were you made?
-  - were you created    # By whom were you created?
-  - your parents
-
 program-response:
   - I was created by 4 very bright students at Seattle Pacific University.
   - I was created as part of a Senior Capstone project at Seattle Pacific University.

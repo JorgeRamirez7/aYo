@@ -1,13 +1,5 @@
 ---
 # "Ayo, what can you do?"
-user-trigger:
-  - you do          # what can you do?
-  - you do this     # can you do this?
-  - you can do      # what are the things that you can do?
-  - ayo do          # can ayo do ____ ?
-  - hey yo do
-  - can you         # can you ____ ?
-
 program-response:
   - I can help you navigate programming documentation. Try asking, Python lists.
   - I can help you search the web. Try asking, Search artificial intelligence.

@@ -1,10 +1,5 @@
 ---
 # "Ayo, tell me a joke"
-user-trigger:
-  - joke
-  - jokes
-  - funny
-
 # jokes obtained from: https://github.com/wesbos/dad-jokes
 program-response:
   - What is the object oriented way to become wealthy? Inheritance.

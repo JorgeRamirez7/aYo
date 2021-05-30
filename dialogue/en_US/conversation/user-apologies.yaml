@@ -1,11 +1,5 @@
 ---
 # "Ayo, I'm sorry"
-user-trigger:
-  - sorry
-  - apologize
-  - my bad
-  - forgive
-
 program-response:
   - No need to apologize, I'm happy to help!
   - It's OK, we're all humans after all!

@@ -1,16 +1,5 @@
 ---
 # Ayo, thank you!"
-user-trigger:
-  - thank
-  - thanks
-  - appreciate
-  - appreciated
-  - love
-  - gracias
-  - wow
-  - beautiful
-  - amazing
-
 program-response:
   - I'm glad to help!
   - My pleasure.

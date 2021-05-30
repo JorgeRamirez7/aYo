@@ -4,6 +4,7 @@ from utils.import_dialogue import ImportDialogue
 
 class ConversationIntents():
     """Handles Conversation intents that a user may ask"""
+    conversation_queries = ImportDialogue().import_dialogue("intents/conversation-queries.yaml")
 
     jokes_queries = ImportDialogue().import_dialogue("conversation/jokes.yaml")
     fun_facts_queries = ImportDialogue().import_dialogue("conversation/fun-facts.yaml")
@@ -36,31 +37,31 @@ class ConversationIntents():
             Returns:
                 A Conversation response string for aYo to speak/display.
         """
-        if FindMatchingWord().find_match(user_input, self.jokes_queries["user-trigger"]):
+        if FindMatchingWord().find_match(user_input, self.conversation_queries["joke"]):
             return self.jokes.get_random_element()
         
-        if FindMatchingWord().find_match(user_input, self.fun_facts_queries["user-trigger"]):
+        if FindMatchingWord().find_match(user_input, self.conversation_queries["fun-fact"]):
             return self.fun_facts.get_random_element()
 
-        elif FindMatchingWord().find_match(user_input, self.greetings_queries["user-trigger"]):
+        elif FindMatchingWord().find_match(user_input, self.conversation_queries["greeting"]):
             return self.greetings.get_random_element()
 
-        elif FindMatchingWord().find_match(user_input, self.thanks_queries["user-trigger"]):
+        elif FindMatchingWord().find_match(user_input, self.conversation_queries["thanks"]):
             return self.thanks.get_random_element()
 
-        elif FindMatchingWord().find_match(user_input, self.ayo_functions_queries["user-trigger"]):
+        elif FindMatchingWord().find_match(user_input, self.conversation_queries["ayo-functions"]):
             return self.ayo_functions.get_random_element()
         
-        elif FindMatchingWord().find_match(user_input, self.credits_queries["user-trigger"]):
+        elif FindMatchingWord().find_match(user_input, self.conversation_queries["credits"]):
             return self.credits.get_random_element()
 
-        elif FindMatchingWord().find_match(user_input, self.how_am_i_queries["user-trigger"]):
+        elif FindMatchingWord().find_match(user_input, self.conversation_queries["how-am-i"]):
             return self.how_am_i.get_random_element()
 
-        elif FindMatchingWord().find_match(user_input, self.user_apologies_queries["user-trigger"]):
+        elif FindMatchingWord().find_match(user_input, self.conversation_queries["user-apologies"]):
             return self.user_apologies.get_random_element()
 
-        elif FindMatchingWord().find_match(user_input, self.bye_queries["user-trigger"]):
+        elif FindMatchingWord().find_match(user_input, self.conversation_queries["bye"]):
             return self.bye.get_random_element()
 
         else:
