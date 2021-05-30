@@ -35,8 +35,8 @@ class Intents():
         elif FindMatchingWord().find_match(user_input, self.user_queries["music"]):
             return MusicIntents().music_intents(user_input)
 
-        elif FindMatchingWord().find_match(user_input, FindMatchingWord().query["weather"]):
-            return WeatherIntents().weahter_intents(user_input)
+        #elif FindMatchingWord().find_match(user_input, FindMatchingWord().query["weather"]):
+        #    return WeatherIntents().weahter_intents(user_input)
 
         else:
             return ConversationIntents().conversation_intents(user_input)
