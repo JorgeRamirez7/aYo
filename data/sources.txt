@@ -1,1 +1,2 @@
-alarm.wav: https://freetone.org/ringtones/sms/dilin-10576
+alarm.wav: https://freesound.org/people/Thoribass/sounds/254819/
+intro.wav: https://freesound.org/people/TolerableDruid6/sounds/461008/
