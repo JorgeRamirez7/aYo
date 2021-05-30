@@ -12,18 +12,15 @@ class Intents():
     """Handles all possible aYo intents that a user may ask"""
 
     user_queries = ImportDialogue().import_dialogue("intents/user-queries.yaml")
-    open_programming_language_queries = ImportDialogue().import_dialogue("intents/open-programming-language.yaml")
-    programming_language_queries = ImportDialogue().import_dialogue("intents/programming-languages.yaml")
-    search_web_queries = ImportDialogue().import_dialogue("intents/search-web.yaml")
 
     def intents(self, user_input):
-        if FindMatchingWord().get_first_word(user_input, self.search_web_queries["user-trigger"]):
+        if FindMatchingWord().get_first_word(user_input, self.user_queries["web-search"]):
             return WebSearchIntents().web_search_intents(user_input)
     
-        elif FindMatchingWord().get_first_word(user_input, self.open_programming_language_queries["user-trigger"]):
+        elif FindMatchingWord().get_first_word(user_input, self.user_queries["open-documentation"]):
             return OpenDocumentationIntents().open_documentation_intents(user_input)
 
-        elif FindMatchingWord().get_first_word(user_input, self.programming_language_queries["user-trigger"]):
+        elif FindMatchingWord().get_first_word(user_input, self.user_queries["search-documentation"]):
             return SearchDocumentationIntents().search_documentation_intents(user_input)
 
         elif FindMatchingWord().find_match(user_input, self.user_queries["stopwatch"]):

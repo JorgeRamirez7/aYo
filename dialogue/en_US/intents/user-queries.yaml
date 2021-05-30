@@ -20,3 +20,21 @@ music:
   - continue
   - proceed
   - shuffle
+
+# When triggered, opens up a search engine in a browser to search for everything following this keyword.
+web-search:
+  - Search
+ 
+# After user-trigger is called, a website for a specific programming language is opened.
+open-documentation:
+  - Open
+
+# Programming language documentation websites that aYo supports.
+# Note that this is NOT case sensitive.
+search-documentation:
+  - C++
+  - Python
+  - CSS
+  - HTML
+  - JavaScript
+  
