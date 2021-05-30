@@ -12,7 +12,7 @@ class FindMatchingWord():
 
     def find_match(self, input:str, words_list:str) -> bool:
         """Searches for a given input in a given list of words.
-        
+
             Args:
                 input: The string input from a user, indicating their desired aYo action.
                 words_list: The dictionary of strings to search for 'input' in.
@@ -23,15 +23,15 @@ class FindMatchingWord():
         """
         for word in words_list:
             match_found = re.search(r"\b{}\b".format(word), input, re.IGNORECASE)
-            
+
             if match_found:
                 return True
-        
+
         return False
 
     def find_match_single_word(self, input:str, single_word:str) -> bool:
         """Searches and determines if input is equal to a single_word.
-        
+
             Args:
                 input: The string input from a user.
                 single_word: The word we are comparing input with.
@@ -49,7 +49,7 @@ class FindMatchingWord():
 
     def get_previous_word(self, input:str, word_search:str):
         """Searches for the word before a given word in an input.
-        
+
             Args:
                 input: The string input from a user.
                 word_search: The word that is being searched.
@@ -59,3 +59,11 @@ class FindMatchingWord():
                 None if the word before 'word_search' is not found.
         """
         return re.search(r"\w+(?=\s+{})".format(word_search), input, re.IGNORECASE).group(0)
+
+    def get_word_after_weather_in(self, input):
+        """
+            Searches for the word after the substrin weather in
+
+            returns that word
+        """
+        return re.search("^weather in: (\w+)", input)
