@@ -15,8 +15,8 @@
                 will return true if the username is not taken and the database was updated
 """
 
-from aYo_decode import Decode
-from aYo_encode import Encode
+from .aYo_decode import Decode
+from .aYo_encode import Encode
 
 decoder = Decode()
 encoder = Encode()
@@ -45,8 +45,8 @@ def Get_List(text):
 
 class Database:
 
-    from aYo_decode import Decode
-    from aYo_encode import Encode
+    from .aYo_decode import Decode
+    from .aYo_encode import Encode
 
     decoder = Decode()
     encoder = Encode()

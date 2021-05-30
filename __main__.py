@@ -5,7 +5,7 @@ from intents.intents import Intents
 def main():
     MICROPHONE_INPUT = True
     TEXT_TO_SPEECH = True
-
+    
     ayo_is_running = True
 
     while ayo_is_running:

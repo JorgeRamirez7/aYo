@@ -1,6 +1,15 @@
+import os, sys
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+overdir = os.path.dirname(parentdir)
+sys.path.append(overdir)
+
+import __main__
 from .languages_window import LanguagesWindow
 from PyQt5 import QtWidgets, uic
+from PyQt5.QtCore import QThread, QThreadPool
 from .settings_window import SettingsWindow
+from .worker import Worker
 
 
 class AyoBody(QtWidgets.QMainWindow):
@@ -14,6 +23,11 @@ class AyoBody(QtWidgets.QMainWindow):
         self.startBtn.clicked.connect(self.listening_activated)
         self.supportedBtn.clicked.connect(self.view_languages)
         self.settingsBtn.clicked.connect(self.settings)
+
+        self.threadpool = QThreadPool()
+
+        print("overdirectory = " + overdir)
+        main.main()
 
     def listening_activated(self):
         print("activation Placeholder")
