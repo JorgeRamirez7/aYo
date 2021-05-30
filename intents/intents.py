@@ -33,7 +33,7 @@ class Intents():
             return MusicIntents().music_intents(user_input)
 
         elif FindMatchingWord().find_match(user_input, FindMatchingWord().query["weather"]):
-            return WeatherIntents().weahter_intents(user_input)
+            return WeatherIntents().weather_intents(user_input)
 
         else:
             return "Hmm, I don't understand that"
