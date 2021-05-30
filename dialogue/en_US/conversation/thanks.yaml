@@ -1,4 +1,5 @@
 ---
+# Ayo, thank you!"
 user-trigger:
   - thank
   - thanks
@@ -11,10 +12,9 @@ user-trigger:
   - amazing
 
 program-response:
-  - Thank you! I'm glad to help!
+  - I'm glad to help!
   - My pleasure.
   - You're welcome.
   - It's my pleasure.
   - No problem
   - Don't mention it.
-  

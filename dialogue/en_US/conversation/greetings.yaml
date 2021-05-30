@@ -1,4 +1,5 @@
 ---
+# "Ayo, hello!"
 user-trigger:
   - hi
   - hello
@@ -10,12 +11,11 @@ user-trigger:
   - yo
   
 program-response:
-  - Hello! I hope you're having a great day.
+  - Hello, I hope you're having a great day.
   - What's up.
   - Hello there.
   - Hey!
-  - Hi! I can help you search through programming language documentation. Try saying, Java Arrays.
+  - Hi! I can help you search through programming language documentation, Try saying, Java Arrays.
   - Hello! Try asking me for the weather.
   - Hey! I can help you set alarms, just ask anytime.
   - Hi! If you link your Spotify Premium account with ayo, I can help you navigate through your favorite music.
-  

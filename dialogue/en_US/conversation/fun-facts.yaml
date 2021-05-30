@@ -1,4 +1,5 @@
 ---
+# "Ayo, tell me a fun fact."
 user-trigger:
   - fun
   - interesting
@@ -9,7 +10,6 @@ program-response:
   - Did you know that people using computers blink around seven times per minute? That's 13 less blinks than normal.
   - Did you know that NASA was once hacked by a 15 year old student?
   - Here's a fun fact, you can type the word "typewriter" by using only a single row on your keyboard.
-  - The first computer mouse was made out of wood!
+  - Did you know that the first computer mouse was made out of wood?
   - The very first webpage is still up and running!
   - The QWERTY keyboard was created in order to slow down users, can you believe that?
-  

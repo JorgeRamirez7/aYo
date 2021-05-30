@@ -1,14 +1,16 @@
 ---
+# "Ayo, tell me a joke"
 user-trigger:
   - joke
   - jokes
   - funny
 
+# jokes obtained from: https://github.com/wesbos/dad-jokes
 program-response:
-  - a very funny joke.
-  - this one in particular is extremely funny.
-  - a funny one I am.
-  - I am very creative with my jokes.
-  - are there actually AI-generated jokes somewhere out there?
-  - that would be pretty neat.
-  
+  - What is the object oriented way to become wealthy? Inheritance.
+  - Why did the programmer quit his job? Because he didn't get arrays!
+  - What did the Java code say to the C code? You've got no class.
+  - Why do Java programmers have to wear glasses? Because they don't C#!
+  - Why do programmers prefer dark mode? Because light attracts bugs!
+  - You know what's the best thing about booleans? Even if you're wrong, you are only off by a bit!
+  - Why do UPS drivers get nervous when their internet is unstable? Because they might lose packets!

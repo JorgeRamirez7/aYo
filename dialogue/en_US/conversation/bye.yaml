@@ -1,4 +1,5 @@
 ---
+# "Ayo, goodbye!"
 user-trigger:
   - bye
   - goodbye
@@ -17,4 +18,3 @@ program-response:
   - See ya later alligator!
   - Catch ya later!
   - Have a good one!
-  

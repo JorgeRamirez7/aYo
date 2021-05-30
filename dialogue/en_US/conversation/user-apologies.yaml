@@ -1,4 +1,5 @@
 ---
+# "Ayo, I'm sorry"
 user-trigger:
   - sorry
   - apologize
@@ -10,5 +11,4 @@ program-response:
   - It's OK, we're all humans after all!
   - It's alright.
   - No worries.
-  - Don't worry about it, I also make mistakes!
- 
+  - Don't worry about it.
