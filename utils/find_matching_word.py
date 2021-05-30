@@ -64,7 +64,7 @@ class FindMatchingWord():
 
         except:
             logging.warning("get_previous_word in FindMatchingWord could not find a match.")
-            return None
+            return False
 
     def get_next_word(self, input:str, word_search:str):
         """Searches for the word after a given word in an input.
@@ -82,9 +82,9 @@ class FindMatchingWord():
 
         except:
             logging.warning("get_next_word in FindMatchingWord could not find a match.")
-            return None
+            return False
 
-    def get_first_word(self, input:str, word_search:str):
+    def get_first_word(self, input:str, words_list:str):
         """Searches for the word word_search in the first word of an input.
         
             Args:
@@ -95,9 +95,11 @@ class FindMatchingWord():
                 The word 'word_search' if found during regex search.
                 None if the word 'word_search' is not found as the first input of string input.
         """
-        try:
-            return re.match(r"{}\b".format(word_search), input, re.IGNORECASE).group(0)
+        first_word = input.split()[0]
+        first_word = first_word.lower()
 
-        except:
-            logging.warning("get_first_word in FindMatchingWord could not find a match.")
-            return None
+        for word in words_list:
+            if first_word == word.lower():
+                return True
+            
+        return False
