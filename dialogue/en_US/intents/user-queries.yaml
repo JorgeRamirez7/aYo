@@ -26,29 +26,9 @@ reset:
 alarm:
   - alarm
   - timer
-
-alarm-only:
-  - alarm
-
-timer-only:
-  - timer
   
 stopwatch:
   - stopwatch
-  
-trigger-alarm:
-  - AM
-  - PM
-  - ":"   # Azure voice-to-text adds colon to user input if time is recognized.
-
-trigger-timer:
-  - in
-  - second
-  - seconds
-  - minute
-  - minutes
-  - hour
-  - hours
 
 music:
   - play
