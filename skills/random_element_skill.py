@@ -1,3 +1,4 @@
+import logging
 import random
 
 from collections import deque
@@ -45,7 +46,8 @@ class RandomElementSkill():
         """Gets the random element from a list."""
         """List must contain at least 4 elements."""
         if len(self.original_list) < 4:
-            return "OH NOOOOO"
+            logging.error("The list obtained by get_random_element() within RandomElementSkill has less than 4 items.")
+            return None
 
         if not self.randomized_list:
             self.shuffle_random_list()
