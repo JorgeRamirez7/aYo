@@ -1,0 +1,5 @@
+---
+# After user-trigger is called, a website for a specific programming language is opened.
+user-trigger:
+  - Open
+  

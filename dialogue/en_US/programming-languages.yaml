@@ -1,0 +1,10 @@
+---
+# Programming language documentation websites that aYo supports.
+# Note that this is NOT case sensitive.
+user-trigger:
+  - C++
+  - Python
+  - CSS
+  - HTML
+  - JavaScript
+  

@@ -1,0 +1,5 @@
+---
+# When triggered, opens up a search engine in a browser to search for everything following this keyword.
+user-trigger:
+  - Search
+  
