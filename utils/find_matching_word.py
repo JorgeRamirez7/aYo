@@ -79,7 +79,7 @@ class FindMatchingWord():
                 None if the word after 'word_search' is not found.
         """
         try:
-            word_search = re.search(r"(?<{}\s)[^.\s?!]*".format(word_search), input, re.IGNORECASE).group(0)
+            word_search = re.search(r"(?<={}\s)[^.\s!?]*".format(word_search), input, re.IGNORECASE).group(0)
             return word_search
 
         except:
