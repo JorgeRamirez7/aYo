@@ -60,8 +60,7 @@ class FindMatchingWord():
                 None if the word before 'word_search' is not found.
         """
         try:
-            word_search = re.search(r"\w+(?=\s+{})".format(word_search), input, re.IGNORECASE).group(0)
-            return word_search
+            return re.search(r"\w+(?=\s+{})".format(word_search), input, re.IGNORECASE).group(0)
 
         except:
             logging.warning("get_previous_word in FindMatchingWord could not find a match.")
@@ -79,8 +78,7 @@ class FindMatchingWord():
                 None if the word after 'word_search' is not found.
         """
         try:
-            word_search = re.search(r"(?<={}\s)[^.\s!?]*".format(word_search), input, re.IGNORECASE).group(0)
-            return word_search
+            return re.search(r"(?<={}\s)[^.\s!?]*".format(word_search), input, re.IGNORECASE).group(0)
 
         except:
             logging.warning("get_next_word in FindMatchingWord could not find a match.")
@@ -98,8 +96,7 @@ class FindMatchingWord():
                 None if the word 'word_search' is not found as the first input of string input.
         """
         try:
-            found_word = re.match(r"{}\b".format(word_search), input, re.IGNORECASE).group(0)
-            return found_word
+            return re.match(r"{}\b".format(word_search), input, re.IGNORECASE).group(0)
 
         except:
             logging.warning("get_first_word in FindMatchingWord could not find a match.")
