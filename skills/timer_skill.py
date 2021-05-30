@@ -2,6 +2,7 @@ import datetime
 import multiprocessing
 import time
 
+from pathlib import Path
 from playsound import playsound
 
 from azure.text_to_speech import TextToSpeech
@@ -11,7 +12,7 @@ from utils.readable_time_output import ReadableTimeOutput
 
 class TimerSkill():
     """Perform Timer intents."""
-    _dialogue = ImportDialogue().import_dialogue("skills/timer.yaml")
+    _dialogue = ImportDialogue().import_dialogue(Path("skills/timer.yaml"))
 
     _timer = None
     _timer_is_running = False

@@ -1,10 +1,12 @@
+from pathlib import Path
+
 from skills.music_skills import MusicSkill
 from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class MusicIntents(object):
     """Search for a Stopwatch-related query and perform the desired intent."""
-    music_queries = ImportDialogue().import_dialogue("intents/music.yaml")
+    music_queries = ImportDialogue().import_dialogue(Path("intents/music.yaml"))
 
     def music_intents(self, user_input):
         key = user_input.split()[0]

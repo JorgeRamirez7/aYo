@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import configparser
 import logging
 import yaml
@@ -7,7 +9,7 @@ class ImportDialogue():
 
     try:
         config = configparser.ConfigParser()
-        config.read('config/ayo.ini')
+        config.read(Path('config/ayo.ini'))
 
         ayo_localization = config.get('general', 'localization')
         folder_directory = config.get('dialogue', 'directory')

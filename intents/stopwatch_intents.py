@@ -1,10 +1,12 @@
+from pathlib import Path
+
 from skills.stopwatch_skill import StopwatchSkill
 from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class StopwatchIntents():
     """Search for a Stopwatch-related query and perform the desired intent."""
-    verb_queries = ImportDialogue().import_dialogue("intents/verbs.yaml")
+    verb_queries = ImportDialogue().import_dialogue(Path("intents/verbs.yaml"))
 
     def stopwatch_intent(self, ayo_input:str) -> str:
         """Performs an action given a user intent for Stopwatch.

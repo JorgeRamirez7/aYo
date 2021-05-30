@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from intents.alarm_timer_intents import AlarmTimerIntents
 from intents.conversation_intents import ConversationIntents
 from intents.music_intents import MusicIntents
@@ -12,7 +14,7 @@ from utils.import_dialogue import ImportDialogue
 class Intents():
     """Handles all possible aYo intents that a user may ask"""
 
-    user_queries = ImportDialogue().import_dialogue("intents/user-queries.yaml")
+    user_queries = ImportDialogue().import_dialogue(Path("intents/user-queries.yaml"))
 
     def intents(self, user_input):
         if FindMatchingWord().get_first_word(user_input, self.user_queries["web-search"]):
