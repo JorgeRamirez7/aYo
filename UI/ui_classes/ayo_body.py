@@ -4,7 +4,7 @@ parentdir = os.path.dirname(currentdir)
 overdir = os.path.dirname(parentdir)
 sys.path.append(overdir)
 
-import __main__
+#from main import main
 from .languages_window import LanguagesWindow
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QThread, QThreadPool
@@ -26,10 +26,10 @@ class AyoBody(QtWidgets.QMainWindow):
 
         self.threadpool = QThreadPool()
 
-        print("overdirectory = " + overdir)
-        main.main()
-
+      #  print("overdirectory = " + overdir)
+        
     def listening_activated(self):
+        #main.main()
         print("activation Placeholder")
 
     def view_languages(self):

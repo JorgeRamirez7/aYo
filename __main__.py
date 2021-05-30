@@ -2,10 +2,13 @@ from azure.microphone_input import MicrophoneInput
 from azure.text_to_speech import TextToSpeech
 from intents.intents import Intents
 
+from ui.ui_classes.ayo_login import AyoLogin
+from PyQt5 import QtWidgets
+
 def main():
     MICROPHONE_INPUT = True
     TEXT_TO_SPEECH = True
-    
+
     ayo_is_running = True
 
     while ayo_is_running:
@@ -27,6 +30,14 @@ def main():
         print()
 
 if __name__ == "__main__":
+
+
+#If this is giving you an error add "python.analysis.extraPaths": ["./UI"] to your settings.json file
+    app = QtWidgets.QApplication([])
+    win = AyoLogin()
+    win.show()
+    app.exec()
+
     main()
 
 # Use hashtable of keywords

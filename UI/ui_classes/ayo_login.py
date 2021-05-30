@@ -1,5 +1,4 @@
-import re
-import os
+import os, re
 
 from .ayo_body import AyoBody
 from .new_user_window import NewUserWindow
