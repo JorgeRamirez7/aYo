@@ -85,3 +85,22 @@ class FindMatchingWord():
         except:
             logging.warning("get_next_word in FindMatchingWord could not find a match.")
             return None
+
+    def get_first_word(self, input:str, word_search:str):
+        """Searches for the word word_search in the first word of an input.
+        
+            Args:
+                input: The string input from a user.
+                word_search: The word that is being searched.
+
+            Returns:
+                The word 'word_search' if found during regex search.
+                None if the word 'word_search' is not found as the first input of string input.
+        """
+        try:
+            found_word = re.match(r"{}\b".format(word_search), input, re.IGNORECASE).group(0)
+            return found_word
+
+        except:
+            logging.warning("get_first_word in FindMatchingWord could not find a match.")
+            return None
