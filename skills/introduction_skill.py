@@ -5,7 +5,7 @@ from utils.import_dialogue import ImportDialogue
 
 class IntroductionSkill():
     """Introduction/greeting when a user start aYo."""
-    introduction_queries = ImportDialogue().import_dialogue("introductions.yaml")
+    introduction_queries = ImportDialogue().import_dialogue("skills/introductions.yaml")
     introduction = RandomElementSkill(introduction_queries["program-response"])
 
     def ayo_intro(self):

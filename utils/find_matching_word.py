@@ -9,7 +9,7 @@ class FindMatchingWord():
 
     def __init__(self):
         """Imports text for all queries from a YAML file and stores it in 'query'."""
-        FindMatchingWord.query = ImportDialogue().import_dialogue("user-queries.yaml")
+        FindMatchingWord.query = ImportDialogue().import_dialogue("intents/user-queries.yaml")
 
     def find_match(self, input:str, words_list:str) -> bool:
         """Searches for a given input in a given list of words.

@@ -11,10 +11,10 @@ from utils.import_dialogue import ImportDialogue
 class Intents():
     """Handles all possible aYo intents that a user may ask"""
 
-    user_queries = ImportDialogue().import_dialogue("user-queries.yaml")
-    open_programming_language_queries = ImportDialogue().import_dialogue("open-programming-language.yaml")
-    programming_language_queries = ImportDialogue().import_dialogue("programming-languages.yaml")
-    search_web_queries = ImportDialogue().import_dialogue("search-web.yaml")
+    user_queries = ImportDialogue().import_dialogue("intents/user-queries.yaml")
+    open_programming_language_queries = ImportDialogue().import_dialogue("intents/open-programming-language.yaml")
+    programming_language_queries = ImportDialogue().import_dialogue("intents/programming-languages.yaml")
+    search_web_queries = ImportDialogue().import_dialogue("intents/search-web.yaml")
 
     def intents(self, user_input):
         if FindMatchingWord().get_first_word(user_input, self.search_web_queries["user-trigger"]):
@@ -27,7 +27,6 @@ class Intents():
             return SearchDocumentationIntents().search_documentation_intents(user_input)
 
         elif FindMatchingWord().find_match(user_input, self.user_queries["stopwatch"]):
-            print(FindMatchingWord().get_first_word(user_input, "set"))
             return StopwatchIntents().stopwatch_intent(user_input)
 
         elif FindMatchingWord().find_match(user_input, self.user_queries["alarm"]):
