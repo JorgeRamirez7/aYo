@@ -59,3 +59,16 @@ class FindMatchingWord():
                 None if the word before 'word_search' is not found.
         """
         return re.search(r"\w+(?=\s+{})".format(word_search), input, re.IGNORECASE).group(0)
+
+    def get_next_word(self, input:str, word_search:str):
+        """Searches for the word after a given word in an input.
+        
+            Args:
+                input: The string input from a user.
+                word_search: The word that is being searched.
+
+            Returns:
+                The word after 'word_search' if found during regex search.
+                None if the word after 'word_search' is not found.
+        """
+        return re.search(r"(?<=weather in )[^.\s?!]*".format(word_search), input, re.IGNORECASE).group(0)
