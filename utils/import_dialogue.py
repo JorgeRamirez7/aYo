@@ -26,7 +26,7 @@ class ImportDialogue():
                 All values in the given file in the form of a dictionary.
                 None if the YAML file was not able to be loaded.
         """
-        file_directory = Path("{0}{1}\{2}".format(self.folder_directory, self.ayo_localization, file_name))
+        file_directory = Path("dialogue/en_US/{}".format(file_name))
 
         try:
             with open(file_directory) as file:
