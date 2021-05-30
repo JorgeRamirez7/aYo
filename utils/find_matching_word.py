@@ -66,4 +66,4 @@ class FindMatchingWord():
 
             returns that word
         """
-        return re.search("^weather in: (\w+)", input)
+        return re.search("^weather in: (\w+)", input).groups()
