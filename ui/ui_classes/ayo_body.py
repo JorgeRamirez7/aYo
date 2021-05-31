@@ -87,9 +87,9 @@ class AyoBody(QtWidgets.QMainWindow):
 
     def settings(self):
         self.w = None
-        self.w = SettingsWindow(self)
-        self.w.show()
-        self.hide()
+        #self.w = SettingsWindow(self)
+        #self.w.show()
+        #self.hide()
 
     def enable_button(self):
         self.timer.stop()
