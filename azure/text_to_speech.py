@@ -20,13 +20,19 @@ class TextToSpeech():
     ayo_config = configparser.ConfigParser()
     ayo_config.read(Path("config/ayo.ini"))
 
-    speech_key = azure_config.get('azure_speech', 'key')
-    service_region = azure_config.get('azure_speech', 'service_region')
-    speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
-    speech_config.set_speech_synthesis_output_format(SpeechSynthesisOutputFormat["Riff24Khz16BitMonoPcm"])
+    try:
+        speech_key = azure_config.get('azure_speech', 'key')
+        service_region = azure_config.get('azure_speech', 'service_region')
+        speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+        speech_config.set_speech_synthesis_output_format(SpeechSynthesisOutputFormat["Riff24Khz16BitMonoPcm"])
+        audio_config = AudioOutputConfig(use_default_speaker=True)
+        synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 
-    audio_config = AudioOutputConfig(use_default_speaker=True)
-    synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+    except:
+        logging.critical("There is no 'azure_speech' value in config/config.ini")
+        playsound(str(Path("data/warning_azure_api_missing.mp3")))
+
+    
 
     """Gets the default voice settings for the specified gender in ayo.ini."""
     ayo_localization = ayo_config.get('general', 'localization')
@@ -77,6 +83,5 @@ class TextToSpeech():
                     print("Error details: {}".format(cancellation_details.error_details))
 
             print("\nayo output: {}".format(user_input))
-            warning_sfx = Path("data/warning_azure_api_missing.mp3")
-            playsound(str(warning_sfx))
+            playsound(str(Path("data/warning_azure_api_missing.mp3")))
             logging.critical("Please ensure that a proper key and service region is provided for Azure within config/ayo.ini.")
