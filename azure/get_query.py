@@ -18,7 +18,6 @@ class GetQuery():
         microphone_input = True
         text_to_speech = True
 
-        print("Begin speaking...")
         if ayo_keyword:
                 AyoKeyword().ayo_keyword()
                 print("Start speaking")
@@ -38,7 +37,8 @@ class GetQuery():
             ayo_result = Intents().intents(user_input)
             if ayo_result is not None and user_input != "":
                 if text_to_speech:
-                    playsound(self._sfx_ayo_success)
+                    if ayo_keyword == True:
+                        playsound(self._sfx_ayo_success)
                     TextToSpeech().text_to_speech(ayo_result)
                 else:
                     print(ayo_result)
