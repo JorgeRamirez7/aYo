@@ -48,9 +48,9 @@ class GetQuery():
                         TextToSpeech().text_to_speech(ayo_result)
                     else:
                         print(ayo_result)
-            else:
-                if ayo_keyword:
-                    playsound(self._sfx_ayo_failed)
+                else:
+                    if ayo_keyword:
+                        playsound(self._sfx_ayo_failed)
             print()
 
     def ayo_activated(self):
