@@ -7,4 +7,6 @@ if __name__ == "__main__":
     if ayo_introduction:
         IntroductionSkill().ayo_intro()
     
-    GetQuery().query()
+    # Work-mode query simulation
+    while True:
+        GetQuery().query()
