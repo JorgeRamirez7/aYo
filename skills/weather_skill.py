@@ -1,4 +1,9 @@
 import requests, json, math
+from pathlib import Path
+
+from skills.random_element_skill import RandomElementSkill
+from utils.import_dialogue import ImportDialogue
+
 class Weather:
     """
      This is a Python program to find current weather details of any city
@@ -8,6 +13,9 @@ class Weather:
         it returns the current temperature in the city input into this function
         it will just return just the the number as an interger however.
     """
+
+    _dialogue = ImportDialogue().import_dialogue(Path("skills/weather.yaml"))
+    _random_weather_forecast = RandomElementSkill(_dialogue["weather"])
 
     def Get_Current_Weather(self, the_city_name):
         # this is where the api key goes
@@ -63,11 +71,9 @@ class Weather:
             # store the value corresponding to the "description" key at
             #   the 0th index of z
             weather_description = z[0]["description"]
-            other_description = "Today in " + city_name + " expect " + weather_description
-            temp_description = " with a temperature of " + str(updated_temperature) + " degrees fahrenheit. "
-            #return the values wanted here
-            return "" + other_description + temp_description
+
+            weather_forecast = self._random_weather_forecast.get_random_element().format(city_name, weather_description, str(updated_temperature))
+            return weather_forecast
 
         else:
-            print(" Error City " + city_name + " not found. ")
-            return 0
+            return self._dialogue["error"].format(city_name)
