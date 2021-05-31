@@ -61,19 +61,23 @@ class FindMatchingWord():
             logging.warning("get_previous_word in FindMatchingWord could not find a match.")
             return False
 
-    def get_next_word(self, input:str, word_search:str):
-        """Searches for the word after a given word in an input.
+    def get_next_word(self, input:str, words_list:str):
+        """Searches for the word in a words_list after a given word in an input.
         
             Args:
                 input: The string input from a user.
-                word_search: The word that is being searched.
+                words_list: The dictionary of strings to search for 'input' in.
 
             Returns:
                 The word after 'word_search' if found during regex search.
                 None if the word after 'word_search' is not found.
         """
         try:
-            return re.search(r"(?<={}\s)[^.\s!?]*".format(word_search), input, re.IGNORECASE).group(0)
+            for word in words_list:
+                if re.search(r"(?<={}\s)[^.\s!?]*".format(word), input, re.IGNORECASE):
+                    return re.search(r"(?<={}\s)[^.\s!?]*".format(word), input, re.IGNORECASE).group(0)
+            
+            return False
 
         except:
             logging.warning("get_next_word in FindMatchingWord could not find a match.")
