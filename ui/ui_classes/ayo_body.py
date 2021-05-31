@@ -32,6 +32,7 @@ class AyoBody(QtWidgets.QMainWindow):
         
     def listening_activated(self):
         if (self.threadStarted == False):
+
             self.thread = QThread()
 
             self.worker = QueryWorker()
@@ -88,20 +89,20 @@ class AyoBody(QtWidgets.QMainWindow):
         
 
     def settings(self):
-        self.thread = QThread()
+        self.threadSpot = QThread()
 
-        self.worker = SpotifyWorker()
+        self.workerSpot = SpotifyWorker()
 
-        self.worker.moveToThread(self.thread)
+        self.workerSpot.moveToThread(self.threadSpot)
 
-        self.thread.started.connect(self.worker.run)
-        self.worker.finished.connect(self.thread.quit)
-        self.worker.finished.connect(self.worker.deleteLater)
-        self.thread.finished.connect(self.thread.deleteLater)
+        self.threadSpot.started.connect(self.workerSpot.run)
+        self.workerSpot.finished.connect(self.threadSpot.quit)
+        self.workerSpot.finished.connect(self.workerSpot.deleteLater)
+        self.threadSpot.finished.connect(self.threadSpot.deleteLater)
 
-        self.thread.start()
+        self.threadSpot.start()
 
-        self.threadStarted = True
+        
 
         
         #holdover from opening settings window, will return eventually. 
