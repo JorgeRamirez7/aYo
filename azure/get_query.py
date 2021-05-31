@@ -8,6 +8,7 @@ class GetQuery():
         microphone_input = True
         text_to_speech = True
 
+
        # ayo_is_running = True
 
         #while ayo_is_running:

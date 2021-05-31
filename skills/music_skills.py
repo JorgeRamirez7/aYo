@@ -1,6 +1,8 @@
 """Implementation of Music Intents"""
 import configparser
 import spotipy
+
+from pathlib import Path
 from spotipy.oauth2 import SpotifyOAuth
 
 
@@ -8,7 +10,7 @@ class MusicSkill():
     """Creates/Authenticates Spotify object using aYo Spotify Web API developer credentials"""
     def __init__(self):
         config = configparser.ConfigParser()
-        config.read('config/config.ini')
+        config.read(Path('config/config.ini'))
         client_id = config.get('spotify', 'client_id')
         client_secret = config.get('spotify', 'client_secret')
 
