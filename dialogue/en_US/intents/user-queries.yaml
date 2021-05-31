@@ -24,12 +24,17 @@ music:
 weather:
   - weather
   - forecast
+  - temperature
+  - rain
   - rainy
-  - cloudy
-  - sunny
+  - raining
   - sun
+  - sunny
+  - clouds
+  - cloudy
   - cold
   - hot
+  - warm
   
 # When triggered, opens up a search engine in a browser to search for everything following this keyword.
 web-search:
