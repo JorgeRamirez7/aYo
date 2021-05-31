@@ -1,6 +1,10 @@
-import re
-import os
+import os, re, sys
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+overdir = os.path.dirname(parentdir)
+sys.path.append(overdir)
 
+from database import aYo_database
 from .ayo_body import AyoBody
 from .new_user_window import NewUserWindow
 from PyQt5 import QtWidgets, uic
@@ -43,10 +47,17 @@ class AyoLogin(QtWidgets.QMainWindow):
 
     def login_click(self):
         #opened off of the "Log In" button, creates new main window and Closes current window
-        self.w = None
-        self.w = AyoBody(self)
-        self.w.show()
-        self.hide()
+        #authenticate = aYo_database.Database.Check_Login(self.mainEmail.text(), self.mainPassword.text())
+        #if (authenticate == True):
+            self.loginLbl.setText("")
+            self.w = None
+            self.w = AyoBody(self)
+            self.w.show()
+            self.hide()
+        #else:
+         #   self.loginLbl.setText("Error: Invalid email or password please try again.")
+
+         #disabled authentication temporarily. 
 
     def check_email(self):
         #this ensures a valid email is input to the login screen

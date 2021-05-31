@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>376</width>
+    <height>497</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+background-color: #1B262C;
+}
+
+QLineEdit{
+background-color: rgb(18, 26, 30);
+color: white;
+border: 2px solid gray;
+border-radius: 5px;}
+
+QLineEdit:hover{
+border: 2px solid rgb(174, 173, 172);
+}
+
+QLineEdit:focus{
+border: 2px solid rgb(7,134,193)}
+
+QPushButton{
+ background-color: #3282B8;
+ color: rgb(228,240,237);
+ border-style: outset;
+ border-width: 2px;
+ border-radius: 10px;
+ border-color: black;
+ min-width: 10em;
+ padding: 6px;}
+
+QPushButton:hover{
+border-color: lightgray;
+background-color: rgb(60, 158, 223);
+}
+
+QPushButton:focus{
+border-color: lightgray;
+background-color: rgb(60, 158, 223);
+}
+
+
+QPushButton:pressed {
+ background-color: #0F4C75;
+ border-style: inset;
+}</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>361</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTableView" name="languagesTbl"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="closeBtn">
+      <property name="text">
+       <string>Close</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
