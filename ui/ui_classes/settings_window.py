@@ -1,5 +1,7 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
+from skills.music_skills import MusicSkill
+from threading import Thread
 
 class SettingsWindow(QWidget):
     #Settings page
@@ -31,6 +33,7 @@ class SettingsWindow(QWidget):
         print("startup on Placeholder")
     
     def link_spotify(self):
+        link = MusicSkill().login()
         print("link Placeholder")
 
     def return_home(self):

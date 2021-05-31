@@ -1,6 +1,6 @@
 from azure.get_query import GetQuery
 
-from ui.ui_classes.ayo_login import AyoLogin
+from UI.ui_classes.ayo_login import AyoLogin
 from PyQt5 import QtWidgets
 
 def main():
