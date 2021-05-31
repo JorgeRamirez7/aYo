@@ -29,6 +29,7 @@ class Weather:
         openweather_api_key = config.get('openweather', 'key')
     except:
         logging.warning("There is no 'openweather' or 'key' value in 'config/config.ini'")
+        openweather_api_key = ""
 
     def Get_Current_Weather(self, the_city_name):
         # this is where the api key goes
