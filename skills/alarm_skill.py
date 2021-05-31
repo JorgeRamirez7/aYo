@@ -12,11 +12,11 @@ from utils.readable_time_output import ReadableTimeOutput
 class AlarmSkill():
     """Perform Alarm intents."""
     _dialogue = ImportDialogue().import_dialogue(Path("skills/alarm.yaml"))
-
+    _alarm_sfx = str(Path("data/alarm.wav"))
+    
     _alarm = None
     _alarm_is_running = False
     _alarm_seconds = None
-    _alarm_sfx = 'data/alarm.wav'
     _alarm_simplified_time = None
 
     def set_alarm(self, user_input:str):

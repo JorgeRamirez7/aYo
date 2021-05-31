@@ -13,11 +13,11 @@ from utils.readable_time_output import ReadableTimeOutput
 class TimerSkill():
     """Perform Timer intents."""
     _dialogue = ImportDialogue().import_dialogue(Path("skills/timer.yaml"))
+    _timer_sfx = str(Path("data/alarm.wav"))
 
     _timer = None
     _timer_is_running = False
     _timer_seconds = 0
-    _timer_sfx = 'data/alarm.wav'
     _timer_simplified_time = None
     
     def set_timer(self, user_input:str):
