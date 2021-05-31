@@ -47,15 +47,15 @@ class AyoLogin(QtWidgets.QMainWindow):
 
     def login_click(self):
         #opened off of the "Log In" button, creates new main window and Closes current window
-        #authenticate = aYo_database.Database.Check_Login(self.mainEmail.text(), self.mainPassword.text())
-        #if (authenticate == True):
+        authenticate = aYo_database.Database.Check_Login(self.mainEmail.text(), self.mainPassword.text())
+        if (authenticate == True):
             self.loginLbl.setText("")
             self.w = None
             self.w = AyoBody(self)
             self.w.show()
             self.hide()
-        #else:
-         #   self.loginLbl.setText("Error: Invalid email or password please try again.")
+        else:
+            self.loginLbl.setText("Error: Invalid email or password please try again.")
 
          #disabled authentication temporarily. 
 
