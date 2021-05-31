@@ -4,7 +4,8 @@ from .languages_window import LanguagesWindow
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QThread, QThreadPool, QTimer
 from .query_worker import QueryWorker
-from .settings_window import SettingsWindow
+from .spotify_worker import SpotifyWorker
+#from .settings_window import SettingsWindow
 #from .worker import Worker
 
 
@@ -87,8 +88,24 @@ class AyoBody(QtWidgets.QMainWindow):
         
 
     def settings(self):
-        self.w = None
-        #webbrowser.open("https://accounts.spotify.com/en/login")
+        self.thread = QThread()
+
+        self.worker = SpotifyWorker()
+
+        self.worker.moveToThread(self.thread)
+
+        self.thread.started.connect(self.worker.run)
+        self.worker.finished.connect(self.thread.quit)
+        self.worker.finished.connect(self.worker.deleteLater)
+        self.thread.finished.connect(self.thread.deleteLater)
+
+        self.thread.start()
+
+        self.threadStarted = True
+
+        
+        #holdover from opening settings window, will return eventually. 
+        # self.w = None
         #self.w = SettingsWindow(self)
         #self.w.show()
         #self.hide()
