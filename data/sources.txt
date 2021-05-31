@@ -1,4 +1,5 @@
 alarm.wav: https://freesound.org/people/Thoribass/sounds/254819/
 intro.wav: https://freesound.org/people/TolerableDruid6/sounds/461008/
 
-warning_azure_api_missing: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+warning_azure_api_missing.mp3: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/
+warning_openweather_api_missing.mp3: https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/

@@ -1,5 +1,6 @@
-import requests, json, math
+import requests, json, math, logging
 from pathlib import Path
+from playsound import playsound
 
 from skills.random_element_skill import RandomElementSkill
 from utils.import_dialogue import ImportDialogue
@@ -16,6 +17,7 @@ class Weather:
 
     _dialogue = ImportDialogue().import_dialogue(Path("skills/weather.yaml"))
     _random_weather_forecast = RandomElementSkill(_dialogue["weather"])
+    _error_api_sfx = str(Path("data/warning_openweather_api_missing.mp3"))
 
     def Get_Current_Weather(self, the_city_name):
         # this is where the api key goes
@@ -41,6 +43,12 @@ class Weather:
         x = response.json()
 
         # x contains the list of nested dictionaries
+
+        # invalid API key
+        if x["cod"] == 401:
+            logging.warning("No valid OpenWeather API key found within config/config.ini")
+            playsound(str(self._error_api_sfx))
+            return None
 
         # Check the value of "cod" key is equal to "404",
         # which means the city is found
