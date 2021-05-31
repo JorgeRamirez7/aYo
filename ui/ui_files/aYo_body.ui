@@ -138,7 +138,7 @@ QPushButton:pressed {
 }</string>
        </property>
        <property name="text">
-        <string>Settings</string>
+        <string>Link Spotify</string>
        </property>
       </widget>
      </item>
