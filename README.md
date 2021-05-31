@@ -232,7 +232,10 @@
         A basic query for weather is: 
             What is the weather in _city name here_	 
 
- 
+ # Known Bugs:
+    Recover password button has no functionality
+
+    aYo only works right now in work mode
 
  
 
