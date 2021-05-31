@@ -83,6 +83,5 @@ class TextToSpeech():
                     print("Error details: {}".format(cancellation_details.error_details))
 
             print("\nayo output: {}".format(user_input))
-            warning_sfx = Path("data/warning_azure_api_missing.mp3")
-            playsound(str(warning_sfx))
+            playsound(str(Path("data/warning_azure_api_missing.mp3")))
             logging.critical("Please ensure that a proper key and service region is provided for Azure within config/ayo.ini.")
