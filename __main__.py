@@ -1,12 +1,8 @@
-from azure.get_query import GetQuery
-from skills.introduction_skill import IntroductionSkill
-
-
-from ui.ui_classes.ayo_login import AyoLogin
 from PyQt5 import QtWidgets
 
-def main():
-    GetQuery().get_query()
+from azure.get_query import GetQuery
+from skills.introduction_skill import IntroductionSkill
+from ui.ui_classes.ayo_login import AyoLogin
 
 if __name__ == "__main__":
     ayo_introduction = True
@@ -21,4 +17,4 @@ if __name__ == "__main__":
     win.show()
     app.exec()
 
-    main()
+    GetQuery().query()

@@ -14,10 +14,10 @@ class GetQuery():
         #while ayo_is_running:
         print("Begin speaking...")
 
-            if microphone_input:
-                user_input = MicrophoneInput().get_voice_input()
-            else:
-                user_input = input()
+        if microphone_input:
+            user_input = MicrophoneInput().get_voice_input()
+        else:
+            user_input = input()
 
         if user_input:
             ayo_result = Intents().intents(user_input)
