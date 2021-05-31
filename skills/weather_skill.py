@@ -6,12 +6,23 @@
     it returns the current temperature in the city input into this function
     it will just return just the the number as an interger however.
 """
+import configparser
+import logging
 import requests, json, math
+
 class Weather:
+
+    # Configuration settings
+    try:
+        config = configparser.ConfigParser()
+        config.read('config/config.ini')
+        openweather_api_key = config.get('openweather', 'key')
+    except:
+        logging.warning("There is no 'openweather' or 'key' value in 'config/config.ini'")
 
     def Get_Current_Weather(self, the_city_name):
         # this is where the api key goes
-        api_key = "6e990ec0c9142339278312a4b5781668"
+        api_key = self.openweather_api_key
 
         # this is where the base url for the site you are getting your info from goes
         base_url = "http://api.openweathermap.org/data/2.5/weather?"
