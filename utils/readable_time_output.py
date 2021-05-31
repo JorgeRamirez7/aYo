@@ -1,16 +1,17 @@
-"""Convert time values into a readable output."""
 import logging
+from pathlib import Path
 
 from utils.import_dialogue import ImportDialogue
 
 class ReadableTimeOutput():
+    """Convert time values into a readable output."""
     _dialogue = None
     requires_and_keyword = False
     nonzero_values_remaining = -1
 
     def __init__(self):
         """Imports dialogue for stopwatch values from a YAML file and stores it in '_dialogue'."""
-        self._dialogue = ImportDialogue().initialize_dialogue('time')
+        self._dialogue = ImportDialogue().import_dialogue(Path("time-words.yaml"))
 
     def output_time(self, stopwatch_time:dict):
         """Returns a properly formatted time output given a dictionary with time values.

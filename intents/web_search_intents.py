@@ -1,7 +1,8 @@
-"""Search for a user query via the Google search engine, opens a web browser"""
 import webbrowser
 
 class WebSearchIntents():
+    """Search for a user query via the Google search engine, opens a web browser"""
+
     def web_search_intents(self, user_input):
         # Send result.text through google search in last char is a '?'
         if user_input[-1] == '?':

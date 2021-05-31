@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>469</width>
+    <width>491</width>
     <height>538</height>
    </rect>
   </property>
@@ -67,7 +67,7 @@ border: 2px solid rgb(7,134,193)}</string>
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>451</width>
+      <width>471</width>
       <height>531</height>
      </rect>
     </property>
@@ -81,23 +81,6 @@ border: 2px solid rgb(7,134,193)}</string>
      <property name="spacing">
       <number>6</number>
      </property>
-     <item>
-      <widget class="QLabel" name="loginLbl">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: red
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
      <item>
       <widget class="QLineEdit" name="mainEmail">
        <property name="autoFillBackground">
@@ -127,6 +110,23 @@ border: 2px solid rgb(7,134,193)}</string>
        </property>
        <property name="placeholderText">
         <string>Password</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="loginLbl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: red
+</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>

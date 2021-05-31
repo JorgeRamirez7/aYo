@@ -1,4 +1,3 @@
-"""Perform Stopwatch intents."""
 import logging
 import time
 
@@ -6,15 +5,13 @@ from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class StopwatchSkill():
-    _dialogue = None
+    """Perform Stopwatch intents."""
+    _dialogue = ImportDialogue().import_dialogue("skills/stopwatch.yaml")
+
     _times = {
     "start_time": None,
     "end_time": None
     }
-
-    def __init__(self):
-        """Imports dialogue for stopwatch from a YAML file and stores it in '_dialogue'."""
-        self._dialogue = ImportDialogue().initialize_dialogue('stopwatch')
 
     def start_stopwatch(self) -> str:
         """Starts Stopwatch by storing the current time and returns a Stopwatch status string."""

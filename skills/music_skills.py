@@ -1,6 +1,8 @@
 """Implementation of Music Intents"""
 import configparser
 import spotipy
+
+from pathlib import Path
 from spotipy.oauth2 import SpotifyOAuth
 
 
@@ -12,7 +14,6 @@ class MusicSkill():
         config.read('config/config.ini')
         client_id = config.get('spotify', 'client_id')
         client_secret = config.get('spotify', 'client_secret')
-
         self.scope = 'user-modify-playback-state user-read-playback-state playlist-modify-private'
         self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
             client_id=client_id,client_secret=client_secret,redirect_uri='https://example.com',scope=self.scope))

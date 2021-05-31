@@ -1,7 +1,7 @@
-"""Perform Alarm intents."""
 import multiprocessing
 import time
 
+from pathlib import Path
 from playsound import playsound
 
 from azure.text_to_speech import TextToSpeech
@@ -10,17 +10,14 @@ from utils.import_dialogue import ImportDialogue
 from utils.readable_time_output import ReadableTimeOutput
 
 class AlarmSkill():
-    _dialogue = None
-
+    """Perform Alarm intents."""
+    _dialogue = ImportDialogue().import_dialogue(Path("skills/alarm.yaml"))
+    _alarm_sfx = str(Path("data/alarm.wav"))
+    
     _alarm = None
     _alarm_is_running = False
     _alarm_seconds = None
-    _alarm_sfx = 'data/alarm.wav'
     _alarm_simplified_time = None
-
-    def __init__(self):
-        """Imports dialogue for Alarm from a YAML file and stores it in '_dialogue'."""
-        self._dialogue = ImportDialogue().initialize_dialogue('alarm')
 
     def set_alarm(self, user_input:str):
         """Informs user if alarm was successfully set and calls an alarm process.

@@ -1,0 +1,8 @@
+---
+# Plays when the user can first activate aYo voice assistant.
+program-response:
+  - Hello! I'm here to help you search through programming language documentation!
+  - Hello! I'm ayo, a pleasure to meet you!
+  - Hello! Try asking me, Java arrays, to search for arrays in Java.
+  - Hello! Try asking, Search artificial intelligence, to search online.
+  - Hey yo I'm ayo! Try asking me, Java arrays.
