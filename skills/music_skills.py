@@ -8,8 +8,6 @@ from spotipy.oauth2 import SpotifyOAuth
 
 class MusicSkill():
     """Creates/Authenticates Spotify object using aYo Spotify Web API developer credentials"""
-<<<<<<< HEAD
-=======
     def __init__(self):
         config = configparser.ConfigParser()
         config.read(Path('config/config.ini'))
@@ -23,7 +21,6 @@ class MusicSkill():
             self.device_id = self.sp.devices()['devices'][0]['id']   
         except IndexError:
             print("Spotify not open")
->>>>>>> 6125037211d85fe6e28f592f2040ba81b50a2752
 
     """
        User must now say Play artist <artist> or Play podcast <podcast> to start playing a specific artist/podcast.

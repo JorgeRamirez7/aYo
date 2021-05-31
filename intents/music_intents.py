@@ -5,40 +5,6 @@ from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class MusicIntents(object):
-<<<<<<< HEAD
-    
-    def music_intents(self, user_input):
-        key = user_input.split()[0]
-        
-        if FindMatchingWord().find_match(user_input, FindMatchingWord.query["play"]):
-            try:
-                argument = user_input.split()[1]
-                print(argument)
-            except IndexError:
-                print("Say play artist <artist>, play podcast <podcast>, or play <song>")
-                return
-
-            
-            if str(user_input.split()[1]).lower() == 'artist':
-                try:
-                    word = user_input.split()[2]
-                    MusicSkill().play_artist(user_input)
-                except IndexError:
-                    print("Provide artist")
-                
-            elif str(user_input.split()[1]).lower() == 'podcast':
-                try:
-                    word = user_input.split()[2]
-                    MusicSkill().play_podcast(user_input)
-                except IndexError:
-                    print("Provide podcast")
-
-            else:    
-                MusicSkill().play_song(user_input)
-                
-
-        elif FindMatchingWord().find_match(user_input, FindMatchingWord.query["next"]):
-=======
     """Search for a Stopwatch-related query and perform the desired intent."""
     music_queries = ImportDialogue().import_dialogue(Path("intents/music.yaml"))
 
@@ -68,7 +34,6 @@ class MusicIntents(object):
             else:
                 MusicSkill().play_song(user_input)
         elif FindMatchingWord().find_match(user_input, self.music_queries["next"]):
->>>>>>> 6125037211d85fe6e28f592f2040ba81b50a2752
             MusicSkill().next()
         elif FindMatchingWord().find_match(user_input, self.music_queries["previous"]):
             MusicSkill().previous()
