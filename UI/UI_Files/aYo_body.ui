@@ -31,8 +31,22 @@ border: 2px solid rgb(174, 173, 172);
 
 QLineEdit:focus{
 border: 2px solid rgb(7,134,193)}
-
-QPushButton{
+</string>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>451</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="startBtn">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
  background-color: #3282B8;
  color: rgb(228,240,237);
  border-style: outset;
@@ -52,31 +66,44 @@ border-color: lightgray;
 background-color: rgb(60, 158, 223);
 }
 
-
 QPushButton:pressed {
  background-color: #0F4C75;
  border-style: inset;
 }</string>
-   </property>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>451</width>
-      <height>521</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="startBtn">
+       </property>
        <property name="text">
-        <string>Start/Stop</string>
+        <string>Start</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="supportedBtn">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+ background-color: #3282B8;
+ color: rgb(228,240,237);
+ border-style: outset;
+ border-width: 2px;
+ border-radius: 10px;
+ border-color: black;
+ min-width: 10em;
+ padding: 6px;}
+
+QPushButton:hover{
+border-color: lightgray;
+background-color: rgb(60, 158, 223);
+}
+
+QPushButton:focus{
+border-color: lightgray;
+background-color: rgb(60, 158, 223);
+}
+
+QPushButton:pressed {
+ background-color: #0F4C75;
+ border-style: inset;
+}</string>
+       </property>
        <property name="text">
         <string>View Supported Languages</string>
        </property>
@@ -84,6 +111,32 @@ QPushButton:pressed {
      </item>
      <item>
       <widget class="QPushButton" name="settingsBtn">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+ background-color: #3282B8;
+ color: rgb(228,240,237);
+ border-style: outset;
+ border-width: 2px;
+ border-radius: 10px;
+ border-color: black;
+ min-width: 10em;
+ padding: 6px;}
+
+QPushButton:hover{
+border-color: lightgray;
+background-color: rgb(60, 158, 223);
+}
+
+QPushButton:focus{
+border-color: lightgray;
+background-color: rgb(60, 158, 223);
+}
+
+QPushButton:pressed {
+ background-color: #0F4C75;
+ border-style: inset;
+}</string>
+       </property>
        <property name="text">
         <string>Settings</string>
        </property>
@@ -91,6 +144,32 @@ QPushButton:pressed {
      </item>
      <item>
       <widget class="QPushButton" name="exitBtn">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+ background-color: #3282B8;
+ color: rgb(228,240,237);
+ border-style: outset;
+ border-width: 2px;
+ border-radius: 10px;
+ border-color: black;
+ min-width: 10em;
+ padding: 6px;}
+
+QPushButton:hover{
+border-color: lightgray;
+background-color: rgb(60, 158, 223);
+}
+
+QPushButton:focus{
+border-color: lightgray;
+background-color: rgb(60, 158, 223);
+}
+
+QPushButton:pressed {
+ background-color: #0F4C75;
+ border-style: inset;
+}</string>
+       </property>
        <property name="text">
         <string>Exit</string>
        </property>
