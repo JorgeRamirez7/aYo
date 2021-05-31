@@ -8,15 +8,11 @@ class GetQuery():
         microphone_input = True
         text_to_speech = True
 
-
-       # ayo_is_running = True
-
-        #while ayo_is_running:
-        print("Begin speaking...")
-
         if microphone_input:
+            print("Begin speaking...")
             user_input = MicrophoneInput().get_voice_input()
         else:
+            print("Type your query...")
             user_input = input()
 
         if user_input:
@@ -26,5 +22,4 @@ class GetQuery():
                     TextToSpeech().text_to_speech(ayo_result)
                 else:
                     print(ayo_result)
-        #ayo_is_running = False
         print()
