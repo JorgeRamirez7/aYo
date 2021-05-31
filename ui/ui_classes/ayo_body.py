@@ -1,3 +1,4 @@
+import webbrowser
 
 from .languages_window import LanguagesWindow
 from PyQt5 import QtWidgets, uic
@@ -87,9 +88,10 @@ class AyoBody(QtWidgets.QMainWindow):
 
     def settings(self):
         self.w = None
-        self.w = SettingsWindow(self)
-        self.w.show()
-        self.hide()
+        #webbrowser.open("https://accounts.spotify.com/en/login")
+        #self.w = SettingsWindow(self)
+        #self.w.show()
+        #self.hide()
 
     def enable_button(self):
         self.timer.stop()
