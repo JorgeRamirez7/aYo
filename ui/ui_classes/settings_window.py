@@ -33,7 +33,6 @@ class SettingsWindow(QWidget):
         print("startup on Placeholder")
     
     def link_spotify(self):
-        link = MusicSkill().login()
         print("link Placeholder")
 
     def return_home(self):
