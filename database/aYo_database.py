@@ -66,16 +66,14 @@ class Database:
     def Check_Login(name, password ):
         user_names = decoder.decode(Read_File_Contents(un_file_path))
         the_passwords = decoder.decode(Read_File_Contents(pw_file_path))
-
+ 
         username_list = Get_List(user_names)
         password_list = Get_List(the_passwords)
-
+ 
         check_user = user_names.find(name)
-
-        print(check_user)
-
+ 
         if check_user > -1:
-            if password_list[check_user] == password:
+            if password_list[(username_list.index(name))] == password:
                 return True
         return False
 
