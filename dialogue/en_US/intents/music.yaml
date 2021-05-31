@@ -1,0 +1,25 @@
+---
+play:
+  - play
+
+next:
+  - skip
+  - next
+
+previous:
+  - back
+  - go back
+  - previous
+
+pause:
+  - pause
+  - stop
+  - shut up
+
+resume:
+  - resume
+  - continue
+  - proceed
+
+shuffle:
+  - shuffle

@@ -1,11 +1,12 @@
-"""Search for a user query through existing programming language documentation available online"""
 import webbrowser
 
-
 class SearchDocumentationIntents():
-    # P/L name as keyword
-    # Automatically searches documentation website for following words
+    """Search for a user query through existing programming language documentation available online"""
+
     def search_documentation_intents(self, user_input):
+        """ P/L name as keyword
+         Automatically searches documentation website for following words
+        """
         language = user_input.split()[0]
         language = language.lower()
 

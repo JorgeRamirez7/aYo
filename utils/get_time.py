@@ -1,17 +1,18 @@
-"""Extract time from user input."""
 import logging
 import re
 
+from pathlib import Path
 from word2number import w2n
 from utils.find_matching_word import FindMatchingWord
 from utils.import_dialogue import ImportDialogue
 
 class GetTime():
+    """Extract time from user input."""
     _time_values = None
 
     def __init__(self):
         """Imports time values from a YAML file and stores it in '_time_values'."""
-        self._time_values = ImportDialogue().initialize_dialogue('time')
+        self._time_values = ImportDialogue().import_dialogue(Path("time-words.yaml"))
 
     def get_time(self, user_input:str):
         """Gets the time values (seconds, minutes, hours) from user input.

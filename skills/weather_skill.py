@@ -1,16 +1,26 @@
-"""
- This is a Python program to find current weather details of any city
- using openweathermap api
-
- function getCurrentWeather("City Name Here") is the only method needed
-    it returns the current temperature in the city input into this function
-    it will just return just the the number as an interger however.
-"""
 import configparser
 import logging
 import requests, json, math
 
+from pathlib import Path
+from playsound import playsound
+
+from skills.random_element_skill import RandomElementSkill
+from utils.import_dialogue import ImportDialogue
+
 class Weather:
+    """
+     This is a Python program to find current weather details of any city
+     using openweathermap api
+
+     function getCurrentWeather("City Name Here") is the only method needed
+        it returns the current temperature in the city input into this function
+        it will just return just the the number as an interger however.
+    """
+
+    _dialogue = ImportDialogue().import_dialogue(Path("skills/weather.yaml"))
+    _random_weather_forecast = RandomElementSkill(_dialogue["weather"])
+    _error_api_sfx = str(Path("data/warning_openweather_api_missing.mp3"))
 
     # Configuration settings
     try:
@@ -45,6 +55,12 @@ class Weather:
 
         # x contains the list of nested dictionaries
 
+        # invalid API key
+        if x["cod"] == 401:
+            logging.warning("No valid OpenWeather API key found within config/config.ini")
+            playsound(str(self._error_api_sfx))
+            return None
+
         # Check the value of "cod" key is equal to "404",
         # which means the city is found
         # Otherwise the city is not found
@@ -74,11 +90,9 @@ class Weather:
             # store the value corresponding to the "description" key at
             #   the 0th index of z
             weather_description = z[0]["description"]
-            other_description = "Today in " + cityName + " expect " + weather_description
-            temp_description = " with a temperature of " + str(updated_temperature) + " degrees fahrenheit. "
-            #return the values wanted here
-            return "" + other_description + temp_description
+
+            weather_forecast = self._random_weather_forecast.get_random_element().format(city_name, weather_description, str(updated_temperature))
+            return weather_forecast
 
         else:
-            print(" Error City " + city_name + " not found. ")
-            return 0
+            return self._dialogue["error"].format(city_name)
