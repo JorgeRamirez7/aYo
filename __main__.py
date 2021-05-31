@@ -6,7 +6,7 @@ def main():
     GetQuery().get_query()
 
 if __name__ == "__main__":
-    ayo_introduction = True
+    ayo_introduction = False
 
     if ayo_introduction:
         IntroductionSkill().ayo_intro()
