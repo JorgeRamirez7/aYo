@@ -63,7 +63,7 @@ class Weather:
             # store the value corresponding to the "description" key at
             #   the 0th index of z
             weather_description = z[0]["description"]
-            other_description = "Today in " + cityName + " expect " + weather_description
+            other_description = "Today in " + city_name + " expect " + weather_description
             temp_description = " with a temperature of " + str(updated_temperature) + " degrees fahrenheit. "
             #return the values wanted here
             return "" + other_description + temp_description
