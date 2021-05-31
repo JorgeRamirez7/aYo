@@ -22,10 +22,14 @@ music:
   - shuffle
 
 weather:
-  - weather in
-  - weather for
-  - weather like in
-  - weather lycan
+  - weather
+  - forecast
+  - rainy
+  - cloudy
+  - sunny
+  - sun
+  - cold
+  - hot
   
 # When triggered, opens up a search engine in a browser to search for everything following this keyword.
 web-search:
