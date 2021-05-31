@@ -14,12 +14,17 @@
                 will return false if the username is taken
                 will return true if the username is not taken and the database was updated
 """
+import os
 
-from aYo_decode import Decode
-from aYo_encode import Encode
+from .aYo_decode import Decode
+from .aYo_encode import Encode
 
 decoder = Decode()
 encoder = Encode()
+
+current_path = os.path.dirname(__file__)
+un_file_path = os.path.abspath(os.path.join(current_path, "..", "database", "aYo_un_database.csv"))
+pw_file_path = os.path.abspath(os.path.join(current_path, "..", "database", "aYo_pw_database.csv"))
 
 def Read_File_Contents(file_name):
     # r tells python to open in read-only mode
@@ -45,44 +50,48 @@ def Get_List(text):
 
 class Database:
 
-    from aYo_decode import Decode
-    from aYo_encode import Encode
+    from .aYo_decode import Decode
+    from .aYo_encode import Encode
 
     decoder = Decode()
     encoder = Encode()
 
     def Check_If_Username_In_Use(self, name):
-        user_names = decoder.decode(Read_File_Contents("aYo_un_database.csv"))
+        user_names = decoder.decode(Read_File_Contents(un_file_path))
         if user_names.find("" + name) > -1:
             return True
         else:
             return False
 
-    def Check_Login( self, name, password ):
-        user_names = decoder.decode(Read_File_Contents("aYo_un_database.csv"))
-        the_passwords = decoder.decode(Read_File_Contents("aYo_pw_database.csv"))
-
-        username_list = Get_List(userNames)
-        password_list = Get_List(thePasswords)
-
+    def Check_Login(name, password ):
+        user_names = decoder.decode(Read_File_Contents(un_file_path))
+        the_passwords = decoder.decode(Read_File_Contents(pw_file_path))
+ 
+        username_list = Get_List(user_names)
+        password_list = Get_List(the_passwords)
+ 
         check_user = user_names.find(name)
-
+ 
         if check_user > -1:
-            if password_list[check_user] == password:
+            if password_list[(username_list.index(name))] == password:
                 return True
         return False
 
-    def Create_User_Profile(self, name, password):
-        user_names = decoder.decode(Read_File_Contents("aYo_un_database.csv"))
+    
+
+    def Create_User_Profile(name, password):
+        
+
+        user_names = decoder.decode(Read_File_Contents(un_file_path))
         check = False
         if user_names.find("" + name) == -1:
             check = True
 
         if check == True:
-            file_object_output = open("aYo_un_database.csv","a")
+            file_object_output = open(un_file_path,"a")
             file_object_output.write(encoder.encode(name) + "\n")
             file_object_output.close()
-            file_object_output = open("aYo_pw_database.csv", "a")
+            file_object_output = open(pw_file_path, "a")
             file_object_output.write(encoder.encode(password) + "\n")
             file_object_output.close()
         return check

@@ -1,5 +1,6 @@
 import re
 
+from database import aYo_database
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
 
@@ -122,7 +123,13 @@ class NewUserWindow(QWidget):
             )#end Stylesheet edit
 
     def create_account(self):
-        self.close_window()
+        successful = aYo_database.Database.Create_User_Profile(self.createEmail.text(), self.createPassword.text())
+
+        if (successful == True):
+            self.close_window()
+
+        else:
+            self.createEmailLbl.setText("Error: Email already in use please use another")
 
     def close_window(self):
         self.close()

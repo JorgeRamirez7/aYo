@@ -7,13 +7,13 @@ from spotipy.oauth2 import SpotifyOAuth
 
 
 class MusicSkill():
+    device_id = None
     """Creates/Authenticates Spotify object using aYo Spotify Web API developer credentials"""
     def __init__(self):
         config = configparser.ConfigParser()
-        config.read(Path('config/config.ini'))
+        config.read('config/config.ini')
         client_id = config.get('spotify', 'client_id')
         client_secret = config.get('spotify', 'client_secret')
-
         self.scope = 'user-modify-playback-state user-read-playback-state playlist-modify-private'
         self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
             client_id=client_id,client_secret=client_secret,redirect_uri='https://example.com',scope=self.scope))
@@ -21,7 +21,6 @@ class MusicSkill():
             self.device_id = self.sp.devices()['devices'][0]['id']   
         except IndexError:
             print("Spotify not open")
-
     """
        User must now say Play artist <artist> or Play podcast <podcast> to start playing a specific artist/podcast.
        Without splitting them, if trying to play a specific song e.g. 'Hotel California'
@@ -79,3 +78,6 @@ class MusicSkill():
 
     def shuffle(self):
         self.sp.shuffle(True, device_id=self.device_id)
+    
+    def login(self):
+        MusicSkill().__init__()

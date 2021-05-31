@@ -1,5 +1,7 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
+from skills.music_skills import MusicSkill
+from threading import Thread
 
 class SettingsWindow(QWidget):
     #Settings page
@@ -19,6 +21,7 @@ class SettingsWindow(QWidget):
 
     def change_mode(self):
         print("Mode Placeholder")
+        
     
     def duration_change(self):
         print("Duration Placeholder")
