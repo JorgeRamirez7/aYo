@@ -25,9 +25,11 @@ class GetQuery():
                 _sfx_activated = multiprocessing.Process(target = self.ayo_activated)
                 _sfx_activated.start()
                 user_input = MicrophoneInput().get_voice_input()
+
         elif microphone_input:
             print("Begin speaking...")
             user_input = MicrophoneInput().get_voice_input()
+
         else:
             print("Begin typing...")
             user_input = input()
@@ -36,6 +38,7 @@ class GetQuery():
             ayo_result = Intents().intents(user_input)
             if ayo_result is not None and user_input != "":
                 if text_to_speech:
+                    playsound(self._sfx_ayo_success)
                     TextToSpeech().text_to_speech(ayo_result)
                 else:
                     print(ayo_result)
