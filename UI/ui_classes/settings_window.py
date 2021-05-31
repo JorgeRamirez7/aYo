@@ -19,6 +19,7 @@ class SettingsWindow(QWidget):
 
     def change_mode(self):
         print("Mode Placeholder")
+        
     
     def duration_change(self):
         print("Duration Placeholder")
