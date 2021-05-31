@@ -1,11 +1,29 @@
 """Implementation of Music Intents"""
 import configparser
 import spotipy
+
+from pathlib import Path
 from spotipy.oauth2 import SpotifyOAuth
 
 
 class MusicSkill():
     """Creates/Authenticates Spotify object using aYo Spotify Web API developer credentials"""
+<<<<<<< HEAD
+=======
+    def __init__(self):
+        config = configparser.ConfigParser()
+        config.read(Path('config/config.ini'))
+        client_id = config.get('spotify', 'client_id')
+        client_secret = config.get('spotify', 'client_secret')
+
+        self.scope = 'user-modify-playback-state user-read-playback-state playlist-modify-private'
+        self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
+            client_id=client_id,client_secret=client_secret,redirect_uri='https://example.com',scope=self.scope))
+        try:
+            self.device_id = self.sp.devices()['devices'][0]['id']   
+        except IndexError:
+            print("Spotify not open")
+>>>>>>> 6125037211d85fe6e28f592f2040ba81b50a2752
 
     """
        User must now say Play artist <artist> or Play podcast <podcast> to start playing a specific artist/podcast.

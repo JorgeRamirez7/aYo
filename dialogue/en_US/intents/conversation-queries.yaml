@@ -1,0 +1,80 @@
+---
+# "Ayo, tell me a joke"
+joke:
+  - joke
+  - jokes
+  - funny
+  
+# "Ayo, tell me a fun fact."
+fun-fact:
+  - fun
+  - interesting
+  - fact
+  - cool
+  
+# "Ayo, hello!"
+greeting:
+  - hi
+  - hello
+  - good morning
+  - hey
+  - what's up
+  - what up
+  - howdy
+  - yo
+  
+# Ayo, thank you!"
+thanks:
+  - thank
+  - thanks
+  - appreciate
+  - appreciated
+  - love
+  - gracias
+  - wow
+  - beautiful
+  - amazing
+  - nice
+  
+# "Ayo, what can you do?"
+ayo-functions:
+  - you do          # what can you do?
+  - you do this     # can you do this?
+  - you can do      # what are the things that you can do?
+  - ayo do          # can ayo do ____ ?
+  - hey yo do
+  - can you         # can you ____ ?
+  
+# "Ayo, who created you?"
+credits:
+  - made you            # Who made you?
+  - credits
+  - created you
+  - were you made       # By whom were you made?
+  - were you created    # By whom were you created?
+  - your parents
+  
+# "Ayo, how are you?"
+how-am-i:
+  - how are you
+  - you doing?  # How are you doing?
+  - how's it going
+  - how is it going
+  
+# "Ayo, I'm sorry"
+user-apologies:
+  - sorry
+  - apologize
+  - my bad
+  - forgive
+  
+# "Ayo, goodbye!"
+bye:
+  - bye
+  - goodbye
+  - good bye
+  - see ya
+  - later
+  - sayonara
+  - so long
+  - farewell
