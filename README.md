@@ -24,7 +24,7 @@
 
     Windows 
  
- # Installation:  
+ # Installation  
 
    # Language: Python 
 
@@ -46,7 +46,8 @@
 
          3) Wait. It usually takes a few seconds to fetch the package and begin installing.  
 
-         4) Once it is done installing, check that it was successful by typing pip3 list into your terminal. After hitting enter, this will show a list of all the python packages you have downloaded and their version number.  
+         4) Once it is done installing, check that it was successful by typing pip3 list into your terminal. 
+         After hitting enter, this will show a list of all the python packages you have downloaded and their version number.  
 
         Here is the list of packages aYo needs to function.  
 
@@ -60,7 +61,10 @@
         spotipy                              2.18.0 
         word2number                          1.1 
 
-        If you need to check your packages, the pip3 list command will show you the name and version number of all the python packages you have downloaded. 
+
+        If you need to check your packages, the     pip3 list      command will show you 
+        the name and version number of all the python packages you have downloaded. 
+
 
  # aYo File Hierarchy:  
     aYo 
@@ -168,9 +172,7 @@
         __main__.py 
         requirements.txt 
 
- 
-
- # running aYo after installation: 
+ # Running aYo after installation:
 
     1) Open a command prompt/terminal window. 
 
@@ -180,11 +182,24 @@
 
     4) Run the command     python3 -i aYo_ui_main.py 
 
+ # Obtaining API keys
+
+   # Weather API
+        1) Make a free account on https://home.openweathermap.org/ 
+        2) Make sure you are signed in and go to "My API Keys" which can be found in a tab under your profile name
+        3) Type a name into the window next to the button generate key, and press the generate key button. 
+        4) Wait for a bit before using the key. It can take up to a few hours for a key to be activated. 
+
+   # Speech to Text API
+        1) make an account on 
+
+
  # aYo user-interface buttons: 
 
-	With how aYo works using Microsoft azure speech to text Api, there will be a 15 second lockout time on many of aYo’s buttons to prevent crashing issues.  
+	With how aYo works using Microsoft azure speech to text Api, there will be a 15 second lockout time 
+    on many of aYo’s buttons to prevent crashing issues.  
 
- # aYo Features and how to use them:  
+ # aYo Features and how to use them  
 
    # Documentation Support:  
 
@@ -232,7 +247,10 @@
         A basic query for weather is: 
             What is the weather in _city name here_	 
 
- 
+ # Known Bugs:
+    Recover password button has no functionality
+
+    aYo only works right now in work mode
 
  
 
