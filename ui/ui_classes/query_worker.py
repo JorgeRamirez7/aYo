@@ -13,7 +13,7 @@ class QueryWorker(QObject):
 
     def stop(self):
         self.threadactive = False
-        print("stop recieved")
+        print("stop received")
         #self.wait()
         self.finished.emit()
     
