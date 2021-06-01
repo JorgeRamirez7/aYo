@@ -81,17 +81,11 @@ QPushButton:pressed {
       </property>
       <property name="text">
        <string>Currently Supported Languages:
-C
-C#
 C++
-Java
 Python
 Javascript
 HTML
-CSS
-GO
-Ruby
-Swift</string>
+CSS</string>
       </property>
      </widget>
     </item>
