@@ -1,12 +1,14 @@
  # What is aYo? 
 
-    aYo is an application to improve a programmer's efficiency by providing voice-command quick access to programming language
-    documentation and other online web-searching. The purpose is to help quickly answer questions mid development without
-    interrupting the flow of thought. Additionally, aYo provides fast and easy access to learning materials and the official
-    documentation of various languages in addition to common voice assistant functionality, like playing music. aYo is designed 
-    to take advantage of Microsoft's Cognitive Services for seamless implementation. What sets aYo apart from its competition 
-    will be its focus on aiding Software Developers; unlike Alexa, Cortana, Google Assistant and Siri which were designed for 
-    more general purposes.   
+    aYo is an application to improve a programmer's efficiency by providing voice-command 
+    quick access to programming languagedocumentation and other online web-searching. 
+    The purpose is to help quickly answer questions mid development without interrupting 
+    the flow of thought. Additionally, aYo provides fast and easy access to learning 
+    materials and the official documentation of various languages in addition to common 
+    voice assistant functionality, like playing music. aYo is designed to take advantage 
+    of Microsoft's Cognitive Services for seamless implementation. What sets aYo apart 
+    from its competition will be its focus on aiding Software Developers; unlike Alexa, 
+    Cortana, Google Assistant and Siri which were designed for more general purposes.   
 
  # Who is aYo designed for?   
 
