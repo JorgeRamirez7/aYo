@@ -17,8 +17,8 @@ class AyoLogin(QtWidgets.QMainWindow):
         super(AyoLogin, self).__init__()
         
         #This should allow the program to run regardless of where the overarching aYo project is saved.
-        current_path = os.path.dirname(__file__)
-        file_path = os.path.abspath(os.path.join(current_path, "..", "ui_files", "aYo.ui"))
+        current_path = os.getcwd()
+        file_path = os.path.abspath(os.path.join(current_path, "ui", "ui_files", "aYo.ui"))
         
         uic.loadUi(file_path, self)
         self.w = None
