@@ -14,16 +14,16 @@ class GetQuery():
     
     def query(self):
         """Gets the query from a user input via text or speech and outputs it via text and/or speech."""
-        ayo_keyword = True
+        ayo_keyword = False
         microphone_input = True
         text_to_speech = True
 
         if ayo_keyword:
-                AyoKeyword().ayo_keyword()
-                print("Start speaking")
-                _sfx_activated = multiprocessing.Process(target = self.ayo_activated)
-                _sfx_activated.start()
-                user_input = MicrophoneInput().get_voice_input()
+            AyoKeyword().ayo_keyword()
+            print("Start speaking")
+            _sfx_activated = multiprocessing.Process(target = self.ayo_activated)
+            _sfx_activated.start()
+            user_input = MicrophoneInput().get_voice_input()
 
         elif microphone_input:
             print("Begin speaking...")
