@@ -14,8 +14,13 @@ class GetQuery():
     
     def query(self):
         """Gets the query from a user input via text or speech and outputs it via text and/or speech."""
-        ayo_keyword = True
+
+        # Voice Keyword Mode. Listens for an aYo keyword before processing voice input.
+        ayo_keyword = False
+
+        # Work Mode. Listens for voice input automatically.
         microphone_input = True
+
         text_to_speech = True
 
         if ayo_keyword:
