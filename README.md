@@ -1,7 +1,3 @@
-# aYo README 
-
-# aYo version 1.0.0 
-
  # What is aYo? 
 
     aYo is an application to improve a programmer's efficiency by providing voice-command quick access to programming language
