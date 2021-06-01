@@ -12,11 +12,13 @@
 
  # Who is aYo designed for?   
 
-    In general, aYo is designed to be a helpful assistant to anyone who downloads it. However, its focus is on software 
-    developers and as such many of its unique features are focused on enhancing the software development process. With language 
-    documentation, music, program execution, and real time query searching over the internet, aYo is made to be a tool that 
-    empowers software developers during the development process allowing them to complete their work in a more efficient manner 
-    while still providing the basic tools most voice assistants have.  
+    In general, aYo is designed to be a helpful assistant to anyone who downloads it. 
+    However, its focus is on software developers and as such many of its unique features 
+    are focused on enhancing the software development process. With language documentation, 
+    music, program execution, and real time query searching over the internet, aYo is made 
+    to be a tool that empowers software developers during the development process allowing 
+    them to complete their work in a more efficient manner while still providing the basic 
+    tools most voice assistants have.  
 
  # Compatibility: 
 
@@ -44,8 +46,9 @@
 
          3) Wait. It usually takes a few seconds to fetch the package and begin installing.  
 
-         4) Once it is done installing, check that it was successful by typing pip3 list into your terminal. 
-         After hitting enter, this will show a list of all the python packages you have downloaded and their version number.  
+         4) Once it is done installing, check that it was successful by typing pip3 list into 
+	    your terminal. After hitting enter, this will show a list of all the python packages 
+	    you have downloaded and their version number.  
 
         Here is the list of packages aYo needs to function.  
 
@@ -184,9 +187,12 @@
 
    # Weather API
         1) Make a free account on https://home.openweathermap.org/ 
-        2) Make sure you are signed in and go to "My API Keys" which can be found in a tab under your profile name
-        3) Type a name into the window next to the button generate key, and press the generate key button. 
-        4) Wait for a bit before using the key. It can take up to a few hours for a key to be activated. 
+        2) Make sure you are signed in and go to "My API Keys" which can be found in a 
+	   tab under your profile name
+        3) Type a name into the window next to the button generate key, and press the 
+	   generate key button. 
+        4) Wait for a bit before using the key. It can take up to a few hours for a key 
+	   to be activated. 
 
    # Speech to Text API
         1) Make an account on Azure portal at https://portal.azure.com/#home
@@ -197,13 +203,14 @@
         6) On the Azure portal homepage, select the resource you created.
         7) on the left pane, under RESOURCE MANAGEMENT, select 'Keys and Endpoint'.
 
-        8) Or follow this guide: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/overview#try-the-speech-service-for-free
+        8) Or follow this guide: 
+		https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/overview#try-the-speech-service-for-free
 
 
  # aYo user-interface buttons: 
 
-	With how aYo works using Microsoft azure speech to text Api, there will be a 15 second lockout time 
-    on many of aYo’s buttons to prevent crashing issues.  
+	With how aYo works using Microsoft azure speech to text Api, there will be a 
+	15 second lockout time on many of aYo’s buttons to prevent crashing issues.  
 
  # aYo Features and how to use them  
 
@@ -257,13 +264,3 @@
     Recover password button has no functionality
 
     aYo only works right now in work mode
-
- 
-
- 
-
- 
- 
- 
-
- 
