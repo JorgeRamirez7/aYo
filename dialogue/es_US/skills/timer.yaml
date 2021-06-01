@@ -1,0 +1,18 @@
+---
+user-set:
+    error-not-at-least-5-seconds: Timer must be set for at least 5 seconds.
+    error-not-number: Sorry, I didn't catch that.
+    success-set: "Timer set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
+    
+user-cancel:
+    to-be-implemented: Sorry, cancelling timers is not supported yet.
+    success-confirmation: "Timer for {} has been cancelled."
+    
+program-has-finished:
+    confirmation: "Your timer for {} has finished." # {} contains time.
+    
+program-error:
+    error-not-responding: Sorry, Timer is not responding.
+
+user-generic:
+    response: I can create a Timer for you. Try asking me to set a Timer for 5 minutes.

@@ -1,11 +1,13 @@
 ---
 alarm:
-  - alarm
+  - alarma
   - timer
   
 stopwatch:
-  - stopwatch
-  - stop watch
+  - cronógrafo
+  - cronografo
+  - cronómetro
+  - cronometro
 
 music:
   - play
@@ -36,13 +38,6 @@ weather:
   - cold
   - hot
   - warm
-  - windy
-  - hail
-  - snow
-  - tornado
-  - breeze
-  - fog
-  - foggy
   
 # When triggered, opens up a search engine in a browser to search for everything following this keyword.
 web-search:

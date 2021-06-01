@@ -17,4 +17,3 @@ class IntroductionSkill():
         playsound(self._intro_sfx)
         random_intro = self.introduction.get_random_element()
         TextToSpeech().text_to_speech(random_intro)
-        
