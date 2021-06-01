@@ -1,9 +1,11 @@
+import webbrowser
 
 from .languages_window import LanguagesWindow
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QThread, QThreadPool, QTimer
 from .query_worker import QueryWorker
-from .settings_window import SettingsWindow
+from .spotify_worker import SpotifyWorker
+#from .settings_window import SettingsWindow
 #from .worker import Worker
 
 
@@ -30,6 +32,7 @@ class AyoBody(QtWidgets.QMainWindow):
         
     def listening_activated(self):
         if (self.threadStarted == False):
+
             self.thread = QThread()
 
             self.worker = QueryWorker()
@@ -86,10 +89,27 @@ class AyoBody(QtWidgets.QMainWindow):
         
 
     def settings(self):
-        self.w = None
-        self.w = SettingsWindow(self)
-        self.w.show()
-        self.hide()
+        self.threadSpot = QThread()
+
+        self.workerSpot = SpotifyWorker()
+
+        self.workerSpot.moveToThread(self.threadSpot)
+
+        self.threadSpot.started.connect(self.workerSpot.run)
+        self.workerSpot.finished.connect(self.threadSpot.quit)
+        self.workerSpot.finished.connect(self.workerSpot.deleteLater)
+        self.threadSpot.finished.connect(self.threadSpot.deleteLater)
+
+        self.threadSpot.start()
+
+        
+
+        
+        #holdover from opening settings window, will return eventually. 
+        # self.w = None
+        #self.w = SettingsWindow(self)
+        #self.w.show()
+        #self.hide()
 
     def enable_button(self):
         self.timer.stop()

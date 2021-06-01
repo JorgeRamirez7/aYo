@@ -7,13 +7,13 @@ from spotipy.oauth2 import SpotifyOAuth
 
 
 class MusicSkill():
+    device_id = None
     """Creates/Authenticates Spotify object using aYo Spotify Web API developer credentials"""
     def __init__(self):
         config = configparser.ConfigParser()
-        config.read(Path('config/config.ini'))
+        config.read('config/config.ini')
         client_id = config.get('spotify', 'client_id')
         client_secret = config.get('spotify', 'client_secret')
-
         self.scope = 'user-modify-playback-state user-read-playback-state playlist-modify-private'
         self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
             client_id=client_id,client_secret=client_secret,redirect_uri='https://example.com',scope=self.scope))
@@ -21,7 +21,7 @@ class MusicSkill():
             self.device_id = self.sp.devices()['devices'][0]['id']   
         except IndexError:
             print("Spotify not open")
-
+            return
     """
        User must now say Play artist <artist> or Play podcast <podcast> to start playing a specific artist/podcast.
        Without splitting them, if trying to play a specific song e.g. 'Hotel California'
@@ -35,7 +35,10 @@ class MusicSkill():
         # if length of track_info is 0, no artist or track found
         if len(track_info['artists']['items']) != 0:
             track_artist_uri = track_info['artists']['items'][0]['uri']
-            self.sp.start_playback(device_id=self.device_id,context_uri=track_artist_uri)
+            try:
+                self.sp.start_playback(device_id=self.device_id,context_uri=track_artist_uri)
+            except:
+                print("Make sure Spotify is open")
         else:
             print("Artist not found")
 
@@ -47,7 +50,10 @@ class MusicSkill():
         # if length of track_info is 0, no artist or track found
         if len(track_info['shows']['items']) != 0:
             track_artist_uri = track_info['shows']['items'][0]['uri']
-            self.sp.start_playback(device_id=self.device_id,context_uri=track_artist_uri)
+            try:
+                self.sp.start_playback(device_id=self.device_id,context_uri=track_artist_uri)
+            except:
+                print("Make sure Spotify is open")
         else:
             print("Podcast not found")
 
@@ -61,21 +67,39 @@ class MusicSkill():
             track_info = self.sp.search(q=to_play,limit=1,type='track')
             track_album_uri = track_info['tracks']['items'][0]['album']['uri'] # needed for context_uri to play specific song
             track_uri = track_info['tracks']['items'][0]['uri']
-            self.sp.start_playback(device_id=self.device_id,context_uri=track_album_uri,offset={"uri": track_uri})
+            try:
+                self.sp.start_playback(device_id=self.device_id,context_uri=track_album_uri,offset={"uri": track_uri})
+            except:
+                print("Make sure Spotify is open")
         else:
             print("Song not found")
 
     def next(self):
-        self.sp.next_track(device_id=self.device_id)
+        try:
+            self.sp.next_track(device_id=self.device_id)
+        except:
+            print("Make sure Spotify is open")
 
     def previous(self):
-        self.sp.previous_track(device_id=self.device_id)
+        try:
+            self.sp.previous_track(device_id=self.device_id)
+        except:
+            print("Make sure Spotify is open")
         
     def pause(self):
-        self.sp.pause_playback(device_id=self.device_id)
+        try:
+            self.sp.pause_playback(device_id=self.device_id)
+        except:
+            print("Make sure Spotify is open")
 
     def resume(self):
-        self.sp.start_playback(device_id=self.device_id)
+        try:
+            self.sp.start_playback(device_id=self.device_id)
+        except:
+            print("Make sure Spotify is open")
 
     def shuffle(self):
         self.sp.shuffle(True, device_id=self.device_id)
+    
+    def login(self):
+        MusicSkill().__init__()

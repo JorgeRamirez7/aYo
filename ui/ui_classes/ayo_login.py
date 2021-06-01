@@ -17,8 +17,8 @@ class AyoLogin(QtWidgets.QMainWindow):
         super(AyoLogin, self).__init__()
         
         #This should allow the program to run regardless of where the overarching aYo project is saved.
-        current_path = os.path.dirname(__file__)
-        file_path = os.path.abspath(os.path.join(current_path, "..", "ui_files", "aYo.ui"))
+        current_path = os.getcwd()
+        file_path = os.path.abspath(os.path.join(current_path, "ui", "ui_files", "aYo.ui"))
         
         uic.loadUi(file_path, self)
         self.w = None
@@ -47,15 +47,15 @@ class AyoLogin(QtWidgets.QMainWindow):
 
     def login_click(self):
         #opened off of the "Log In" button, creates new main window and Closes current window
-        #authenticate = aYo_database.Database.Check_Login(self.mainEmail.text(), self.mainPassword.text())
-        #if (authenticate == True):
+        authenticate = aYo_database.Database.Check_Login(self.mainEmail.text(), self.mainPassword.text())
+        if (authenticate == True):
             self.loginLbl.setText("")
             self.w = None
             self.w = AyoBody(self)
             self.w.show()
             self.hide()
-        #else:
-         #   self.loginLbl.setText("Error: Invalid email or password please try again.")
+        else:
+            self.loginLbl.setText("Error: Invalid email or password please try again.")
 
          #disabled authentication temporarily. 
 

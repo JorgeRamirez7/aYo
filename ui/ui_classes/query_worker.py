@@ -9,11 +9,11 @@ class QueryWorker(QObject):
 
     def run(self):
         while (self.threadactive == True):
-            get_query.GetQuery.query()
+            get_query.GetQuery.query(self)
 
     def stop(self):
         self.threadactive = False
-        print("stop recieved")
+        print("stop received")
         #self.wait()
         self.finished.emit()
     

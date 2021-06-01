@@ -22,9 +22,9 @@ from .aYo_encode import Encode
 decoder = Decode()
 encoder = Encode()
 
-current_path = os.path.dirname(__file__)
-un_file_path = os.path.abspath(os.path.join(current_path, "..", "database", "aYo_un_database.csv"))
-pw_file_path = os.path.abspath(os.path.join(current_path, "..", "database", "aYo_pw_database.csv"))
+current_path = os.getcwd()
+un_file_path = os.path.abspath(os.path.join(current_path, "database", "aYo_un_database.csv"))
+pw_file_path = os.path.abspath(os.path.join(current_path, "database", "aYo_pw_database.csv"))
 
 def Read_File_Contents(file_name):
     # r tells python to open in read-only mode
@@ -66,18 +66,18 @@ class Database:
     def Check_Login(name, password ):
         user_names = decoder.decode(Read_File_Contents(un_file_path))
         the_passwords = decoder.decode(Read_File_Contents(pw_file_path))
-
+ 
         username_list = Get_List(user_names)
         password_list = Get_List(the_passwords)
-
+ 
         check_user = user_names.find(name)
-
-        print(check_user)
-
+ 
         if check_user > -1:
-            if password_list[check_user] == password:
+            if password_list[(username_list.index(name))] == password:
                 return True
         return False
+
+    
 
     def Create_User_Profile(name, password):
         
