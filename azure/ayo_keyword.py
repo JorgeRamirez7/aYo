@@ -5,14 +5,15 @@ import azure.cognitiveservices.speech as speechsdk
 from azure.microphone_input import MicrophoneInput
 
 class AyoKeyword():
+    """Runs keyword spotting locally, with direct access to the result audio"""
+    
     def ayo_keyword(self):
-        """runs keyword spotting locally, with direct access to the result audio"""
+        """Waits and listens until a keyword is found, then returns True    
 
-        # Creates an instance of a keyword recognition model. Update this to
-        # point to the location of your keyword recognition model.
+        # Uses a keyword recognition model created in Azure.
         model = speechsdk.KeywordRecognitionModel(str(Path("azure/keyword_tables/hey_yo_basic.table")))
 
-        # The phrase your keyword recognition model triggers on.
+        # The phrase the keyword recognition model triggers on.
         keyword = "hey yo"
 
         # Create a local keyword recognizer with the default microphone device for input.
@@ -48,6 +49,6 @@ class AyoKeyword():
 
         # Start keyword recognition.
         result_future = keyword_recognizer.recognize_once_async(model)
-        print('Say something starting with "{}" followed by whatever you want...'.format(keyword))
+        print('Say ayo ("{}") followed by whatever you want...'.format(keyword))
         result = result_future.get()
         return None
