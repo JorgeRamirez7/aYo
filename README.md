@@ -60,7 +60,7 @@
         spotipy                              2.18.0 
         word2number                          1.1 
 
-        If you need to check your packages, the     pip3 list      command will show you the name and version number of all the python packages you have downloaded. 
+        If you need to check your packages, the pip3 list command will show you the name and version number of all the python packages you have downloaded. 
 
  # aYo File Hierarchy:  
     aYo 
