@@ -22,9 +22,9 @@ from .aYo_encode import Encode
 decoder = Decode()
 encoder = Encode()
 
-current_path = os.path.dirname(__file__)
-un_file_path = os.path.abspath(os.path.join(current_path, "..", "database", "aYo_un_database.csv"))
-pw_file_path = os.path.abspath(os.path.join(current_path, "..", "database", "aYo_pw_database.csv"))
+current_path = os.getcwd()
+un_file_path = os.path.abspath(os.path.join(current_path, "database", "aYo_un_database.csv"))
+pw_file_path = os.path.abspath(os.path.join(current_path, "database", "aYo_pw_database.csv"))
 
 def Read_File_Contents(file_name):
     # r tells python to open in read-only mode
