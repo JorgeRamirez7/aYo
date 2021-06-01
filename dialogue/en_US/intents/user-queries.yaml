@@ -5,6 +5,7 @@ alarm:
   
 stopwatch:
   - stopwatch
+  - stop watch
 
 music:
   - play
@@ -35,6 +36,13 @@ weather:
   - cold
   - hot
   - warm
+  - windy
+  - hail
+  - snow
+  - tornado
+  - breeze
+  - fog
+  - foggy
   
 # When triggered, opens up a search engine in a browser to search for everything following this keyword.
 web-search:
