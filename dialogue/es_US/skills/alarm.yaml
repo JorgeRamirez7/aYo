@@ -1,0 +1,19 @@
+---
+delimeter:
+  - ":"
+user-set:
+    error: Sorry, I didn't catch that.
+    success-set: "Alarm set for {}." # {} contains time. Ex. 2 minutes and 8 seconds
+    
+user-cancel:
+    to-be-implemented: Sorry, cancelling alarms is not supported yet.
+    success-confirmation: "Alarm for {} has been cancelled."
+
+program-finished:
+    confirmation: "It's {}, your alarm has finished." # {} contains time.    
+
+program-error:
+    error-not-responding: Sorry, Alarm is not responding.
+
+user-generic:
+    response: I can create an Alarm for you. Try asking me to set an Alarm for 4:30 PM.

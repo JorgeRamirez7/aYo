@@ -1,0 +1,22 @@
+---
+alarm-only:
+  - alarma
+  - despertador
+  - temporizador
+  
+timer-only:
+  - temporizador
+
+trigger-alarm:
+  - AM
+  - PM
+  - ":"   # Azure voice-to-text adds colon to user input if time is recognized.
+
+trigger-timer:
+  - en
+  - secondo
+  - secondos
+  - minuto
+  - minutos
+  - hora
+  - hours
