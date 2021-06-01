@@ -187,12 +187,9 @@
 
    # Weather API
         1) Make a free account on https://home.openweathermap.org/ 
-        2) Make sure you are signed in and go to "My API Keys" which can be found in a 
-	   tab under your profile name
-        3) Type a name into the window next to the button generate key, and press the 
-	   generate key button. 
-        4) Wait for a bit before using the key. It can take up to a few hours for a key 
-	   to be activated. 
+        2) Make sure you are signed in and go to "My API Keys" which can be found in a tab under your profile name
+        3) Type a name into the window next to the button generate key, and press the generate key button. 
+        4) Wait for a bit before using the key. It can take up to a few hours for a key to be activated. 
 
    # Speech to Text API
         1) Make an account on Azure portal at https://portal.azure.com/#home
