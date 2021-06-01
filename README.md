@@ -30,25 +30,30 @@
 
         aYo is designed to run in Python version 3.9.2 
 
-        To download the latest version of Python go to this website: https://www.python.org/downloads/ 
+        To download the latest version of Python go to this website: 
+		https://www.python.org/downloads/ 
 
-        You can check your current version of python with the:   python3 --version   command in your console/terminal. 
+        You can check your current version of python with the:   
+		python3 --version   
+	command in your console/terminal. 
 
    # Python packages to download and the version aYo uses:  
 
         Downloading a specific package in python can be done though these simple steps:  
 
-         1) Open a Console/Terminal window and make sure you are currently in the root file directory.  
+         1) Open a Console/Terminal window and make sure you are currently 
+	 	in the root file directory.  
 
-         2) type pip3 install "insert package name here". An example of the command to install playsound is shown below: 
+         2) type pip3 install "insert package name here". An example of the command to 
+	 	install playsound is shown below: 
 
             pip3 install playsound 
 
          3) Wait. It usually takes a few seconds to fetch the package and begin installing.  
 
          4) Once it is done installing, check that it was successful by typing pip3 list into 
-	    your terminal. After hitting enter, this will show a list of all the python packages 
-	    you have downloaded and their version number.  
+	 	your terminal. After hitting enter, this will show a list of all the python packages 
+	 	you have downloaded and their version number.  
 
         Here is the list of packages aYo needs to function.  
 
@@ -63,8 +68,9 @@
         word2number                          1.1 
 
 
-        If you need to check your packages, the     pip3 list      command will show you 
-        the name and version number of all the python packages you have downloaded. 
+        If you need to check your packages, use the below command:
+		pip3 list      
+	This will show you the name and version number of all the python packages you have downloaded. 
 
 
  # aYo File Hierarchy:  
@@ -187,9 +193,12 @@
 
    # Weather API
         1) Make a free account on https://home.openweathermap.org/ 
-        2) Make sure you are signed in and go to "My API Keys" which can be found in a tab under your profile name
-        3) Type a name into the window next to the button generate key, and press the generate key button. 
-        4) Wait for a bit before using the key. It can take up to a few hours for a key to be activated. 
+        2) Make sure you are signed in and go to "My API Keys" which 
+		can be found in a tab under your profile name
+        3) Type a name into the window next to the button generate key, 
+		and press the generate key button. 
+        4) Wait for a bit before using the key. It can take up to a few 
+		hours for a key to be activated. 
 
    # Speech to Text API
         1) Make an account on Azure portal at https://portal.azure.com/#home
