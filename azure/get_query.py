@@ -44,8 +44,8 @@ class GetQuery():
                     print(ayo_result)
                     
         else:
-                    if ayo_keyword:
-                        playsound(self._sfx_ayo_failed)
+            if ayo_keyword:
+                playsound(self._sfx_ayo_failed)
 
         print()
 
