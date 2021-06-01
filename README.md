@@ -187,7 +187,15 @@
         4) Wait for a bit before using the key. It can take up to a few hours for a key to be activated. 
 
    # Speech to Text API
-        1) make an account on 
+        1) Make an account on Azure portal at https://portal.azure.com/#home
+        2) Create a resource.
+        3) Search 'speech'.
+        4) In the search results, select 'Speech'.
+        5) Fill in the information, then select 'Create'.
+        6) On the Azure portal homepage, select the resource you created.
+        7) on the left pane, under RESOURCE MANAGEMENT, select 'Keys and Endpoint'.
+
+        8) Or follow this guide: https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/overview#try-the-speech-service-for-free
 
 
  # aYo user-interface buttons: 
