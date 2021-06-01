@@ -1,0 +1,15 @@
+---
+# How is the weather in London?
+# Given variables (in order): CityName, WeatherDescription, DegreesInFahrenheit.
+# Ex response: "Today in Seattle expect few clouds with a temperature of 52 degrees fahrenheit."
+weather:
+  - "Today in {} expect {} with a temperature of {} degrees fahrenheit."
+  - "In the city of {} expect {} with a temperature of {} degrees fahrenheit."
+  - "Today in {} expect {} with a temperature of {} degrees fahrenheit."
+  - "Today in {} you should expect {} with a temperature of {} degrees fahrenheit."
+  - "In {} expect {} with a temperature of {} degrees fahrenheit."
+
+# If the weather API could not find the specified city.
+# Ex. "How's the weather in Asgard?"
+# Given the variable: CityName
+error: "Sorry, the city of {} was not found"

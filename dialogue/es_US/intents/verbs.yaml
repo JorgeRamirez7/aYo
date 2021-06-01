@@ -1,6 +1,5 @@
 ---
 start:
-
   - comenzar
   - comienza
   - comienze
@@ -29,14 +28,3 @@ reset:
   - reinicia
   - reiniciar
   - reinicie
-
-alarm:
-  - alarma
-  - despertador
-  - temporizador
-
-stopwatch:
-  - cronógrafo
-  - cronografo
-  - cronómetro
-  - cronometro

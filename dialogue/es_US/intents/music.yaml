@@ -1,0 +1,25 @@
+---
+play:
+  - toca
+  - reproduce
+
+next:
+  - sigiente
+  - proximo
+
+previous:
+  - atras
+  - regresa
+  - retrodece
+
+pause:
+  - pause
+  - stop
+  - shut up
+
+resume:
+  - pausa
+  - pausar
+
+shuffle:
+  - aleatoria
