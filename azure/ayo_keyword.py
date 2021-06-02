@@ -11,7 +11,7 @@ class AyoKeyword():
         """Waits and listens until a keyword is found, then returns True."""
 
         # Uses a keyword recognition model created in Azure.
-        model = speechsdk.KeywordRecognitionModel(str(Path("azure/keyword_tables/hey_yo_basic.table")))
+        model = speechsdk.KeywordRecognitionModel(str(Path("azure/keyword_tables/hey_yo_advanced.table")))
 
         # The phrase the keyword recognition model triggers on.
         keyword = "hey yo"
