@@ -33,7 +33,6 @@ class GetQuery():
 
         if ayo_keyword:
             AyoKeyword().ayo_keyword()
-            print("Start speaking")
             _sfx_activated = multiprocessing.Process(target = GetQuery().ayo_activated)
             _sfx_activated.start()
             user_input = MicrophoneInput().get_voice_input()

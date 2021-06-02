@@ -13,9 +13,6 @@ class AyoKeyword():
         # Uses a keyword recognition model created in Azure.
         model = speechsdk.KeywordRecognitionModel(str(Path("azure/keyword_tables/hey_yo_advanced.table")))
 
-        # The phrase the keyword recognition model triggers on.
-        keyword = "hey yo"
-
         # Create a local keyword recognizer with the default microphone device for input.
         keyword_recognizer = speechsdk.KeywordRecognizer()
 
@@ -31,6 +28,7 @@ class AyoKeyword():
                 print("RECOGNIZED KEYWORD: {}".format(result.text))
                 stop_future = keyword_recognizer.stop_recognition_async()
                 stopped = stop_future.get()
+                print("Continue speaking...")
                 return True
                 
             nonlocal done
@@ -49,6 +47,6 @@ class AyoKeyword():
 
         # Start keyword recognition.
         result_future = keyword_recognizer.recognize_once_async(model)
-        print('Say ayo ("{}") followed by whatever you want...'.format(keyword))
+        print("Say 'ayo'...")
         result = result_future.get()
         return None
