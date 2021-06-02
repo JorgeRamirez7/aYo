@@ -24,12 +24,12 @@ class GetQuery():
         """Gets the query from a user input via text or speech and outputs it via text and/or speech."""
 
         # Voice Keyword Mode. Listens for an aYo keyword before processing voice input.
-        ayo_keyword = self.keyword_mode
+        ayo_keyword = GetQuery().keyword_mode
 
         # Work Mode. Listens for voice input automatically.
-        microphone_input = self.work_mode
+        microphone_input = GetQuery().work_mode
 
-        text_to_speech = self.text_to_speech
+        text_to_speech = GetQuery().text_to_speech
 
         if ayo_keyword:
             AyoKeyword().ayo_keyword()
@@ -62,4 +62,4 @@ class GetQuery():
         print()
 
     def ayo_activated(self):
-        playsound(self._sfx_ayo_activated)
+        playsound(GetQuery()._sfx_ayo_activated)
