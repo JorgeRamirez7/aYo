@@ -5,23 +5,31 @@ from intents.intents import Intents
 
 from pathlib import Path
 from playsound import playsound
+import configparser
 import multiprocessing
 
 class GetQuery():
     _sfx_ayo_activated = str(Path("data/ayo_keyword/activated.mp3"))
     _sfx_ayo_success = str(Path("data/ayo_keyword/success.mp3"))
     _sfx_ayo_failed = str(Path("data/ayo_keyword/failed.mp3"))
+
+    ayo_config = configparser.ConfigParser()
+    ayo_config.read(Path("config/ayo.ini"))
+
+    keyword_mode = ayo_config.getboolean('ayo_input', 'keyword_mode')
+    work_mode = ayo_config.getboolean('ayo_input', 'work_mode')
+    text_to_speech = ayo_config.getboolean('general', 'speech')
     
     def query(self):
         """Gets the query from a user input via text or speech and outputs it via text and/or speech."""
 
         # Voice Keyword Mode. Listens for an aYo keyword before processing voice input.
-        ayo_keyword = False
+        ayo_keyword = self.keyword_mode
 
         # Work Mode. Listens for voice input automatically.
-        microphone_input = True
+        microphone_input = self.work_mode
 
-        text_to_speech = True
+        text_to_speech = self.text_to_speech
 
         if ayo_keyword:
             AyoKeyword().ayo_keyword()
