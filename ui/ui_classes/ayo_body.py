@@ -31,7 +31,7 @@ class AyoBody(QtWidgets.QMainWindow):
       #  print("overdirectory = " + overdir)
         
     def listening_activated(self):
-        if (self.threadStarted == False):
+       # if (self.threadStarted == False):
 
             self.thread = QThread()
 
@@ -45,18 +45,19 @@ class AyoBody(QtWidgets.QMainWindow):
             self.thread.finished.connect(self.thread.deleteLater)
 
             self.thread.start()
-
-            self.threadStarted = True
-
-            self.startBtn.setText("Stop")
             
-        elif (self.threadStarted == True):
-            self.worker.stop()
-            self.threadStarted = False
+
+           # self.threadStarted = True
+
+            #self.startBtn.setText("Stop")
+            
+        #elif (self.threadStarted == True):
+            #self.worker.stop()
+            #self.threadStarted = False
 
             #change the start/stop button stylesheet to look disabled.
             self.startBtn.setEnabled(False)
-            self.startBtn.setText("Please Wait...")
+            self.startBtn.setText("Listening...")
             self.startBtn.setStyleSheet(
                 "QPushButton{\
                     background-color: #0F4C75;\
@@ -79,7 +80,7 @@ class AyoBody(QtWidgets.QMainWindow):
                     border-style: inset;\
                 }"
             )#end Stylesheet edit
-
+            #self.worker.stop()
             self.timer.start(6000)
 
     def view_languages(self):
@@ -112,6 +113,7 @@ class AyoBody(QtWidgets.QMainWindow):
         #self.hide()
 
     def enable_button(self):
+        
         self.timer.stop()
         self.startBtn.setEnabled(True)
         self.startBtn.setText("Start")

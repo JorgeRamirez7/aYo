@@ -10,6 +10,8 @@ class QueryWorker(QObject):
     def run(self):
         while (self.threadactive == True):
             get_query.GetQuery.query(self)
+            self.threadactive = False
+            self.finished.emit()
 
     def stop(self):
         self.threadactive = False
